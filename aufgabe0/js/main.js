@@ -1,10 +1,10 @@
-var person = prompt("Name bitte", "Hop Hop");
+let personName = prompt("Name bitte", "Hop Hop");
 function prom() {
-    if (person != null) {
+    if (personName != null) {
         document.getElementById("lalala").innerHTML =
-            "Hallo " + person;
+            "Hallo " + personName;
     }
-    console.info("Hallo " + person);
+    console.info("Hallo " + personName);
 }
 prom();
 //# sourceMappingURL=main.js.map

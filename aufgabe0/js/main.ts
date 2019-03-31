@@ -1,14 +1,14 @@
-var person:string = prompt("Name bitte", "Hop Hop");
+let personName:string = prompt("Name bitte", "Hop Hop");
 
 
 function prom(): void {
 
-    if (person != null) {
+    if (personName != null) {
         document.getElementById("lalala").innerHTML =
-            "Hallo " + person;
+            "Hallo " + personName;
 
     }
-    console.info("Hallo " + person)
+    console.info("Hallo " + personName)
 }
 
 prom()
