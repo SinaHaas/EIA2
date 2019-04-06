@@ -39,10 +39,10 @@ function generiereKarten() {
         kartenStapel.push(neuKarte, neuKarte1, neuKarte2, neuKarte3);
 
 
-        console.log(neuKarte)
+        /*console.log(neuKarte)
         console.log(neuKarte1)
         console.log(neuKarte2)
-        console.log(neuKarte3)
+        console.log(neuKarte3)*/
     }
 
     
@@ -106,6 +106,8 @@ let x: number
     }
 }*/
 
+
+
 function verteileKarten(){
 
     for(let y=0; y< hk; y++){
@@ -133,9 +135,6 @@ verteileKarten();
 
 
 
-console.log(kartenHand);
-
-verteileKarten();
 
 
 

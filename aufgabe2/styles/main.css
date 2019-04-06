@@ -10,8 +10,34 @@ body {
 
 p[class*="Pik"]{
     background-color: blue;
+    padding:10%;
+
 }
 
 p[class*="Kreuz"]{
     background-color: green;
+    padding: 10%
+    
+}
+
+p[class*="Karo"]{
+    background-color: blueviolet;
+    padding: 10%
+}
+
+p[class*="Herz"]{
+    background-color: yellow;
+    padding:10%
+}
+
+.stylen {
+    background-color: darkblue;
+    border: solid;
+    margin: 50px;
+    margin-right: 500px;
+    margin-left: 500px;
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom:100px;
+    
 }

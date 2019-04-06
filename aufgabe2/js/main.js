@@ -23,10 +23,10 @@ function generiereKarten() {
         neuKarte2 = kartenFarben[2] + kartenWerte[i];
         neuKarte3 = kartenFarben[3] + kartenWerte[i];
         kartenStapel.push(neuKarte, neuKarte1, neuKarte2, neuKarte3);
-        console.log(neuKarte);
-        console.log(neuKarte1);
-        console.log(neuKarte2);
-        console.log(neuKarte3);
+        /*console.log(neuKarte)
+        console.log(neuKarte1)
+        console.log(neuKarte2)
+        console.log(neuKarte3)*/
     }
 }
 generiereKarten();
@@ -92,7 +92,5 @@ function verteileKarten() {
         kartenStapel.splice(x, 1);
     }
 }
-verteileKarten();
-console.log(kartenHand);
 verteileKarten();
 //# sourceMappingURL=main.js.map
