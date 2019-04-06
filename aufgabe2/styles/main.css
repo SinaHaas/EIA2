@@ -9,7 +9,7 @@ body {
 }*/
 
 p[class*="Pik"]{
-    background-color: black;
+    background-color: blue;
 }
 
 p[class*="Kreuz"]{

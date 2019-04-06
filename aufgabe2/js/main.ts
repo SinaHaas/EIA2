@@ -77,7 +77,7 @@ verteileKarten();*/
 
 let kartenHand: string[] = [];
 let x: number
-function verteileKarten() {
+/*function verteileKarten() {
 
     for (let y = hk; kartenHand.length <= y - 1;) {
          x= 0;; {
@@ -85,12 +85,16 @@ function verteileKarten() {
 
 
             let prodElement = document.createElement('div');
-            let karte: string = `<p class="blub">${kartenHand[x]}</p>`
+            let karte: string = `<p class="${kartenHand[x]}">${kartenStapel[x]}</p>`
 
             prodElement.innerHTML = karte;
             document.getElementById("kartenHand").appendChild(prodElement);
 
             kartenHand.push(kartenStapel[x]);
+
+            
+
+            
 
             kartenStapel.splice(x, 1);
 
@@ -100,7 +104,27 @@ function verteileKarten() {
 
 
     }
+}*/
+
+function verteileKarten(){
+
+    for(let y=0; y< hk; y++){
+        x=Math.floor((Math.random()*kartenStapel.length));
+
+        let prodElement=document.createElement('div');
+
+        document.getElementById("kartenHand").appendChild(prodElement);
+
+        kartenHand.push(kartenStapel[x]);
+        let karte:string=`<p class="${kartenHand[y]}">${kartenHand[y]}</p>`
+
+        prodElement.innerHTML = karte;
+
+        kartenStapel.splice(x,1)
+    }
 }
+
+verteileKarten();
 
 
 
