@@ -2,8 +2,16 @@ body {
     background-color: cadetblue;
 }
 
-.blub {
+/*.blub {
     background-color: red;
     border-style: solid; 
 
+}*/
+
+p[class*="Pik"]{
+    background-color: black;
+}
+
+p[class*="Kreuz"]{
+    background-color: green;
 }

@@ -85,7 +85,7 @@ function verteileKarten() {
 
 
             let prodElement = document.createElement('div');
-            let karte: string = `<p class="blub">${kartenStapel[x]}</p>`
+            let karte: string = `<p class="blub">${kartenHand[x]}</p>`
 
             prodElement.innerHTML = karte;
             document.getElementById("kartenHand").appendChild(prodElement);
