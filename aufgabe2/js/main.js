@@ -23,10 +23,10 @@ function generiereKarten() {
         neuKarte2 = kartenFarben[2] + kartenWerte[i];
         neuKarte3 = kartenFarben[3] + kartenWerte[i];
         kartenStapel.push(neuKarte, neuKarte1, neuKarte2, neuKarte3);
-        /*console.log(neuKarte)
-        console.log(neuKarte1)
-        console.log(neuKarte2)
-        console.log(neuKarte3)*/
+        console.log(neuKarte);
+        console.log(neuKarte1);
+        console.log(neuKarte2);
+        console.log(neuKarte3);
     }
 }
 generiereKarten();
@@ -52,18 +52,19 @@ generiereKarten();
 
 verteileKarten();*/
 let kartenHand = [];
+let x;
 function verteileKarten() {
     for (let y = hk; kartenHand.length <= y - 1;) {
-        let x = 0;
+        x = 0;
         ;
         {
             x = Math.floor((Math.random() * kartenStapel.length));
-            kartenStapel.splice(x, 1);
             let prodElement = document.createElement('div');
-            let karte = `<p>${kartenStapel[x]}<p>`;
+            let karte = `<p class="blub">${kartenStapel[x]}</p>`;
             prodElement.innerHTML = karte;
             document.getElementById("kartenHand").appendChild(prodElement);
             kartenHand.push(kartenStapel[x]);
+            kartenStapel.splice(x, 1);
         }
     }
 }

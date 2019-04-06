@@ -4,7 +4,7 @@ let hk: number
 function handkartenanzahl(): number {
     let handkarten: string = prompt("Handkartenanzahl eingeben", "1-5");
 
-    hk = Number(handkarten); 
+    hk = Number(handkarten);
 
     return hk;
 
@@ -39,11 +39,13 @@ function generiereKarten() {
         kartenStapel.push(neuKarte, neuKarte1, neuKarte2, neuKarte3);
 
 
-        /*console.log(neuKarte)
+        console.log(neuKarte)
         console.log(neuKarte1)
         console.log(neuKarte2)
-        console.log(neuKarte3)*/
+        console.log(neuKarte3)
     }
+
+    
 
 }
 
@@ -73,30 +75,39 @@ generiereKarten();
 verteileKarten();*/
 
 
-let kartenHand:string [] = [];
-
+let kartenHand: string[] = [];
+let x: number
 function verteileKarten() {
 
-    for(let y = hk; kartenHand.length <= y-1;) {
-        let x:number = 0; ;{
-            x = Math.floor((Math.random()*kartenStapel.length));
-            
+    for (let y = hk; kartenHand.length <= y - 1;) {
+         x= 0;; {
+            x = Math.floor((Math.random() * kartenStapel.length));
 
-            kartenStapel.splice(x, 1);
 
             let prodElement = document.createElement('div');
-            let karte: string =`<p>${kartenStapel[x]}<p>`
+            let karte: string = `<p class="blub">${kartenStapel[x]}</p>`
 
             prodElement.innerHTML = karte;
             document.getElementById("kartenHand").appendChild(prodElement);
 
             kartenHand.push(kartenStapel[x]);
 
+            kartenStapel.splice(x, 1);
+
+            
+
         }
 
-   
+
     }
 }
+
+
+
+
+
+
+
 
 console.log(kartenHand);
 
