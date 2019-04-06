@@ -1,17 +1,10 @@
-//alert("Hello")//
 let hk;
 function handkartenanzahl() {
-    let handkarten = prompt("Handkartenanzahl eingeben");
-    hk = Number(handkarten); // Number()-> Sting to Number
+    let handkarten = prompt("Handkartenanzahl eingeben", "1-5");
+    hk = Number(handkarten);
     return hk;
 }
-console.log(handkartenanzahl());
 handkartenanzahl();
-/*interface Karten {
-   
-    Farbe:string;
-    Wert:string; //Aufgrund As,König,Bube,Dame ein string
-}*/
 let kartenFarben = ["Pik", "Karo", "Kreuz", "Herz"];
 let kartenWerte = ["7", "8", "9", "10", "Bube", "Dame", "König", "Ass"];
 // Farben: Pik, Karo, Kreuz, Herz -> 8 Stück jeder Farbe 
@@ -37,30 +30,43 @@ function generiereKarten() {
     }
 }
 generiereKarten();
-/*function zufälligeHandkarten() {
+/*function verteileKarten() {
+    let kartenHand: string[] = [];
 
 
-    console.log(Math.floor((Math.random() * 10) + 1));
+ 
+        if (kartenHand.length <= handkartenanzahl()) {
+            let x: number = 0; {
+                x = Math.floor((Math.random() * kartenStapel.length) );
+                kartenHand.push(kartenStapel[x]);
+                kartenStapel.splice(x, 1)
+
+            }
+
+        }
     
-    let k:number
 
-    for (k=0; k<= kartenStapel.length-1; k++) {
+    console.log(kartenHand);
 
-        kartenStapel.splice(k);
+}
 
-    }
-    
-}*/
+verteileKarten();*/
+let kartenHand = [];
 function verteileKarten() {
-    let kartenHand = [];
-    if (kartenHand.length <= hk) {
+    for (let y = hk; kartenHand.length <= y - 1;) {
         let x = 0;
         ;
         {
-            x = Math.floor((Math.random() * kartenStapel.length) + 1);
+            x = Math.floor((Math.random() * kartenStapel.length));
             kartenStapel.splice(x, 1);
+            let prodElement = document.createElement('div');
+            let karte = `<p>${kartenStapel[x]}<p>`;
+            prodElement.innerHTML = karte;
+            document.getElementById("kartenHand").appendChild(prodElement);
+            kartenHand.push(kartenStapel[x]);
         }
     }
 }
-// Schleife, welche die eingegebene Zahl so oft zufällig generiert, wie der Nutzer eingibt. 
+console.log(kartenHand);
+verteileKarten();
 //# sourceMappingURL=main.js.map
