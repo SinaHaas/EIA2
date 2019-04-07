@@ -1,37 +1,77 @@
+/*
+Aufgabe: <Aufgabe 2, MauMau>
+Name: <Sina Haas>
+Matrikel: <>
+Datum: <07.04.19>
+	
+In Zusammenarbeit mit Bente Gossel, Katharina Schmitt, Julian Schubert, mit Hilfe von Lucas Rohrberg.
+*/
+
+
+
+
 body {
-    background-color: cadetblue;
+    background-color: saddlebrown;
 }
 
-/*.blub {
-    background-color: red;
-    border-style: solid; 
 
-}*/
+
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+   
+}
+
+
+
 
 p[class*="Pik"]{
-    background-color: blue;
-    padding:10%;
+    background-color:darkgrey;
+    padding:1em;
+    min-height: 250px;
+    min-width: 200px;
+    border: solid black 0.1em;
+   
 
 }
 
 p[class*="Kreuz"]{
-    background-color: green;
-    padding: 10%
+    background-color:darkred;
+    padding: 1em;
+    min-height: 250px;
+    min-width: 200px;
+    border: solid black 0.1em;
+    
     
 }
 
 p[class*="Karo"]{
-    background-color: blueviolet;
-    padding: 10%
+    background-color: darkgrey;
+    padding: 1em;
+    min-height: 250px;
+    min-width: 200px;
+    
+    border: solid black 0.1em;
+    
+    
 }
 
 p[class*="Herz"]{
-    background-color: yellow;
-    padding:10%
+    background-color:red;
+    padding:1em;
+    min-width: 200px;
+    min-height: 250px;
+    border: solid black 0.1em;
+    
+   
+    
 }
 
 .stylen {
-    background-color: darkblue;
+    background-color: black;
+    color: white;
     border: solid;
     margin: 50px;
     margin-right: 500px;

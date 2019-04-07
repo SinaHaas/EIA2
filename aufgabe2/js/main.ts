@@ -1,3 +1,15 @@
+/*
+Aufgabe: <Aufgabe 2, MauMau>
+Name: <Sina Haas>
+Matrikel: <>
+Datum: <07.04.19>
+	
+In Zusammenarbeit mit Bente Gossel, Katharina Schmitt, Julian Schubert, mit Hilfe von Lucas Rohrberg.
+*/
+
+
+
+
 
 let hk: number
 
