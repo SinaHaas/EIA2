@@ -1,3 +1,11 @@
+/*
+Aufgabe: <Aufgabe 2, MauMau>
+Name: <Sina Haas>
+Matrikel: <>
+Datum: <07.04.19>
+    
+In Zusammenarbeit mit Bente Gossel, Katharina Schmitt, Julian Schubert, mit Hilfe von Lucas Rohrberg.
+*/
 let hk;
 function handkartenanzahl() {
     let handkarten = prompt("Handkartenanzahl eingeben", "1-5");
@@ -30,67 +38,69 @@ function generiereKarten() {
     }
 }
 generiereKarten();
-/*function verteileKarten() {
-    let kartenHand: string[] = [];
-
-
- 
-        if (kartenHand.length <= handkartenanzahl()) {
-            let x: number = 0; {
-                x = Math.floor((Math.random() * kartenStapel.length) );
-                kartenHand.push(kartenStapel[x]);
-                kartenStapel.splice(x, 1)
-
-            }
-
-        }
-    
-
-    console.log(kartenHand);
-
-}
-
-verteileKarten();*/
 let kartenHand = [];
 let x;
 /*function verteileKarten() {
 
-    for (let y = hk; kartenHand.length <= y - 1;) {
-         x= 0;; {
-            x = Math.floor((Math.random() * kartenStapel.length));
-
-
-            let prodElement = document.createElement('div');
-            let karte: string = `<p class="${kartenHand[x]}">${kartenStapel[x]}</p>`
-
-            prodElement.innerHTML = karte;
-            document.getElementById("kartenHand").appendChild(prodElement);
-
-            kartenHand.push(kartenStapel[x]);
-
-            
-
-            
-
-            kartenStapel.splice(x, 1);
-
-            
-
-        }
-
-
-    }
-}*/
-function verteileKarten() {
     for (let y = 0; y < hk; y++) {
         x = Math.floor((Math.random() * kartenStapel.length));
+
         let prodElement = document.createElement('div');
+
         document.getElementById("kartenHand").appendChild(prodElement);
+
         kartenHand.push(kartenStapel[x]);
-        let karte = `<p class="${kartenHand[y]}">${kartenHand[y]}</p>`;
+        let karte: string = `<p class="${kartenHand[y]}">${kartenHand[y]}</p>`
+
         prodElement.innerHTML = karte;
+
         kartenStapel.splice(x, 1);
+
     }
 }
-verteileKarten();
+
+verteileKarten();*/
+/* sortiere Karten*/
+/*function sortiereKarten() {
+    kartenHand.sort();
+}
+
+sortiereKarten();
+
+console.log(kartenHand);
+
+
+
+
+
+/* ziehe eine Karte zufällig wenn Klick */
+document.getElementById("stapel").addEventListener("click", zieheEineKarte);
+/*function zieheEineKarte() {
+    
+
+        for (let y = 0; y < kartenStapel.length; y++) {
+
+            x = Math.floor((Math.random() * kartenStapel.length));
+    
+            kartenHand.push(kartenStapel[x]);
+            
+    
+            kartenStapel.splice(x, 1);
+
+            document.getElementById("kartenHand").innerHTML = kartenHand[y];
+
+        } //läuft die Schleife 16mal durch, dann ist die Abbruchbedingung erfüllt, da Stapel16 und Hand 16
+
+}*/
+function zieheEineKarte() {
+    if (kartenHand.length < kartenStapel.length) {
+        let k;
+        k = Math.floor((Math.random() * kartenStapel.length));
+        kartenHand.push(kartenStapel[k]);
+        kartenStapel.splice(k, 1);
+        console.log(kartenHand);
+    }
+}
+/*console.log(kartenStapel);
+console.log(kartenHand);*/
 //# sourceMappingURL=main.js.map

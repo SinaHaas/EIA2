@@ -73,11 +73,14 @@ p[class*="Herz"]{
     background-color: black;
     color: white;
     border: solid;
-    margin: 50px;
-    margin-right: 500px;
-    margin-left: 500px;
-    padding: 50px;
-    padding-top: 100px;
-    padding-bottom:100px;
-    
+    height: 250px;
+    width: 200px;
+    margin: 2em;
+    padding: 1em;
+}
+
+.wrapper2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
