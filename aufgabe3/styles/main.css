@@ -27,7 +27,7 @@ body {
 
 
 
-p[class*="Pik"]{
+div[class*="Pik"]{
     background-color:darkgrey;
     padding:1em;
     min-height: 250px;
@@ -37,7 +37,7 @@ p[class*="Pik"]{
 
 }
 
-p[class*="Kreuz"]{
+div[class*="Kreuz"]{
     background-color:darkred;
     padding: 1em;
     min-height: 250px;
@@ -47,7 +47,7 @@ p[class*="Kreuz"]{
     
 }
 
-p[class*="Karo"]{
+div[class*="Karo"]{
     background-color: darkgrey;
     padding: 1em;
     min-height: 250px;
@@ -58,7 +58,7 @@ p[class*="Karo"]{
     
 }
 
-p[class*="Herz"]{
+div[class*="Herz"]{
     background-color:red;
     padding:1em;
     min-width: 200px;
