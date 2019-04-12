@@ -15,7 +15,14 @@ namespace lection3 {
 
         hk = Number(handkarten);
 
+        if(hk>6 || hk<0){
+            alert("Lesen Bitte!")
+            handkartenanzahl();
+        }
+        
         return hk;
+        
+        
     }
 
 
@@ -25,12 +32,14 @@ namespace lection3 {
     interface Karte {
         Wert: string;
         Typ: string;
+        Reihenfolge: number;
     }
 
     let Karte1: Karte = {
 
         Wert: "7",
         Typ: "Pik",
+        Reihenfolge: 1,
 
     }
 
@@ -38,6 +47,7 @@ namespace lection3 {
 
         Wert: "8",
         Typ: "Pik",
+        Reihenfolge: 2,
 
     }
 
@@ -45,6 +55,7 @@ namespace lection3 {
 
         Wert: "9",
         Typ: "Pik",
+        Reihenfolge: 3,
 
     }
 
@@ -52,6 +63,7 @@ namespace lection3 {
 
         Wert: "10",
         Typ: "Pik",
+        Reihenfolge: 4,
 
     }
 
@@ -59,6 +71,7 @@ namespace lection3 {
 
         Wert: "Bube",
         Typ: "Pik",
+        Reihenfolge: 5,
 
     }
 
@@ -66,6 +79,7 @@ namespace lection3 {
 
         Wert: "Dame",
         Typ: "Pik",
+        Reihenfolge: 6,
 
     }
 
@@ -73,6 +87,7 @@ namespace lection3 {
 
         Wert: "König",
         Typ: "Pik",
+        Reihenfolge: 7,
 
     }
 
@@ -80,6 +95,7 @@ namespace lection3 {
 
         Wert: "Ass",
         Typ: "Pik",
+        Reihenfolge: 8,
 
     }
 
@@ -87,6 +103,7 @@ namespace lection3 {
 
         Wert: "7",
         Typ: "Karo",
+        Reihenfolge: 9,
 
     }
 
@@ -94,6 +111,7 @@ namespace lection3 {
 
         Wert: "8",
         Typ: "Karo",
+        Reihenfolge: 10,
 
     }
 
@@ -101,6 +119,7 @@ namespace lection3 {
 
         Wert: "9",
         Typ: "Karo",
+        Reihenfolge: 11,
 
     }
 
@@ -108,6 +127,7 @@ namespace lection3 {
 
         Wert: "10",
         Typ: "Karo",
+        Reihenfolge: 12,
 
     }
 
@@ -115,6 +135,7 @@ namespace lection3 {
 
         Wert: "Bube",
         Typ: "Karo",
+        Reihenfolge: 13,
 
     }
 
@@ -122,6 +143,7 @@ namespace lection3 {
 
         Wert: "Dame",
         Typ: "Karo",
+        Reihenfolge: 14,
 
     }
 
@@ -129,6 +151,7 @@ namespace lection3 {
 
         Wert: "König",
         Typ: "Karo",
+        Reihenfolge: 15,
 
     }
 
@@ -136,6 +159,7 @@ namespace lection3 {
 
         Wert: "Ass",
         Typ: "Karo",
+        Reihenfolge: 16,
 
     }
 
@@ -143,6 +167,7 @@ namespace lection3 {
 
         Wert: "7",
         Typ: "Kreuz",
+        Reihenfolge: 17,
 
     }
 
@@ -150,6 +175,7 @@ namespace lection3 {
 
         Wert: "8",
         Typ: "Kreuz",
+        Reihenfolge: 18,
 
     }
 
@@ -157,6 +183,7 @@ namespace lection3 {
 
         Wert: "9",
         Typ: "Kreuz",
+        Reihenfolge: 19,
 
     }
 
@@ -164,6 +191,7 @@ namespace lection3 {
 
         Wert: "10",
         Typ: "Kreuz",
+        Reihenfolge: 20,
 
     }
 
@@ -171,6 +199,7 @@ namespace lection3 {
 
         Wert: "Bube",
         Typ: "Kreuz",
+        Reihenfolge: 21,
 
     }
 
@@ -178,6 +207,7 @@ namespace lection3 {
 
         Wert: "Dame",
         Typ: "Kreuz",
+        Reihenfolge: 22,
 
     }
 
@@ -185,6 +215,7 @@ namespace lection3 {
 
         Wert: "König",
         Typ: "Kreuz",
+        Reihenfolge: 23,
 
     }
 
@@ -192,6 +223,7 @@ namespace lection3 {
 
         Wert: "Ass",
         Typ: "Kreuz",
+        Reihenfolge: 24,
 
     }
 
@@ -199,6 +231,7 @@ namespace lection3 {
 
         Wert: "7",
         Typ: "Herz",
+        Reihenfolge: 25,
 
     }
 
@@ -206,6 +239,7 @@ namespace lection3 {
 
         Wert: "8",
         Typ: "Herz",
+        Reihenfolge: 26,
 
     }
 
@@ -214,6 +248,7 @@ namespace lection3 {
 
         Wert: "9",
         Typ: "Herz",
+        Reihenfolge: 27,
 
     }
 
@@ -222,6 +257,7 @@ namespace lection3 {
 
         Wert: "10",
         Typ: "Herz",
+        Reihenfolge: 28,
 
     }
 
@@ -229,6 +265,7 @@ namespace lection3 {
 
         Wert: "Bube",
         Typ: "Herz",
+        Reihenfolge: 29,
 
     }
 
@@ -236,6 +273,7 @@ namespace lection3 {
 
         Wert: "Dame",
         Typ: "Herz",
+        Reihenfolge: 30,
 
     }
 
@@ -243,6 +281,7 @@ namespace lection3 {
 
         Wert: "König",
         Typ: "Herz",
+        Reihenfolge: 31,
 
     }
 
@@ -250,6 +289,7 @@ namespace lection3 {
 
         Wert: "Ass",
         Typ: "Herz",
+        Reihenfolge: 32,
 
     }
 
@@ -309,13 +349,13 @@ namespace lection3 {
 
 
             kartenHand.push(kartenStapel[x]);
-            
+
             writeHtml(y);
 
             kartenStapel.splice(x, 1);
 
         }
-    } 
+    }
 
     verteileKarten();
 
@@ -326,13 +366,13 @@ namespace lection3 {
 
     function sortiereKarten() {
         console.log("Works.") //Nur Test ob cklick Button funktioniert 
-        kartenHand.sort(typvergleich); 
+        kartenHand.sort(typvergleich);
         document.getElementById("kartenHand").innerHTML = ""; //Alle Karten in dem DIv werden gelöscht
-        for(let i=0; i<kartenHand.length; i++){ //Nur die Anzahl im Array wird sotiert 
-        writeHtml(i);}
-        
-
+        for (let i = 0; i < kartenHand.length; i++) { //Nur die Anzahl im Array wird sotiert, dann hört Schleife auf 
+            writeHtml(i);
+        }
     }
+
 
     function typvergleich(a: Karte, b: Karte): number {
         let typ1 = a.Typ;
@@ -347,10 +387,10 @@ namespace lection3 {
         }
 
         else { return 0 }
-    }
+    } // Kann auch Strings vergleichen  
 
 
-   /*erstellen der Handkarten*/
+    /*erstellen der Handkarten*/
     function writeHtmlKarteZiehen(_k: number) {
         let prodElement = document.createElement('div');
 
@@ -362,19 +402,19 @@ namespace lection3 {
     }
 
 
-    function writeHtml(_y:number) {
+    function writeHtml(_y: number) {
 
         let prodElement = document.createElement('div');
 
         document.getElementById("kartenHand").appendChild(prodElement);
 
-        let karte: string = `<div class="${kartenHand[_y].Typ}" id="${kartenHand[_y].Typ}">${kartenHand[_y].Typ} ${kartenHand[_y].Wert}</div>`
+        let karte: string = `<div class="${kartenHand[_y].Typ}" id="${kartenHand[_y].Reihenfolge}">${kartenHand[_y].Typ} ${kartenHand[_y].Wert}</div>`
 
         prodElement.innerHTML = karte;
 
-
-
     }
+
+
 
 
 
@@ -403,7 +443,6 @@ namespace lection3 {
             k = Math.floor((Math.random() * kartenStapel.length));
 
 
-
             kartenHand.push(kartenStapel[k]);
             writeHtmlKarteZiehen(k);
 
@@ -418,7 +457,6 @@ namespace lection3 {
         }
 
     }
-    
 
 
 
@@ -426,49 +464,42 @@ namespace lection3 {
 
 
 
-    let ablegestapel: string[] = [];
 
-    /*document.getElementById("").addEventListener("click", legeEineKarteAb);*/
-
-
-    /*let triggerer = event.target 
-    triggerer.addEventListener("click", legeEineKarteAb);
-    var x = event.target.tagName; 
-    
-
-    function legeEineKarteAb(x:event) {
-        var b = event.target;
-        document.getElementById("demo").innerHTML = "Triggered by a " + x.tagName + " element";
-
-        ablegestapel.push(kartenHand[1]);
-        
-
-    }
-
-    function myFunction(event) { 
-        var x = event.target;
-        document.getElementById("demo").innerHTML = "Triggered by a " + x.tagName + " element";
-      }
-
-    console.log(ablegestapel);*/
-
-    /*let auslöser:HTMLElement = <HTMLElement>event.target;*/
+    let ablegestapel: Karte[] = [];
 
 
 
 
+    document.getElementById("kartenHand").addEventListener("click", karteAblegen) //Wenn irgendwo im kartenHand Bereich geklickt wird, wird der Auslöser ermittelt
 
-    /*document.getElementById("kartenHand").addEventListener("click", findeAuslöser) //Wenn irgendwo im kartenHand Bereich geklickt wird, wird der Auslöser ermittelt
+    function karteAblegen(): void {
 
-    function findeAuslöser(ev: MouseEvent) {
+        let IDCard: HTMLElement = <HTMLElement>event.target; //ID Card ist vom Typ HTML Element und speichert Wert, welcher das Event triggert.
 
-        let test = ev.target;
-        if (test.id == 'idKarte') {
-            ablegestapel.push(kartenHand[positionImArray])
+        for (let i: number = 0; i < kartenHand.length; i++) {
+            console.log(IDCard.getAttribute("id"));
+            if (kartenHand[i].Reihenfolge == Number(IDCard.getAttribute("id"))) { //Muss zur Number werden
+                ablegestapel.push(kartenHand[i]);
+
+                let prodElement = document.createElement('div');
+
+                document.getElementById("ablagestapel").appendChild(prodElement);
+
+                let karte: string = `<div class="${kartenHand[i].Typ}" id="${kartenHand[i].Reihenfolge}">${kartenHand[i].Typ} ${kartenHand[i].Wert}</div>`
+
+                prodElement.innerHTML = karte;
+
+                kartenHand.splice(i,1);
+                document.getElementById("kartenHand").innerHTML="";
+
+                for(let o:number=0; kartenHand.length>o; o++){
+                    writeHtml(o);
+                }
+
+            }
         }
 
-
-    }*/
+    }
 
 
 

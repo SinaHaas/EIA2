@@ -84,3 +84,7 @@ div[class*="Herz"]{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#ablagestapel > div {
+    position: absolute;
+}

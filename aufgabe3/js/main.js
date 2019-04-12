@@ -12,135 +12,171 @@ var lection3;
     function handkartenanzahl() {
         let handkarten = prompt("Handkartenanzahl eingeben", "1-5");
         hk = Number(handkarten);
+        if (hk > 6 || hk < 0) {
+            alert("Lesen Bitte!");
+            handkartenanzahl();
+        }
         return hk;
     }
     let Karte1 = {
         Wert: "7",
         Typ: "Pik",
+        Reihenfolge: 1,
     };
     let Karte2 = {
         Wert: "8",
         Typ: "Pik",
+        Reihenfolge: 2,
     };
     let Karte3 = {
         Wert: "9",
         Typ: "Pik",
+        Reihenfolge: 3,
     };
     let Karte4 = {
         Wert: "10",
         Typ: "Pik",
+        Reihenfolge: 4,
     };
     let Karte5 = {
         Wert: "Bube",
         Typ: "Pik",
+        Reihenfolge: 5,
     };
     let Karte6 = {
         Wert: "Dame",
         Typ: "Pik",
+        Reihenfolge: 6,
     };
     let Karte7 = {
         Wert: "König",
         Typ: "Pik",
+        Reihenfolge: 7,
     };
     let Karte8 = {
         Wert: "Ass",
         Typ: "Pik",
+        Reihenfolge: 8,
     };
     let Karte9 = {
         Wert: "7",
         Typ: "Karo",
+        Reihenfolge: 9,
     };
     let Karte10 = {
         Wert: "8",
         Typ: "Karo",
+        Reihenfolge: 10,
     };
     let Karte11 = {
         Wert: "9",
         Typ: "Karo",
+        Reihenfolge: 11,
     };
     let Karte12 = {
         Wert: "10",
         Typ: "Karo",
+        Reihenfolge: 12,
     };
     let Karte13 = {
         Wert: "Bube",
         Typ: "Karo",
+        Reihenfolge: 13,
     };
     let Karte14 = {
         Wert: "Dame",
         Typ: "Karo",
+        Reihenfolge: 14,
     };
     let Karte15 = {
         Wert: "König",
         Typ: "Karo",
+        Reihenfolge: 15,
     };
     let Karte16 = {
         Wert: "Ass",
         Typ: "Karo",
+        Reihenfolge: 16,
     };
     let Karte17 = {
         Wert: "7",
         Typ: "Kreuz",
+        Reihenfolge: 17,
     };
     let Karte18 = {
         Wert: "8",
         Typ: "Kreuz",
+        Reihenfolge: 18,
     };
     let Karte19 = {
         Wert: "9",
         Typ: "Kreuz",
+        Reihenfolge: 19,
     };
     let Karte20 = {
         Wert: "10",
         Typ: "Kreuz",
+        Reihenfolge: 20,
     };
     let Karte21 = {
         Wert: "Bube",
         Typ: "Kreuz",
+        Reihenfolge: 21,
     };
     let Karte22 = {
         Wert: "Dame",
         Typ: "Kreuz",
+        Reihenfolge: 22,
     };
     let Karte23 = {
         Wert: "König",
         Typ: "Kreuz",
+        Reihenfolge: 23,
     };
     let Karte24 = {
         Wert: "Ass",
         Typ: "Kreuz",
+        Reihenfolge: 24,
     };
     let Karte25 = {
         Wert: "7",
         Typ: "Herz",
+        Reihenfolge: 25,
     };
     let Karte26 = {
         Wert: "8",
         Typ: "Herz",
+        Reihenfolge: 26,
     };
     let Karte27 = {
         Wert: "9",
         Typ: "Herz",
+        Reihenfolge: 27,
     };
     let Karte28 = {
         Wert: "10",
         Typ: "Herz",
+        Reihenfolge: 28,
     };
     let Karte29 = {
         Wert: "Bube",
         Typ: "Herz",
+        Reihenfolge: 29,
     };
     let Karte30 = {
         Wert: "Dame",
         Typ: "Herz",
+        Reihenfolge: 30,
     };
     let Karte31 = {
         Wert: "König",
         Typ: "Herz",
+        Reihenfolge: 31,
     };
     let Karte32 = {
         Wert: "Ass",
         Typ: "Herz",
+        Reihenfolge: 32,
     };
     let kartenStapel = [Karte1, Karte2, Karte3, Karte4, Karte5, Karte6, Karte7, Karte8, Karte9, Karte10, Karte11, Karte12, Karte13, Karte14, Karte15, Karte16, Karte17, Karte18, Karte19, Karte20, Karte21, Karte22, Karte23, Karte24, Karte25, Karte26, Karte27, Karte28, Karte29, Karte30, Karte31, Karte32];
     handkartenanzahl();
@@ -193,7 +229,7 @@ var lection3;
         console.log("Works."); //Nur Test ob cklick Button funktioniert 
         kartenHand.sort(typvergleich);
         document.getElementById("kartenHand").innerHTML = ""; //Alle Karten in dem DIv werden gelöscht
-        for (let i = 0; i < kartenHand.length; i++) { //Nur die Anzahl im Array wird sotiert 
+        for (let i = 0; i < kartenHand.length; i++) { //Nur die Anzahl im Array wird sotiert, dann hört Schleife auf 
             writeHtml(i);
         }
     }
@@ -209,7 +245,7 @@ var lection3;
         else {
             return 0;
         }
-    }
+    } // Kann auch Strings vergleichen  
     /*erstellen der Handkarten*/
     function writeHtmlKarteZiehen(_k) {
         let prodElement = document.createElement('div');
@@ -220,7 +256,7 @@ var lection3;
     function writeHtml(_y) {
         let prodElement = document.createElement('div');
         document.getElementById("kartenHand").appendChild(prodElement);
-        let karte = `<div class="${kartenHand[_y].Typ}" id="${kartenHand[_y].Typ}">${kartenHand[_y].Typ} ${kartenHand[_y].Wert}</div>`;
+        let karte = `<div class="${kartenHand[_y].Typ}" id="${kartenHand[_y].Reihenfolge}">${kartenHand[_y].Typ} ${kartenHand[_y].Wert}</div>`;
         prodElement.innerHTML = karte;
     }
     /* ziehe eine Karte zufällig wenn Klick */
@@ -245,38 +281,24 @@ var lection3;
         }
     }
     let ablegestapel = [];
-    /*document.getElementById("").addEventListener("click", legeEineKarteAb);*/
-    /*let triggerer = event.target
-    triggerer.addEventListener("click", legeEineKarteAb);
-    var x = event.target.tagName;
-    
-
-    function legeEineKarteAb(x:event) {
-        var b = event.target;
-        document.getElementById("demo").innerHTML = "Triggered by a " + x.tagName + " element";
-
-        ablegestapel.push(kartenHand[1]);
-        
-
-    }
-
-    function myFunction(event) {
-        var x = event.target;
-        document.getElementById("demo").innerHTML = "Triggered by a " + x.tagName + " element";
-      }
-
-    console.log(ablegestapel);*/
-    /*let auslöser:HTMLElement = <HTMLElement>event.target;*/
-    /*document.getElementById("kartenHand").addEventListener("click", findeAuslöser) //Wenn irgendwo im kartenHand Bereich geklickt wird, wird der Auslöser ermittelt
-
-    function findeAuslöser(ev: MouseEvent) {
-
-        let test = ev.target;
-        if (test.id == 'idKarte') {
-            ablegestapel.push(kartenHand[positionImArray])
+    document.getElementById("kartenHand").addEventListener("click", karteAblegen); //Wenn irgendwo im kartenHand Bereich geklickt wird, wird der Auslöser ermittelt
+    function karteAblegen() {
+        let IDCard = event.target; //ID Card ist vom Typ HTML Element und speichert Wert, welcher das Event triggert.
+        for (let i = 0; i < kartenHand.length; i++) {
+            console.log(IDCard.getAttribute("id"));
+            if (kartenHand[i].Reihenfolge == Number(IDCard.getAttribute("id"))) { //Muss zur Number werden
+                ablegestapel.push(kartenHand[i]);
+                let prodElement = document.createElement('div');
+                document.getElementById("ablagestapel").appendChild(prodElement);
+                let karte = `<div class="${kartenHand[i].Typ}" id="${kartenHand[i].Reihenfolge}">${kartenHand[i].Typ} ${kartenHand[i].Wert}</div>`;
+                prodElement.innerHTML = karte;
+                kartenHand.splice(i, 1);
+                document.getElementById("kartenHand").innerHTML = "";
+                for (let o = 0; kartenHand.length > o; o++) {
+                    writeHtml(o);
+                }
+            }
         }
-
-
-    }*/
+    }
 })(lection3 || (lection3 = {}));
 //# sourceMappingURL=main.js.map
