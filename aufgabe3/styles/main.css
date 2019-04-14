@@ -88,3 +88,13 @@ div[class*="Herz"]{
 #ablagestapel > div {
     position: absolute;
 }
+
+
+.overf{
+    border: solid white 0.5em;
+    padding: 1em;
+    overflow: scroll;
+    margin: 1em;
+    width: 1400px;
+    height: 300px;
+}
