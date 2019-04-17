@@ -200,6 +200,7 @@ var lection3;
     function sortiereKarten() {
         console.log("Works."); //Nur Test ob click Button funktioniert 
         kartenHand.sort(vergleich);
+        /*kartenHand.sort(vergleich2);*/
         document.getElementById("kartenHand").innerHTML = ""; //Alle Karten in dem Div werden gelöscht
         for (let i = 0; i < kartenHand.length; i++) { //Nur die Anzahl im Array wird sotiert, dann hört Schleife auf 
             writeHtml(i);
@@ -218,6 +219,20 @@ var lection3;
             return 0;
         }
     } // Kann auch Strings vergleichen  
+    /*function vergleich2(uno: Karte, dos: Karte): number{
+        let typuno = uno.Wert;
+        let typdos = dos.Wert;
+
+        if(typuno > typdos){
+            return 1;
+        }
+
+        else if(typuno < typdos){
+            return -1;
+        }
+
+        else { return 0}
+    }*/ //geht sowieso nicht, da dann die vorherige Sortierung nach Wert aufgehoben werden würde.
     /*Augelagert, da ich später noch einmal darauf zugreife.*/
     function writeHtml(_y) {
         let prodElement = document.createElement('div');
@@ -259,7 +274,7 @@ var lection3;
     document.getElementById("kartenHand").addEventListener("click", karteAblegen); //Wenn irgendwo im kartenHand Bereich geklickt wird, wird der Auslöser ermittelt
     function karteAblegen(event) {
         let s = 0;
-        while (s < kartenHand.length) {
+        while (s < kartenHand.length) { //while oder for, kommt aufs selbe raus.
             //karteId ist vom Typ HTML Element und speichert Wert, welcher das Event triggert.
             let karteId = event.target;
             if (kartenHand[s].Reihenfolge == Number(karteId.getAttribute("id"))) { //Muss von String zur Number werden um beide vergleichen zu können // läuft Karten im Hand Array einmal durch, wenn es zur geklickten ID passt wird es in den Ablagestapel gepushed
