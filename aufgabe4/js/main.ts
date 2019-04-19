@@ -1,3 +1,10 @@
+/*
+    Aufgabe: <Aufgabe 4>
+    Name: <Sina Haas>
+    Matrikel: <>
+    Datum: <19.04.19>
+    In Zusammenarbeit mit Katharina Schmitt. 
+    */
 namespace Eisdealer {
 
     window.addEventListener("load", init);
@@ -143,8 +150,7 @@ namespace Eisdealer {
                 pruefen = document.getElementById("pru");
                 pruefen.innerHTML += " Alles ausgefüllt :)";
             }
-        }
-        
+        }   
 }
 
 
