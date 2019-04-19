@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +9,61 @@
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
     <title>Document</title>
 </head>
+
 <body>
 
     <fieldset id="eissorten">
 
-        <legend>Eissorten - Eine Kugel 1Euro</legend>
+        <legend>Eissorten</legend>
+        <p>Pro Kugel 1€</p>
 
-        <input type="checkbox" name="Eissorte1" value="Schokolade" id="Eis1"/>
-		<label for="Eis1">Schokolade</label>
-		<input type="checkbox" name="Eissorte2" value="Blaubeere" id="Eis2"/>
-		<label for="Eis2">Blaubeere</label>
-		<input type="checkbox" name="Eissorte3" value="Erdbeere" id="Eis3"/>
-		<label for="Eis3">Erdbeere</label>
+        <input type="checkbox" name="Eissorte1" value="Schokolade" id="Eis1" />
+        <label for="Eis1">Schokolade</label>
+        <input type="checkbox" name="Eissorte2" value="Blaubeere" id="Eis2" />
+        <label for="Eis2">Blaubeere</label>
+        <input type="checkbox" name="Eissorte3" value="Erdbeere" id="Eis3" />
+        <label for="Eis3">Erdbeere</label>
+
+        <input type="checkbox" name="Eissorte4" value="Vanille" id="Eis4" />
+        <label for="Eis4">Vanille</label>
+        <input type="checkbox" name="Eissorte5" value="Banane" id="Eis5" />
+        <label for="Eis5">Banane</label>
+        <input type="checkbox" name="Eissorte6" value="Cookie" id="Eis6" />
+        <label for="Eis6">Cookie</label>
 
     </fieldset>
 
     <fieldset id="zusätze">
 
-        <legend>Zusätze +20ct</legend>
-        <input type="checkbox" name="Zusatz1" value="Sahne" id="Zusatz1"/>
-		<label for="Zusatz1">Sahne</label>
-		<input type="checkbox" name="Zusatz2" value="Streusel" id="Zusatz2"/>
-		<label for="Zusatz2">Streusel</label>
-		<input type="checkbox" name="Zusatz3" value="Soße" id="Zusatz3"/>
-		<label for="Zusatz3">Soße</label>
+        <legend>Zusätze</legend>
+        <p>+20ct</p>
+        <input type="checkbox" name="Zusatz1" value="Sahne" id="Zusatz1" />
+        <label for="Zusatz1">Sahne</label>
+        <input type="checkbox" name="Zusatz2" value="Streusel" id="Zusatz2" />
+        <label for="Zusatz2">Streusel</label>
+        <input type="checkbox" name="Zusatz3" value="Soße" id="Zusatz3" />
+        <label for="Zusatz3">Soße</label>
 
     </fieldset>
 
     <fieldset>
 
-            <legend> Becher oder Waffel? </legend>
-            <input type="radio" name="Behälter" value="Becher" id="Becher" />
-            <label for="Becher">Becher</label>
-            <input type="radio" name="Behälter" value="Waffel" id="Waffel"/>
-            <label for="Waffel">Waffel</label>
+        <legend> Becher oder Waffel? </legend>
+        <input type="radio" name="Behälter" value="Becher" id="Becher" />
+        <label for="Becher">Becher</label>
+        <input type="radio" name="Behälter" value="Waffel" id="Waffel" />
+        <label for="Waffel">Waffel</label>
 
     </fieldset>
 
-    <fieldset>
+    <fieldset id="lieferoption">
 
         <legend>Lieferoptionen</legend>
-        
-		<input type="text" name="Datalist" list="options" placeholder="sollen wir liefern??"/>
-		<datalist id="options">
-			<option value="abholen"> </option>
-			<option value="liefern - 1Euro"> </option>
-		</datalist>
+
+        <input type="radio" name="Liefern" value="liefern" id="Ja" />
+        <label for="Ja">liefern +1€</label>
+        <input type="radio" name="Liefern" value="nicht liefern" id="Nein" />
+        <label for="Nein">Nicht Liefern</label>
 
     </fieldset>
 
@@ -62,27 +72,41 @@
 
         <legend>Adresse</legend>
 
-        <input type="text" name="Name" placeholder="Mustermann" required/>
-		<hr/>
+        <input type="text" name="Name" placeholder="Name" id="a" required="" />
+        <hr />
 
-        <input type="text" name="Adresse" placeholder="Musterweg 20" required/>
-		<hr/>
-		
-		Postleitzahl
-		<input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl"/>
-        <hr/>
-        
-		Telefon
-		<input type="text" name="Telefon" placeholder="Nummer bitte"/>
-		<hr/>
+        <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
+        <hr />
+
+        Postleitzahl
+        <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c" required="" />
+        <hr />
+
+        Telefon
+        <input type="text" name="Telefon" placeholder="Nummer bitte" />
+        <hr />
 
     </fieldset>
 
-    <fieldset id="bestellung">
-        <legend>Ihre Bestellung</legend>
+    <fieldset>
+        <div id="bestellung">
+            <legend>Ihre Bestellung</legend>
+        </div>
+
+        <div id="li"></div>
+
+        <div id="kap"></div>
+
+        <div id="sleep"></div>
     </fieldset>
 
+    <br>
+    <button id="prufe">Prüfen</button>
+    <fieldset id="pru"></fieldset>
 
-    
+
+
+
 </body>
+
 </html>
