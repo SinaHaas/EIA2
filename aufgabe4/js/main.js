@@ -1,10 +1,16 @@
+/*
+    Aufgabe: <Aufgabe 4>
+    Name: <Sina Haas>
+    Matrikel: <>
+    Datum: <19.04.19>
+    In Zusammenarbeit mit Katharina Schmitt.
+    */
 var Eisdealer;
 (function (Eisdealer) {
     window.addEventListener("load", init);
     function init(_event) {
-        console.log("Init");
         let fieldsets = document.getElementsByTagName("fieldset");
-        document.getElementById("prufe").addEventListener("click", allesAusgefuellt);
+        document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", handleChange);
@@ -26,18 +32,18 @@ var Eisdealer;
             <p id="${target.id}">${Bestellung}</p>`;
             prodElement.innerHTML = gewählt;
         }
-        if (target.name == "Liefern") {
-            document.getElementById("li").innerHTML = "";
+        if (target.name == "liefern") {
+            document.getElementById("lief").innerHTML = "";
             let prodElement = document.createElement('div');
-            document.getElementById("li").appendChild(prodElement);
+            document.getElementById("lief").appendChild(prodElement);
             let blub = `
             <p id="${target.id}">${target.value}</p>`;
             prodElement.innerHTML = blub;
         }
-        if (target.name == "Behälter") {
-            document.getElementById("sleep").innerHTML = "";
+        if (target.name == "behälter") {
+            document.getElementById("behaelter").innerHTML = "";
             let prodElement = document.createElement('div');
-            document.getElementById("sleep").appendChild(prodElement);
+            document.getElementById("behaelter").appendChild(prodElement);
             let blub = `
             <p id="${target.id}">${target.value}</p>`;
             prodElement.innerHTML = blub;
@@ -74,11 +80,11 @@ var Eisdealer;
             Zusatz.push(target.value);
             console.log(Zusatz.length * 0.2);
         }
-        if (target.id == "Ja") {
+        if (target.id == "ja") {
             Liefern.push(target.value);
             console.log(target);
         }
-        if (target.id == "Nein") {
+        if (target.id == "nein") {
             Liefern = [];
         }
         if (target.checked == false) {
@@ -97,26 +103,26 @@ var Eisdealer;
         let Ergebnis2 = Zusatz.length * 0.2;
         let Ergebnis3 = Liefern.length * 1;
         let prodElement = document.createElement('div');
-        document.getElementById("kap").innerHTML = "";
-        document.getElementById("kap").appendChild(prodElement);
+        document.getElementById("rechnung").innerHTML = "";
+        document.getElementById("rechnung").appendChild(prodElement);
         let ergebnis = `
-            <p id="${target.id}">Kosten Bestellung: ${Ergebnis + Ergebnis2} € & Lieferkosten: ${Ergebnis3} €</p>`;
+            <p id="${target.id}">Kosten der Bestellung: ${Ergebnis + Ergebnis2 + Ergebnis3} €</p>`;
         prodElement.innerHTML = ergebnis;
     }
     //document.getElementById("prufe").addEventListener("click", allesAusgefuellt);
-    function allesAusgefuellt() {
+    function pruefeAusgefuellt() {
         let Name = document.getElementById("a");
         let Adresse = document.getElementById("b");
         let Postleizahl = document.getElementById("c");
         let pruefen;
         if (Adresse.value == "" || Postleizahl.value == "" || Name.value == "") {
-            document.getElementById("pru").innerHTML = "";
-            pruefen = document.getElementById("pru");
-            pruefen.innerHTML += " Es fehlen Name oder Adresse oder Postleitzahl";
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
+            pruefen.innerHTML += " Es fehlen Name, Adresse oder Postleitzahl";
         }
         else {
-            document.getElementById("pru").innerHTML = "";
-            pruefen = document.getElementById("pru");
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
             pruefen.innerHTML += " Alles ausgefüllt :)";
         }
     }

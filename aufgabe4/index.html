@@ -11,97 +11,112 @@
 </head>
 
 <body>
+    <header>
+        <h1>Eisdealer</h1>
+    </header>
 
-    <fieldset id="eissorten">
 
-        <legend>Eissorten</legend>
-        <p>Pro Kugel 1€</p>
+    <main>
+        <fieldset id="eissorten">
 
-        <input type="checkbox" name="Eissorte1" value="Schokolade" id="Eis1" />
-        <label for="Eis1">Schokolade</label>
-        <input type="checkbox" name="Eissorte2" value="Blaubeere" id="Eis2" />
-        <label for="Eis2">Blaubeere</label>
-        <input type="checkbox" name="Eissorte3" value="Erdbeere" id="Eis3" />
-        <label for="Eis3">Erdbeere</label>
+            <legend>Eissorten</legend>
+            <p>Pro Kugel 1€</p>
 
-        <input type="checkbox" name="Eissorte4" value="Vanille" id="Eis4" />
-        <label for="Eis4">Vanille</label>
-        <input type="checkbox" name="Eissorte5" value="Banane" id="Eis5" />
-        <label for="Eis5">Banane</label>
-        <input type="checkbox" name="Eissorte6" value="Cookie" id="Eis6" />
-        <label for="Eis6">Cookie</label>
+            <input type="checkbox" name="Eissorte1" value="Schokolade" id="Eis1" />
+            <label for="Eis1">Schokolade</label>
+            <input type="checkbox" name="Eissorte2" value="Blaubeere" id="Eis2" />
+            <label for="Eis2">Blaubeere</label>
+            <input type="checkbox" name="Eissorte3" value="Erdbeere" id="Eis3" />
+            <label for="Eis3">Erdbeere</label>
 
-    </fieldset>
+            <input type="checkbox" name="Eissorte4" value="Vanille" id="Eis4" />
+            <label for="Eis4">Vanille</label>
+            <input type="checkbox" name="Eissorte5" value="Banane" id="Eis5" />
+            <label for="Eis5">Banane</label>
+            <input type="checkbox" name="Eissorte6" value="Cookie" id="Eis6" />
+            <label for="Eis6">Cookie</label>
 
-    <fieldset id="zusätze">
+            <input type="checkbox" name="Eissorte7" value="Pistazie" id="Eis7" />
+            <label for="Eis7">Pistazie</label>
+            <input type="checkbox" name="Eissorte8" value="Zitrone" id="Eis8" />
+            <label for="Eis8">Zitrone</label>
+            <input type="checkbox" name="Eissorte9" value="Joghurt" id="Eis9" />
+            <label for="Eis9">Joghurt</label>
 
-        <legend>Zusätze</legend>
-        <p>+20ct</p>
-        <input type="checkbox" name="Zusatz1" value="Sahne" id="Zusatz1" />
-        <label for="Zusatz1">Sahne</label>
-        <input type="checkbox" name="Zusatz2" value="Streusel" id="Zusatz2" />
-        <label for="Zusatz2">Streusel</label>
-        <input type="checkbox" name="Zusatz3" value="Soße" id="Zusatz3" />
-        <label for="Zusatz3">Soße</label>
+        </fieldset>
 
-    </fieldset>
+        <fieldset id="zusätze">
 
-    <fieldset>
+            <legend>Zusätze</legend>
+            <p>+20ct</p>
+            <input type="checkbox" name="Zusatz1" value="Sahne" id="Zusatz1" />
+            <label for="Zusatz1">Sahne</label>
+            <input type="checkbox" name="Zusatz2" value="Streusel" id="Zusatz2" />
+            <label for="Zusatz2">Streusel</label>
+            <input type="checkbox" name="Zusatz3" value="Soße" id="Zusatz3" />
+            <label for="Zusatz3">Soße</label>
 
-        <legend> Becher oder Waffel? </legend>
-        <input type="radio" name="Behälter" value="Becher" id="Becher" />
-        <label for="Becher">Becher</label>
-        <input type="radio" name="Behälter" value="Waffel" id="Waffel" />
-        <label for="Waffel">Waffel</label>
+        </fieldset>
 
-    </fieldset>
+        <fieldset>
 
-    <fieldset id="lieferoption">
+            <legend> Becher oder Waffel? </legend>
+            <input type="radio" name="behälter" value="Becher" id="Becher" />
+            <label for="Becher">Becher</label>
+            <input type="radio" name="behälter" value="Waffel" id="Waffel" />
+            <label for="Waffel">Waffel</label>
 
-        <legend>Lieferoptionen</legend>
+        </fieldset>
 
-        <input type="radio" name="Liefern" value="liefern" id="Ja" />
-        <label for="Ja">liefern +1€</label>
-        <input type="radio" name="Liefern" value="nicht liefern" id="Nein" />
-        <label for="Nein">Nicht Liefern</label>
+        <fieldset id="lieferoption">
 
-    </fieldset>
+            <legend>Lieferoptionen</legend>
 
-    <fieldset>
+            <input type="radio" name="liefern" value="liefern" id="ja" />
+            <label for="ja">liefern +1€</label>
+            <input type="radio" name="liefern" value="nicht liefern" id="nein" />
+            <label for="nein">Nicht Liefern</label>
 
-        <legend>Adresse</legend>
+        </fieldset>
 
-        <input type="text" name="Name" placeholder="Name" id="a" required="" />
-        <hr />
+        <fieldset>
 
-        <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
-        <hr />
+            <legend>Deine Daten</legend>
 
-        Postleitzahl
-        <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c" required="" />
-        <hr />
+            <input type="text" name="Name" placeholder="Name" id="a" required="" />
+            <hr />
 
-        Telefon
-        <input type="text" name="Telefon" placeholder="Nummer bitte" />
-        <hr />
+            <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
+            <hr />
 
-    </fieldset>
+            Postleitzahl
+            <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c" required="" />
+            <hr />
 
-    <fieldset>
-        <div id="bestellung">
-            <legend>Ihre Bestellung</legend>
-        </div>
+            Telefon
+            <input type="text" name="Telefon" placeholder="Nummer bitte" />
+            <hr />
 
-        <div id="li"></div>
+        </fieldset>
 
-        <div id="kap"></div>
+        <fieldset id="fix">
+            <div id="bestellung">
+                <legend>Ihre Bestellung</legend>
+            </div>
 
-        <div id="sleep"></div>
-    </fieldset>
+            <div id="behaelter"></div>
 
-    <br>
-    <button id="prufe">Prüfen</button>
-    <fieldset id="pru"></fieldset>
+            <div id="lief"></div>
+
+            <div id="rechnung"></div>
+
+
+            <button id="prufe">Prüfen</button>
+        <div id="pruefeEinfuegen"></div>
+        </fieldset>
+
+       
+    </main>
 
 </body>
 

@@ -5,13 +5,63 @@ body{
 }
 
 fieldset {
-    margin: 2em;
-    padding: 0.3em;
-    border: solid black 0.1em;
+    border: solid grey 0.3em;
+    background-color: paleturquoise;
+    border-radius: 15px;
 }
 
 button {
+    margin-top: 1em;
     color: white;
     background-color: black;
     border: solid black 0.2em;
+    border-radius: 15px;
 }
+
+
+#fix {
+    position: fixed;
+    z-index: 10;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    max-width: 300px;
+    background-color: grey;
+}
+
+header{
+    display: flex;
+    background-color: rgb(182, 69, 69);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+
+header h1 {
+    padding: 1em;
+}
+
+
+main{
+    padding-top: 10rem;
+    padding-bottom: 16.5rem;
+}
+
+
+@media screen and (min-width:768px) {
+
+    fieldset {
+        margin: 2em; 
+        width: 480px;
+        justify-content: space-around;
+    }
+    
+    legend{
+        font-size: 1.2em;
+    }
+    
+    main{
+        padding-bottom: none;
+    }
+
+}
+
