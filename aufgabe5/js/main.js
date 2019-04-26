@@ -3,7 +3,7 @@ var aufgabe5;
     window.addEventListener("load", init);
     function init(_event) {
         let fieldsets = document.getElementsByTagName("fieldset");
-        /*document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);*/
+        document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);
         elementeAnzeigen(aufgabe5.data);
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
@@ -12,7 +12,7 @@ var aufgabe5;
     }
     function handleChange(_event) {
         preisBerechnen(_event);
-        bestellung(_event, aufgabe5.data);
+        bestellung(_event);
     }
     let summe = 0;
     function preisBerechnen(_event) {
@@ -40,7 +40,7 @@ var aufgabe5;
             prodElement.innerHTML = gesamtpreis;
         }
     }
-    function bestellung(_event, _datenArray) {
+    function bestellung(_event) {
         let input = document.getElementsByTagName("input");
         document.getElementById("rechnung").innerHTML = "";
         for (let l = 0; l < input.length; l++) {
@@ -82,6 +82,22 @@ var aufgabe5;
                 fieldset.appendChild(label);
                 document.body.appendChild(fieldset);
             }
+        }
+    }
+    function pruefeAusgefuellt() {
+        let Name = document.getElementById("a");
+        let Adresse = document.getElementById("b");
+        let Postleizahl = document.getElementById("c");
+        let pruefen;
+        if (Adresse.value == "" || Postleizahl.value == "" || Name.value == "") {
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
+            pruefen.innerHTML += " Es fehlen Name, Adresse oder Postleitzahl";
+        }
+        else {
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
+            pruefen.innerHTML += " Alles ausgefüllt :)";
         }
     }
 })(aufgabe5 || (aufgabe5 = {}));

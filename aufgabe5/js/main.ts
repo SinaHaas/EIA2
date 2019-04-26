@@ -6,7 +6,7 @@ namespace aufgabe5 {
     function init(_event: Event): void {
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
-        /*document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);*/
+        document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);
         elementeAnzeigen(data);
 
 
@@ -19,7 +19,7 @@ namespace aufgabe5 {
 
     function handleChange(_event: Event) {
         preisBerechnen(_event);
-        bestellung(_event, data)
+        bestellung(_event, /*data*/)
     }
 
 
@@ -65,7 +65,7 @@ namespace aufgabe5 {
 
 
 
-    function bestellung(_event: Event, _datenArray: Auswahl): void {
+    function bestellung(_event: Event, /*_datenArray: Auswahl*/): void {
 
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         
@@ -131,6 +131,29 @@ namespace aufgabe5 {
             }
         }
     }
+
+
+
+    function pruefeAusgefuellt(): void {
+
+        let Name: HTMLInputElement = <HTMLInputElement>document.getElementById("a");
+        let Adresse: HTMLInputElement = <HTMLInputElement>document.getElementById("b");
+        let Postleizahl: HTMLInputElement = <HTMLInputElement>document.getElementById("c");
+
+        let pruefen: HTMLElement;
+
+            if (Adresse.value == "" || Postleizahl.value == "" ||  Name.value =="") {
+                document.getElementById("pruefeEinfuegen").innerHTML = "";
+                pruefen = document.getElementById("pruefeEinfuegen");
+                pruefen.innerHTML += " Es fehlen Name, Adresse oder Postleitzahl";
+            }
+            
+            else {
+                document.getElementById("pruefeEinfuegen").innerHTML = "";
+                pruefen = document.getElementById("pruefeEinfuegen");
+                pruefen.innerHTML += " Alles ausgefüllt :)";
+            }
+        }
 
 
 
