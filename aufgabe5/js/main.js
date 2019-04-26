@@ -27,10 +27,10 @@ var aufgabe5;
             let gesamtpreis = `<div> Summe ${summe} € </div>`;
             prodElement.innerHTML = gesamtpreis;
         }
-        /*if (target.id == "Ja") {
-            let preis: string = target.getAttribute("preis");
+        if (target.id == "Ja") {
+            let preis = target.getAttribute("preis");
             summe = summe - Number(preis);
-        }*/
+        }
         else if (target.checked == false) {
             //let preis: string = target.getAttribute("preis");
             summe = summe - Number(preis);
@@ -41,24 +41,13 @@ var aufgabe5;
         }
     }
     function bestellung(_event, _datenArray) {
-        let target = _event.target;
-        if (target.checked == true) {
-            let prodElement = document.createElement("div");
-            document.getElementById("rechnung").appendChild(prodElement);
-            prodElement.innerHTML = target.value;
-        }
-        else if (target.checked == false) {
-            //let value: string = target.getAttribute("value");
-            let input = document.getElementsByTagName("input");
-            let loeschen = document.getElementById("rechnung");
-            for (let h = 0; h < input.length; h++) {
-                if (input[h].value == target.value) {
-                    //document.getElementById("rechnung").innerHTML = "";
-                    loeschen.removeChild(loeschen.childNodes[h]); //Müsste es an dieser Stelle nicht das Kind(Div) löschen welches target.value z.B Schokolade mit input[h].value (müsste doch auch Schokolade sein) vergleicht?
-                    console.log(loeschen);
-                    console.log(input[h].value);
-                    console.log(target.value);
-                }
+        let input = document.getElementsByTagName("input");
+        document.getElementById("rechnung").innerHTML = "";
+        for (let l = 0; l < input.length; l++) {
+            if (input[l].checked == true) {
+                let prodElement = document.createElement("div");
+                document.getElementById("rechnung").appendChild(prodElement);
+                prodElement.innerHTML = input[l].value;
             }
         }
     }

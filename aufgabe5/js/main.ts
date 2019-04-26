@@ -46,10 +46,10 @@ namespace aufgabe5 {
             prodElement.innerHTML = gesamtpreis;
         }
 
-        /*if (target.id == "Ja") {
+        if (target.id == "Ja") {
             let preis: string = target.getAttribute("preis");
             summe = summe - Number(preis);
-        }*/
+        }
 
         else if (target.checked == false) {
             //let preis: string = target.getAttribute("preis");
@@ -67,38 +67,17 @@ namespace aufgabe5 {
 
     function bestellung(_event: Event, _datenArray: Auswahl): void {
 
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-
-        if (target.checked == true) {
-            let prodElement: HTMLDivElement = document.createElement("div");
-            document.getElementById("rechnung").appendChild(prodElement);
-            prodElement.innerHTML = target.value;
-
-        }
-
-        else if (target.checked == false) {
-            //let value: string = target.getAttribute("value");
-            let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-
-            let loeschen: HTMLDivElement = <HTMLDivElement>document.getElementById("rechnung");
-
-            for (let h: number = 0; h < input.length; h++) {
-                if (input[h].value == target.value) {
-                    //document.getElementById("rechnung").innerHTML = "";
-                    loeschen.removeChild(loeschen.childNodes[h]);   //Müsste es an dieser Stelle nicht das Kind(Div) löschen welches target.value z.B Schokolade mit input[h].value (müsste doch auch Schokolade sein) vergleicht?
-                    console.log(loeschen);
-                    console.log(input[h].value);
-                    console.log(target.value);
-
-
-
-
-
-
-                }
+        let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        
+        document.getElementById("rechnung").innerHTML = "";
+        for (let l: number = 0; l < input.length; l++) {
+            if (input[l].checked == true) {
+                let prodElement: HTMLDivElement = document.createElement("div");
+                document.getElementById("rechnung").appendChild(prodElement);
+                prodElement.innerHTML = input[l].value;
             }
-
         }
+        
     }
 
 
