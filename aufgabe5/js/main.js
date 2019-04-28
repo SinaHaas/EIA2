@@ -1,9 +1,3 @@
-/* Aufgabe: <Aufgabe 4>
-    Name: <Sina Haas>
-    Matrikel: <>
-    Datum: <19.04.19>
-    In Zusammenarbeit mit Katharina Schmitt, Julian Schubert und Bente Gossel.
-    */
 var aufgabe5;
 (function (aufgabe5) {
     window.addEventListener("load", init);
@@ -20,40 +14,62 @@ var aufgabe5;
         preisBerechnen(_event);
         bestellung(_event);
     }
-    //Preisberechnung
-    let summe = 0; //global, da sonst bei jedem change gleich 0.
+    let summe = 0;
     function preisBerechnen(_event) {
         let target = _event.target;
-        let preis = target.getAttribute("preis");
+        let eisSumme = 0;
+        //let liefern:number=0;
+        let input = document.getElementsByTagName("input");
         document.getElementById("bestellung").innerHTML = "";
-        if (target.checked) {
-            let prodElement = document.createElement('div');
-            document.getElementById("bestellung").appendChild(prodElement);
-            summe = summe + Number(preis);
-            let gewählt = `<p>Summe: ${summe}€</p>`;
-            prodElement.innerHTML = gewählt;
-        }
-        if (target.id == "Ja") {
+        /*f (target.type=="radio") {
+            let preis: string = target.getAttribute("preis")
+            liefern = liefern + Number(preis);
+        }*/
+        if (target.checked == true && target.type == "checkbox") {
             let preis = target.getAttribute("preis");
-            summe = summe - Number(preis); //Nicht anzeigen lassen, da sonst bei am anfang liefern minus erscheint. 
+            summe = summe + Number(preis);
         }
         if (target.type == "checkbox" && target.checked == false) {
+            let preis = target.getAttribute("preis");
             summe = summe - Number(preis);
-            let prodElement = document.createElement('div');
-            document.getElementById("bestellung").appendChild(prodElement);
-            let gewählt = `<p> Summe: ${summe}€</p>`;
-            prodElement.innerHTML = gewählt;
         }
+        for (let i = 0; i < input.length; i++) {
+            if (input[i].type == "number") {
+                let preis1 = input[i].getAttribute("preis");
+                eisSumme = eisSumme + Number(preis1) * Number(input[i].value);
+            }
+        }
+        let gesamt = eisSumme + summe;
+        //console.log(liefern);
+        let prodElement = document.createElement('div');
+        document.getElementById("bestellung").appendChild(prodElement);
+        let gewählt = `<p>Summe: ${gesamt} €</p>`;
+        prodElement.innerHTML = gewählt;
     }
     //Bestellung anzeigen
     function bestellung(_event) {
         let input = document.getElementsByTagName("input");
-        document.getElementById("rechnung").innerHTML = "";
-        for (let l = 0; l < input.length; l++) {
-            if (input[l].checked == true) {
-                let prodElement = document.createElement("div");
-                document.getElementById("rechnung").appendChild(prodElement);
-                prodElement.innerHTML = input[l].value;
+        let target = _event.target;
+        if (target.type == "checkbox" || target.type == "radio") {
+            document.getElementById("behaelter").innerHTML = "";
+            for (let l = 0; l < input.length; l++) {
+                if (input[l].checked == true) {
+                    let text = input[l].getAttribute("text");
+                    let prodElement = document.createElement("div");
+                    document.getElementById("behaelter").appendChild(prodElement);
+                    prodElement.innerHTML = text;
+                }
+            }
+        }
+        if (target.type == "number") {
+            document.getElementById("rechnung").innerHTML = "";
+            for (let x = 0; x < input.length; x++) {
+                if (target.type == "number" && Number(input[x].value) >= 1) {
+                    let prodElement = document.createElement('div');
+                    document.getElementById("rechnung").appendChild(prodElement);
+                    let gewählt = `<p>${input[x].value} x${input[x].name}</p>`;
+                    prodElement.innerHTML = gewählt;
+                }
             }
         }
     }
@@ -72,11 +88,14 @@ var aufgabe5;
                 //console.log(datenArray);
                 input.setAttribute("name", name[h].name);
                 input.setAttribute("type", name[h].type);
-                input.setAttribute("value", name[h].value);
+                input.setAttribute("value", name[h].value.toString());
                 input.setAttribute("id", name[h].id);
-                input.setAttribute("prufe", name[h].prufe);
+                input.setAttribute("text", name[h].text);
+                input.setAttribute("step", name[h].step.toString());
+                input.setAttribute("min", name[h].min.toString());
+                input.setAttribute("max", name[h].max.toString());
                 input.setAttribute("preis", name[h].preis.toString());
-                label.innerText = name[h].value;
+                label.innerText = name[h].text;
                 label.setAttribute("for", name[h].id);
                 fieldset.appendChild(input);
                 fieldset.appendChild(label);
