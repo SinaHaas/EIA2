@@ -1,0 +1,49 @@
+body{
+    background-color: paleturquoise;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+fieldset {
+    border: solid grey 0.1em;
+    background-color: paleturquoise;
+    border-radius: 15px;
+    margin:1rem;
+    max-width: 40rem ;
+}
+
+button {
+    margin-top: 1em;
+    color: white;
+    background-color: black;
+    border: solid black 0.2em;
+    border-radius: 15px;
+}
+
+
+#fix {
+    position: fixed;
+    z-index: 10;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    max-width: 300px;
+    background-color: grey;
+}
+
+header{
+    display: flex;
+    background-color: rgb(182, 69, 69);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+
+header h1 {
+    padding: 1em;
+}
+
+
+main{
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+}

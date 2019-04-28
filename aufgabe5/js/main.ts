@@ -1,3 +1,9 @@
+/* Aufgabe: <Aufgabe 4>
+    Name: <Sina Haas>
+    Matrikel: <>
+    Datum: <19.04.19>
+    In Zusammenarbeit mit Katharina Schmitt, Julian Schubert und Bente Gossel. 
+    */
 namespace aufgabe5 {
 
 
@@ -14,61 +20,48 @@ namespace aufgabe5 {
             let fieldset: HTMLFieldSetElement = fieldsets[i];
             fieldset.addEventListener("change", handleChange);
         }
-
     }
 
     function handleChange(_event: Event) {
         preisBerechnen(_event);
-        bestellung(_event, /*data*/)
+        bestellung(_event)
     }
 
+    //Preisberechnung
+    let summe: number = 0; //global, da sonst bei jedem change gleich 0.
 
-
-
-    let summe: number = 0;
-
-
-
-    function preisBerechnen(_event: Event): void {
+    function preisBerechnen(_event: Event):void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let preis: string = target.getAttribute("preis");
         document.getElementById("bestellung").innerHTML = "";
 
-        if (target.checked == true) {
-            //let preis: string = target.getAttribute("preis");
-
-            summe = summe + Number(preis);
-
-            let prodElement: HTMLElement = document.createElement("div");
+        if (target.checked) {
+            let prodElement:HTMLDivElement = document.createElement('div');
             document.getElementById("bestellung").appendChild(prodElement);
-            let gesamtpreis: string = `<div> Summe ${summe} € </div>`;
-
-            prodElement.innerHTML = gesamtpreis;
+            summe = summe + Number(preis);
+            let gewählt: string = `<p>Summe: ${summe}€</p>`
+            prodElement.innerHTML = gewählt;
         }
 
         if (target.id == "Ja") {
             let preis: string = target.getAttribute("preis");
-            summe = summe - Number(preis);
+            summe = summe - Number(preis); //Nicht anzeigen lassen, da sonst bei am anfang liefern minus erscheint. 
         }
 
-        else if (target.checked == false) {
-            //let preis: string = target.getAttribute("preis");
+        if (target.type == "checkbox" && target.checked == false) {
             summe = summe - Number(preis);
-
-            let prodElement: HTMLDivElement = document.createElement("div");
+            let prodElement:HTMLDivElement = document.createElement('div');
             document.getElementById("bestellung").appendChild(prodElement);
-            let gesamtpreis: string = `<div> Summe ${summe} € </div>`;
-
-            prodElement.innerHTML = gesamtpreis;
+            let gewählt: string = `<p> Summe: ${summe}€</p>`
+            prodElement.innerHTML = gewählt;
         }
     }
 
-
-
-    function bestellung(_event: Event, /*_datenArray: Auswahl*/): void {
+    //Bestellung anzeigen
+    function bestellung(_event: Event): void {
 
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        
+
         document.getElementById("rechnung").innerHTML = "";
         for (let l: number = 0; l < input.length; l++) {
             if (input[l].checked == true) {
@@ -77,27 +70,8 @@ namespace aufgabe5 {
                 prodElement.innerHTML = input[l].value;
             }
         }
-        
+
     }
-
-
-
-
-
-
-
-
-
-
-    /*function preisBerechnen(_event:Event,datenArray:Auswahl){
-        let target:HTMLElement =<HTMLElement> _event.target;
-        let preis:string= target.getAttribute("preis");
-         
-        let x:number= target.preis  
-        
-    }*/
-
-
 
     //Elemente darstellen
     function elementeAnzeigen(datenArray: Auswahl): void {
@@ -121,6 +95,7 @@ namespace aufgabe5 {
                 input.setAttribute("type", name[h].type);
                 input.setAttribute("value", name[h].value);
                 input.setAttribute("id", name[h].id);
+                input.setAttribute("prufe", name[h].prufe)
                 input.setAttribute("preis", name[h].preis.toString())
                 label.innerText = name[h].value;
 
@@ -132,29 +107,28 @@ namespace aufgabe5 {
         }
     }
 
-
-
-    function pruefeAusgefuellt(): void {
+    //Button 
+    function pruefeAusgefuellt(_event: MouseEvent): void {
 
         let Name: HTMLInputElement = <HTMLInputElement>document.getElementById("a");
         let Adresse: HTMLInputElement = <HTMLInputElement>document.getElementById("b");
         let Postleizahl: HTMLInputElement = <HTMLInputElement>document.getElementById("c");
 
+
         let pruefen: HTMLElement;
 
-            if (Adresse.value == "" || Postleizahl.value == "" ||  Name.value =="") {
-                document.getElementById("pruefeEinfuegen").innerHTML = "";
-                pruefen = document.getElementById("pruefeEinfuegen");
-                pruefen.innerHTML += " Es fehlen Name, Adresse oder Postleitzahl";
-            }
-            
-            else {
-                document.getElementById("pruefeEinfuegen").innerHTML = "";
-                pruefen = document.getElementById("pruefeEinfuegen");
-                pruefen.innerHTML += " Alles ausgefüllt :)";
-            }
+        if (Adresse.value == "" || Postleizahl.value == "" || Name.value == "") {
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
+            pruefen.innerHTML += " Es fehlen Name, Adresse oder Postleitzahl";
         }
 
+        else {
+            document.getElementById("pruefeEinfuegen").innerHTML = "";
+            pruefen = document.getElementById("pruefeEinfuegen");
+            pruefen.innerHTML += " Alles ausgefüllt :)";
+        }
+    }
 
 
 

@@ -1,3 +1,9 @@
+/* Aufgabe: <Aufgabe 4>
+    Name: <Sina Haas>
+    Matrikel: <>
+    Datum: <19.04.19>
+    In Zusammenarbeit mit Katharina Schmitt, Julian Schubert und Bente Gossel.
+    */
 var aufgabe5;
 (function (aufgabe5) {
     window.addEventListener("load", init);
@@ -14,32 +20,32 @@ var aufgabe5;
         preisBerechnen(_event);
         bestellung(_event);
     }
-    let summe = 0;
+    //Preisberechnung
+    let summe = 0; //global, da sonst bei jedem change gleich 0.
     function preisBerechnen(_event) {
         let target = _event.target;
         let preis = target.getAttribute("preis");
         document.getElementById("bestellung").innerHTML = "";
-        if (target.checked == true) {
-            //let preis: string = target.getAttribute("preis");
-            summe = summe + Number(preis);
-            let prodElement = document.createElement("div");
+        if (target.checked) {
+            let prodElement = document.createElement('div');
             document.getElementById("bestellung").appendChild(prodElement);
-            let gesamtpreis = `<div> Summe ${summe} € </div>`;
-            prodElement.innerHTML = gesamtpreis;
+            summe = summe + Number(preis);
+            let gewählt = `<p>Summe: ${summe}€</p>`;
+            prodElement.innerHTML = gewählt;
         }
         if (target.id == "Ja") {
             let preis = target.getAttribute("preis");
-            summe = summe - Number(preis);
+            summe = summe - Number(preis); //Nicht anzeigen lassen, da sonst bei am anfang liefern minus erscheint. 
         }
-        else if (target.checked == false) {
-            //let preis: string = target.getAttribute("preis");
+        if (target.type == "checkbox" && target.checked == false) {
             summe = summe - Number(preis);
-            let prodElement = document.createElement("div");
+            let prodElement = document.createElement('div');
             document.getElementById("bestellung").appendChild(prodElement);
-            let gesamtpreis = `<div> Summe ${summe} € </div>`;
-            prodElement.innerHTML = gesamtpreis;
+            let gewählt = `<p> Summe: ${summe}€</p>`;
+            prodElement.innerHTML = gewählt;
         }
     }
+    //Bestellung anzeigen
     function bestellung(_event) {
         let input = document.getElementsByTagName("input");
         document.getElementById("rechnung").innerHTML = "";
@@ -51,13 +57,6 @@ var aufgabe5;
             }
         }
     }
-    /*function preisBerechnen(_event:Event,datenArray:Auswahl){
-        let target:HTMLElement =<HTMLElement> _event.target;
-        let preis:string= target.getAttribute("preis");
-         
-        let x:number= target.preis
-        
-    }*/
     //Elemente darstellen
     function elementeAnzeigen(datenArray) {
         for (let key in datenArray) {
@@ -75,6 +74,7 @@ var aufgabe5;
                 input.setAttribute("type", name[h].type);
                 input.setAttribute("value", name[h].value);
                 input.setAttribute("id", name[h].id);
+                input.setAttribute("prufe", name[h].prufe);
                 input.setAttribute("preis", name[h].preis.toString());
                 label.innerText = name[h].value;
                 label.setAttribute("for", name[h].id);
@@ -84,7 +84,8 @@ var aufgabe5;
             }
         }
     }
-    function pruefeAusgefuellt() {
+    //Button 
+    function pruefeAusgefuellt(_event) {
         let Name = document.getElementById("a");
         let Adresse = document.getElementById("b");
         let Postleizahl = document.getElementById("c");
