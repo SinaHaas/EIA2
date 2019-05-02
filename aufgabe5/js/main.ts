@@ -17,17 +17,17 @@ namespace aufgabe5 {
     function handleChange(_event: Event) {
         preisBerechnen(_event);
         bestellung(_event)
-    }   
-    
+    }
+
     let summe: number = 0;
-    
-    function preisBerechnen(_event: Event):void {
+
+    function preisBerechnen(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let eisSumme:number =0;
+        let eisSumme: number = 0;
         //let liefern:number=0;
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         document.getElementById("bestellung").innerHTML = "";
-        
+
         /*f (target.type=="radio") {
             let preis: string = target.getAttribute("preis")
             liefern = liefern + Number(preis);
@@ -48,11 +48,11 @@ namespace aufgabe5 {
                 let preis1: string = input[i].getAttribute("preis");
                 eisSumme = eisSumme + Number(preis1) * Number(input[i].value);
             }
-        } 
-        
-        let gesamt:number= eisSumme + summe;
+        }
+
+        let gesamt: number = eisSumme + summe;
         //console.log(liefern);
-        let prodElement:HTMLDivElement = document.createElement('div');
+        let prodElement: HTMLDivElement = document.createElement('div');
         document.getElementById("bestellung").appendChild(prodElement);
         let gewählt: string = `<p>Summe: ${gesamt} €</p>`
         prodElement.innerHTML = gewählt;
@@ -83,7 +83,7 @@ namespace aufgabe5 {
 
                 if (target.type == "number" && Number(input[x].value) >= 1) {
 
-                    let prodElement:HTMLDivElement = document.createElement('div');
+                    let prodElement: HTMLDivElement = document.createElement('div');
                     document.getElementById("rechnung").appendChild(prodElement);
                     let gewählt: string = `<p>${input[x].value} x${input[x].name}</p>`
                     prodElement.innerHTML = gewählt;

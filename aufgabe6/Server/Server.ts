@@ -11,13 +11,14 @@ namespace L05_Server { //Namespace für Aufgabe, Ornder in welcher sich die Aufg
 	server.addListener("listening", handleListen); // ein Eventlistener auf den Server. handleListen wird ausgefürht. Listening hört zu. 
 	server.listen(port); // Serverinstanz hört auf gegegenen Port.
 
+
 	function handleListen(): void { // Funktion handleListen wird erstellt. Typ void. 
 		console.log("Listening"); // Ein Console.log "Listening" wird ausgegeben. Zur Kontrolle ob alles funktioniert. 
 	}
 
 	function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { // In _request wird die eingehende Nachricht des Ports gespeichert und in _response die Antwort des Servers. _respnce=respnce stream 
 		console.log("I hear voices!") // Console.log "I hear voices" wird ausgegeben 
-
+        console.log(_request.url);
 		_response.setHeader("content-type", "text/html; charset=utf-8"); // Fügt zu responce einen Header hinzu. Mit den gegebenen Anforderungen. 
 		_response.setHeader("Access-Control-Allow-Origin", "*"); // Der server_request kann auch von einer anderen Quelle aus aufgerufen werden. Die Quellenangabe wird mitgeschickt. 
 
