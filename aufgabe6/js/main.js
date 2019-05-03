@@ -125,7 +125,7 @@ var aufgabe6;
     function richtigAnzeigen() {
         let input = document.getElementsByTagName("input");
         for (let x = 0; x < input.length; x++) {
-            if (input[x].type == "checkbox" || input[x].type == "radio" && input[x].checked == true) {
+            if (input[x].type == "checkbox" && input[x].checked == true) {
                 input[x].setAttribute("value", "1");
             }
         }
