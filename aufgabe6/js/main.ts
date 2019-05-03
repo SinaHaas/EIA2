@@ -159,15 +159,10 @@ namespace aufgabe6 {
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
 
         for (let x: number = 0; x < input.length; x++) {
-
             if (input[x].type == "checkbox" && input[x].checked == true) {
-            input[x].setAttribute("value", "1");
-                
+            input[x].setAttribute("value", "1");     
             }
-            
         }
-        
-        
     }
 
 
