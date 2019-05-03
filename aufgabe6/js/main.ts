@@ -1,4 +1,5 @@
 namespace aufgabe6 {
+    //let address: string = "http://localhost:8100";
 
     window.addEventListener("load", init);
 
@@ -6,6 +7,7 @@ namespace aufgabe6 {
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
         document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);
+        document.getElementById("submit").addEventListener("click", richtigAnzeigen);
         elementeAnzeigen(data);
 
         for (let i: number = 0; i < fieldsets.length; i++) {
@@ -124,8 +126,8 @@ namespace aufgabe6 {
                 label.setAttribute("for", name[h].id);
                 fieldset.appendChild(input);
                 fieldset.appendChild(label);
-                document.body.appendChild(fieldset);
-            }
+                document.getElementById("anhang").appendChild(fieldset);
+            } 
         }
     }
 
@@ -149,7 +151,27 @@ namespace aufgabe6 {
             pruefen = document.getElementById("pruefeEinfuegen");
             pruefen.innerHTML += " Alles ausgefüllt :)";
         }
+
+        
     }
+
+    function richtigAnzeigen(){
+        let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+
+        for (let x: number = 0; x < input.length; x++) {
+
+            if (input[x].type == "checkbox" || input[x].type == "radio" && input[x].checked == true) {
+            input[x].setAttribute("value", "1");
+                
+            }
+        }
+        
+        
+    }
+
+
+    
+
 
 
 

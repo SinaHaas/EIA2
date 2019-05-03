@@ -1,10 +1,12 @@
-var aufgabe5;
-(function (aufgabe5) {
+var aufgabe6;
+(function (aufgabe6) {
+    //let address: string = "http://localhost:8100";
     window.addEventListener("load", init);
     function init(_event) {
         let fieldsets = document.getElementsByTagName("fieldset");
         document.getElementById("prufe").addEventListener("click", pruefeAusgefuellt);
-        elementeAnzeigen(aufgabe5.data);
+        document.getElementById("submit").addEventListener("click", richtigAnzeigen);
+        elementeAnzeigen(aufgabe6.data);
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", handleChange);
@@ -99,7 +101,7 @@ var aufgabe5;
                 label.setAttribute("for", name[h].id);
                 fieldset.appendChild(input);
                 fieldset.appendChild(label);
-                document.body.appendChild(fieldset);
+                document.getElementById("anhang").appendChild(fieldset);
             }
         }
     }
@@ -120,5 +122,13 @@ var aufgabe5;
             pruefen.innerHTML += " Alles ausgefüllt :)";
         }
     }
-})(aufgabe5 || (aufgabe5 = {}));
+    function richtigAnzeigen() {
+        let input = document.getElementsByTagName("input");
+        for (let x = 0; x < input.length; x++) {
+            if (input[x].type == "checkbox" || input[x].type == "radio" && input[x].checked == true) {
+                input[x].setAttribute("value", "1");
+            }
+        }
+    }
+})(aufgabe6 || (aufgabe6 = {}));
 //# sourceMappingURL=main.js.map

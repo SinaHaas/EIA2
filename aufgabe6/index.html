@@ -14,46 +14,56 @@
 </head>
 
 <body>
-    <header>
-        <h1>Eisdealer</h1>
-    </header>
-    <main>
-        <fieldset id="fix">
-            <div id="bestellung">
-                <legend>Ihre Bestellung</legend>
-            </div>
+    <form action="https://eia2-sina-haas.herokuapp.com/" method="get">
+        <header>
+            <h1>Eisdealer</h1>
+        </header>
+        <main>
 
-            <div id="behaelter"></div>
+            <div id="anhang"></div>
 
-            <div id="lief"></div>
+            <fieldset id="fix">
+                <div id="bestellung">
+                    <legend>Ihre Bestellung</legend>
+                </div>
 
-            <div id="rechnung"></div>
+                <div id="behaelter"></div>
+
+                <div id="lief"></div>
+
+                <div id="rechnung"></div>
 
 
-            <button id="prufe">Prüfen</button>
-            <div id="pruefeEinfuegen"></div>
-        </fieldset>
+                <button id="prufe">Prüfen</button>
+                <div id="pruefeEinfuegen"></div>
+            </fieldset>
 
-        <fieldset>
+            <fieldset>
 
-            <legend>Deine Daten</legend>
+                <legend>Deine Daten</legend>
 
-            <input type="text" name="Name" placeholder="Name" id="a" required="" />
-            <hr />
+                <input type="text" name="Name" placeholder="Name" id="a" required="" />
+                <hr />
 
-            <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
-            <hr />
+                <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
+                <hr />
 
-            Postleitzahl
-            <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c" required="" />
-            <hr />
+                Postleitzahl
+                <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c"
+                    required="" />
+                <hr />
 
-            Telefon
-            <input type="text" name="Telefon" placeholder="Nummer bitte" />
-            <hr />
+                Telefon
+                <input type="text" name="Telefon" placeholder="Nummer bitte" />
+                <hr />
 
-        </fieldset>
-    </main>
+            </fieldset>
+            <button type="submit" id="submit">Submit</button>
+
+
+
+        </main>
+    </form>
 </body>
 
 </html>
