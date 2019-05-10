@@ -1,5 +1,5 @@
 namespace aufgabe7 {
-    let adresse: string = "https://eia2-sina-haas.herokuapp.com/";
+    let adresse: string ="https://eia2-sina-haas.herokuapp.com/";
 
     window.addEventListener("load", init);
 
@@ -223,8 +223,6 @@ namespace aufgabe7 {
             document.getElementById("bla").innerHTML = "";
             pruefen = document.getElementById("bla");
             pruefen.innerHTML += xhr.response;
-
-
         }
     }
 

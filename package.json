@@ -5,7 +5,7 @@
 	"author": "Sina Haas",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node ./aufgabe7/Server/Server.js"
+		"start": "node aufgabe7/Server/Server.js"
 	},
 	"engines": {
 		"node": "8.11.3"
