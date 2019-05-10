@@ -1,6 +1,7 @@
 var aufgabe7;
 (function (aufgabe7) {
-    let adresse = "https://eia2-sina-haas.herokuapp.com/";
+    let adresse = "https://eia2-sina-haas.herokuapp.com/?";
+    //let adresse: string ="http://localhost:8100/?";
     window.addEventListener("load", init);
     function init(_event) {
         let fieldsets = document.getElementsByTagName("fieldset");

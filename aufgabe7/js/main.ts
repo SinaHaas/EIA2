@@ -1,5 +1,6 @@
 namespace aufgabe7 {
-    let adresse: string ="https://eia2-sina-haas.herokuapp.com/";
+    let adresse: string ="https://eia2-sina-haas.herokuapp.com/?";
+    //let adresse: string ="http://localhost:8100/?";
 
     window.addEventListener("load", init);
 
@@ -45,7 +46,7 @@ namespace aufgabe7 {
         if (target.type == "checkbox" && target.checked == false) {
             let preis: string = target.getAttribute("preis");
             summe = summe - Number(preis);
-        }
+        } 
 
         for (let i: number = 0; i < input.length; i++) {
             if (input[i].type == "number") {
