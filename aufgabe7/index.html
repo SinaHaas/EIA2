@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eis Dealer</title>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+
+</head>
+
+<body>
+    <!--<form action="https://eia2-sina-haas.herokuapp.com/" method="get">-->
+    
+        <header>
+            <h1>Eisdealer</h1>
+        </header>
+        <main>
+
+            <div id="anhang"></div>
+
+            <fieldset id="fix">
+                <div id="bestellung">
+                    <legend>Ihre Bestellung</legend>
+                </div>
+
+                <div id="behaelter"></div>
+
+                <div id="lief"></div>
+
+                <div id="rechnung"></div>
+
+
+                <button id="prufe">Prüfen</button>
+                <div id="pruefeEinfuegen"></div>
+                <div id="bla"></div>
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Deine Daten</legend>
+
+                <input type="text" name="Name" placeholder="Name" id="a" required="" />
+                <hr />
+
+                <input type="text" name="Adresse" placeholder="Musterweg 20" id="b" required="" />
+                <hr />
+
+                Postleitzahl
+                <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="Postleitzahl" id="c"
+                    required="" />
+                <hr />
+
+                Telefon
+                <input type="text" name="Telefon" placeholder="Nummer bitte" />
+                <hr />
+
+            </fieldset>
+            <button id="submit">Submit</button>
+
+
+
+        </main>
+    
+</body>
+
+</html>
