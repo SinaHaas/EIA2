@@ -168,7 +168,7 @@ namespace aufgabe7 {
         }
     }
 
-    function informationUebergeben() {
+    function informationUebergeben():void {
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let adr: string = "";
 
@@ -206,7 +206,7 @@ namespace aufgabe7 {
         console.log(adresse + adr);
     }
 
-    function anfrageAbschicken(_adr: string) {
+    function anfrageAbschicken(_adr: string):void {
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", adresse + _adr, true);
