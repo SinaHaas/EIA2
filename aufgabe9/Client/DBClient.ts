@@ -7,7 +7,7 @@ namespace DBClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("gesucht");
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", gesucht);
@@ -32,7 +32,7 @@ namespace DBClient {
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=search";
         query += "&gesucht=" + inputs[3].value;
-        sendRequest(query, handleGesucht);
+        sendRequest(query, handleFindResponse);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -56,15 +56,6 @@ namespace DBClient {
             output.value = xhr.response;
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
-        }
-    }
-
-    function handleGesucht(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            //let output.value = xhr.response;
-            let Json: JSON = JSON.parse(xhr.response);
-            console.log(Json);
         }
     }
 }
