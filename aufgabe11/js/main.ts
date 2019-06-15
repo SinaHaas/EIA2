@@ -4,6 +4,9 @@ namespace aufgabe11 {
     export let crc: CanvasRenderingContext2D;
     let canvas: HTMLCanvasElement;
     let fishArray: Fish[] = [];
+    let biggerFish: BigFish[] = [];
+    let Pferdchen: Seepferdchen[] = [];
+    let Blubberblasen: Blub[] = [];
     let fps: number = 30;
     let imageData: ImageData;
 
@@ -47,7 +50,7 @@ namespace aufgabe11 {
         for (let i: number = 0; i < 2; i++) {
             let x: number = Math.random() * (600 - 100) + 200;
             let y: number = Math.random() * (350 - 100) + 100;
-            let dx: number = Math.random() * -10;
+            let dx: number = Math.random() * - 10;
             let dy: number = 0;
             let fish2: BigFish;
             fish2 = new BigFish();
@@ -55,7 +58,7 @@ namespace aufgabe11 {
             fish2.y = y;
             fish2.dx = dx;
             fish2.dy = dy;
-            fishArray.push(fish2);
+            biggerFish.push(fish2);
             fish2.draw();
             console.log(fish2);
         }
@@ -63,15 +66,15 @@ namespace aufgabe11 {
         for (let i: number = 0; i < 2; i++) {
             let x: number = Math.random() * (700 - 200) + 200;
             let y: number = Math.random() * (350 - 200) + 200;
-            let dx: number = Math.random() * 10 - 5;
-            let dy: number = Math.random() * 10 - 5;
+            let dx: number = Math.random() * 5;
+            let dy: number = Math.random() * -5;
             let seepferd: Seepferdchen;
             seepferd = new Seepferdchen();
             seepferd.x = x;
             seepferd.y = y;
             seepferd.dx = dx;
             seepferd.dy = dy;
-            fishArray.push(seepferd);
+            Pferdchen.push(seepferd);
             seepferd.draw();
             console.log(seepferd);
         }
@@ -87,7 +90,7 @@ namespace aufgabe11 {
             blub.y = y;
             blub.dx = dx;
             blub.dy = dy;
-            fishArray.push(blub);
+            Blubberblasen.push(blub);
             blub.draw();
             console.log(blub);
         }
@@ -102,6 +105,15 @@ namespace aufgabe11 {
 
         for (let i: number = 0; i < fishArray.length; i++) {
             fishArray[i].update();
+        }
+        for (let i: number = 0; i < biggerFish.length; i++) {
+            biggerFish[i].update();
+        }
+        for (let i: number = 0; i < Pferdchen.length; i++) {
+            Pferdchen[i].update();
+        }
+        for (let i: number = 0; i < Blubberblasen.length; i++) {
+            Blubberblasen[i].update();
         }
     }
 

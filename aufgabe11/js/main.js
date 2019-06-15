@@ -3,6 +3,9 @@ var aufgabe11;
     document.addEventListener("DOMContentLoaded", init);
     let canvas;
     let fishArray = [];
+    let biggerFish = [];
+    let Pferdchen = [];
+    let Blubberblasen = [];
     let fps = 30;
     let imageData;
     function init() {
@@ -51,22 +54,22 @@ var aufgabe11;
             fish2.y = y;
             fish2.dx = dx;
             fish2.dy = dy;
-            fishArray.push(fish2);
+            biggerFish.push(fish2);
             fish2.draw();
             console.log(fish2);
         }
         for (let i = 0; i < 2; i++) {
             let x = Math.random() * (700 - 200) + 200;
             let y = Math.random() * (350 - 200) + 200;
-            let dx = Math.random() * 10 - 5;
-            let dy = Math.random() * 10 - 5;
+            let dx = Math.random() * 5;
+            let dy = Math.random() * -5;
             let seepferd;
             seepferd = new aufgabe11.Seepferdchen();
             seepferd.x = x;
             seepferd.y = y;
             seepferd.dx = dx;
             seepferd.dy = dy;
-            fishArray.push(seepferd);
+            Pferdchen.push(seepferd);
             seepferd.draw();
             console.log(seepferd);
         }
@@ -81,7 +84,7 @@ var aufgabe11;
             blub.y = y;
             blub.dx = dx;
             blub.dy = dy;
-            fishArray.push(blub);
+            Blubberblasen.push(blub);
             blub.draw();
             console.log(blub);
         }
@@ -93,6 +96,15 @@ var aufgabe11;
         aufgabe11.crc.putImageData(imageData, 0, 0);
         for (let i = 0; i < fishArray.length; i++) {
             fishArray[i].update();
+        }
+        for (let i = 0; i < biggerFish.length; i++) {
+            biggerFish[i].update();
+        }
+        for (let i = 0; i < Pferdchen.length; i++) {
+            Pferdchen[i].update();
+        }
+        for (let i = 0; i < Blubberblasen.length; i++) {
+            Blubberblasen[i].update();
         }
     }
     function boden() {
