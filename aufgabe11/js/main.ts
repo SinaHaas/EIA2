@@ -7,13 +7,14 @@ namespace aufgabe11 {
     let biggerFish: BigFish[] = [];
     let pferdchen: Seepferdchen[] = [];
     let blubberblasen: Blub[] = [];
+    let blubberblasenZwei: Blub[] = [];
     let fps: number = 30;
     let imageData: ImageData;
 
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
-        boden();
+        hintergrund();
         for (let i: number = 0; i < 30; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
             let y: number = Math.random() * (270 - 120) + 120;
@@ -24,12 +25,12 @@ namespace aufgabe11 {
             let y: number = Math.random() * (560 - 450) + 450;
             pflanze(x, y);
         }
-        pflanze2();
-        qualle();
+
+
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
         //Animiert
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < 15; i++) {
             let x: number = Math.random() * (600 - 200) + 200;
             let y: number = Math.random() * (300 - 1) + 1;
             //let x: number = Math.random() * canvas.width;
@@ -94,6 +95,21 @@ namespace aufgabe11 {
             blub.draw();
             console.log(blub);
         }
+        for (let i: number = 0; i < 30; i++) {
+            let x: number = Math.random() * (200 - 20) + 20;
+            let y: number = Math.random() * canvas.height;
+            let dx: number = 0;
+            let dy: number = Math.random() * -10;
+            let blub2: BlubZwei;
+            blub2 = new BlubZwei();
+            blub2.x = x;
+            blub2.y = y;
+            blub2.dx = dx;
+            blub2.dy = dy;
+            blubberblasenZwei.push(blub2);
+            blub2.draw();
+            console.log(blub2);
+        }
 
         update();
     }
@@ -115,23 +131,14 @@ namespace aufgabe11 {
         for (let i: number = 0; i < blubberblasen.length; i++) {
             blubberblasen[i].update();
         }
-    }
-
-    function boden(): void {
-
-        let wasser: Path2D = new Path2D();
-        wasser.rect(0, 0, 900, 600);
-        crc.fillStyle = "seagreen";
-        crc.fill(wasser);
-
-        let boden: Path2D = new Path2D();
-        boden.rect(0, 400, 900, 200);
-        crc.fillStyle = "saddlebrown";
-        crc.fill(boden);
+        for (let i: number = 0; i < blubberblasenZwei.length; i++) {
+            blubberblasenZwei[i].update();
+        }
     }
 
     function kies(_x: number, _y: number): void {
         let steine: Path2D = new Path2D();
+        crc.lineWidth = 2;
         crc.strokeStyle = "black";
         steine.arc(_x + 50, _y + 300, 7, Math.PI, 2 * Math.PI);
         crc.fillStyle = "chocolate";
@@ -156,7 +163,17 @@ namespace aufgabe11 {
         crc.fill(pflanz);
     }
 
-    function pflanze2(): void {
+
+    function hintergrund() {
+        let wasser: Path2D = new Path2D();
+        wasser.rect(0, 0, 900, 600);
+        crc.fillStyle = "seagreen";
+        crc.fill(wasser);
+
+        let boden: Path2D = new Path2D();
+        boden.rect(0, 400, 900, 200);
+        crc.fillStyle = "saddlebrown";
+        crc.fill(boden);
 
         let pflanz2: Path2D = new Path2D();
         crc.strokeStyle = "black";
@@ -172,9 +189,7 @@ namespace aufgabe11 {
         crc.lineWidth = 3;
         crc.stroke(pflanz2);
         crc.fill(pflanz2);
-    }
 
-    function qualle(): void {
         let qual: Path2D = new Path2D();
         crc.fillStyle = "orange";
 
@@ -214,7 +229,6 @@ namespace aufgabe11 {
             crc.fill(augeInnen);
         }
     }
-
 
 
 

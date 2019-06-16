@@ -6,12 +6,13 @@ var aufgabe11;
     let biggerFish = [];
     let pferdchen = [];
     let blubberblasen = [];
+    let blubberblasenZwei = [];
     let fps = 30;
     let imageData;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         aufgabe11.crc = canvas.getContext("2d");
-        boden();
+        hintergrund();
         for (let i = 0; i < 30; i++) {
             let x = Math.random() * (800 - 200) + 200;
             let y = Math.random() * (270 - 120) + 120;
@@ -22,11 +23,9 @@ var aufgabe11;
             let y = Math.random() * (560 - 450) + 450;
             pflanze(x, y);
         }
-        pflanze2();
-        qualle();
         imageData = aufgabe11.crc.getImageData(0, 0, canvas.width, canvas.height);
         //Animiert
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 15; i++) {
             let x = Math.random() * (600 - 200) + 200;
             let y = Math.random() * (300 - 1) + 1;
             //let x: number = Math.random() * canvas.width;
@@ -88,6 +87,21 @@ var aufgabe11;
             blub.draw();
             console.log(blub);
         }
+        for (let i = 0; i < 30; i++) {
+            let x = Math.random() * (200 - 20) + 20;
+            let y = Math.random() * canvas.height;
+            let dx = 0;
+            let dy = Math.random() * -10;
+            let blub2;
+            blub2 = new aufgabe11.BlubZwei();
+            blub2.x = x;
+            blub2.y = y;
+            blub2.dx = dx;
+            blub2.dy = dy;
+            blubberblasenZwei.push(blub2);
+            blub2.draw();
+            console.log(blub2);
+        }
         update();
     }
     function update() {
@@ -106,19 +120,13 @@ var aufgabe11;
         for (let i = 0; i < blubberblasen.length; i++) {
             blubberblasen[i].update();
         }
-    }
-    function boden() {
-        let wasser = new Path2D();
-        wasser.rect(0, 0, 900, 600);
-        aufgabe11.crc.fillStyle = "seagreen";
-        aufgabe11.crc.fill(wasser);
-        let boden = new Path2D();
-        boden.rect(0, 400, 900, 200);
-        aufgabe11.crc.fillStyle = "saddlebrown";
-        aufgabe11.crc.fill(boden);
+        for (let i = 0; i < blubberblasenZwei.length; i++) {
+            blubberblasenZwei[i].update();
+        }
     }
     function kies(_x, _y) {
         let steine = new Path2D();
+        aufgabe11.crc.lineWidth = 2;
         aufgabe11.crc.strokeStyle = "black";
         steine.arc(_x + 50, _y + 300, 7, Math.PI, 2 * Math.PI);
         aufgabe11.crc.fillStyle = "chocolate";
@@ -140,7 +148,15 @@ var aufgabe11;
         aufgabe11.crc.stroke(pflanz);
         aufgabe11.crc.fill(pflanz);
     }
-    function pflanze2() {
+    function hintergrund() {
+        let wasser = new Path2D();
+        wasser.rect(0, 0, 900, 600);
+        aufgabe11.crc.fillStyle = "seagreen";
+        aufgabe11.crc.fill(wasser);
+        let boden = new Path2D();
+        boden.rect(0, 400, 900, 200);
+        aufgabe11.crc.fillStyle = "saddlebrown";
+        aufgabe11.crc.fill(boden);
         let pflanz2 = new Path2D();
         aufgabe11.crc.strokeStyle = "black";
         aufgabe11.crc.fillStyle = "darkgreen";
@@ -154,8 +170,6 @@ var aufgabe11;
         aufgabe11.crc.lineWidth = 3;
         aufgabe11.crc.stroke(pflanz2);
         aufgabe11.crc.fill(pflanz2);
-    }
-    function qualle() {
         let qual = new Path2D();
         aufgabe11.crc.fillStyle = "orange";
         qual.arc(700, 100, 50, Math.PI, 2 * Math.PI);
