@@ -4,8 +4,8 @@ var aufgabe11;
     let canvas;
     let fishArray = [];
     let biggerFish = [];
-    let Pferdchen = [];
-    let Blubberblasen = [];
+    let pferdchen = [];
+    let blubberblasen = [];
     let fps = 30;
     let imageData;
     function init() {
@@ -69,7 +69,7 @@ var aufgabe11;
             seepferd.y = y;
             seepferd.dx = dx;
             seepferd.dy = dy;
-            Pferdchen.push(seepferd);
+            pferdchen.push(seepferd);
             seepferd.draw();
             console.log(seepferd);
         }
@@ -84,7 +84,7 @@ var aufgabe11;
             blub.y = y;
             blub.dx = dx;
             blub.dy = dy;
-            Blubberblasen.push(blub);
+            blubberblasen.push(blub);
             blub.draw();
             console.log(blub);
         }
@@ -100,11 +100,11 @@ var aufgabe11;
         for (let i = 0; i < biggerFish.length; i++) {
             biggerFish[i].update();
         }
-        for (let i = 0; i < Pferdchen.length; i++) {
-            Pferdchen[i].update();
+        for (let i = 0; i < pferdchen.length; i++) {
+            pferdchen[i].update();
         }
-        for (let i = 0; i < Blubberblasen.length; i++) {
-            Blubberblasen[i].update();
+        for (let i = 0; i < blubberblasen.length; i++) {
+            blubberblasen[i].update();
         }
     }
     function boden() {
