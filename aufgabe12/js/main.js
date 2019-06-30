@@ -26,16 +26,20 @@ var aufgabe12;
             aufgabe12.bewegteDingeArray.push(blub);
         }
         for (let i = 0; i < 2; i++) {
-            let fisch = new aufgabe12.BigFish();
-            aufgabe12.bewegteDingeArray.push(fisch);
+            let fischi = new aufgabe12.BigFish(Math.random());
+            aufgabe12.bewegteDingeArray.push(fischi);
         }
+        /*for (let i:number = 0; i < 3; i++){
+            let fischi: Fish = new Fish("red");
+            bewegteDingeArray.push(fischi);
+        }*/
         for (let i = 0; i < 16; i++) {
-            let fisch = new aufgabe12.Fish();
-            aufgabe12.bewegteDingeArray.push(fisch);
+            let fischi = new aufgabe12.Fish();
+            aufgabe12.bewegteDingeArray.push(fischi);
         }
         for (let i = 0; i < 2; i++) {
-            let fisch = new aufgabe12.Seepferdchen();
-            aufgabe12.bewegteDingeArray.push(fisch);
+            let fischi = new aufgabe12.Seepferdchen();
+            aufgabe12.bewegteDingeArray.push(fischi);
         }
         update();
     }
@@ -128,7 +132,7 @@ var aufgabe12;
     function hermitdemfutter(_event) {
         let xCanvas = _event.clientX;
         let yCanvas = _event.clientY;
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             let NomNom = new aufgabe12.Futter(xCanvas, yCanvas);
             aufgabe12.bewegteDingeArray.push(NomNom);
         }

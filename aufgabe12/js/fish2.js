@@ -1,12 +1,12 @@
 var aufgabe12;
 (function (aufgabe12) {
     class BigFish extends aufgabe12.bewegteDinge {
-        constructor() {
-            super(Math.random());
-            this.x = Math.random() * (600 - 100) + 200;
-            this.y = Math.random() * (350 - 100) + 100;
+        constructor(_x) {
+            super(_x);
+            this.x = _x * (600 - 100) + 200;
+            this.y = _x * (350 - 100) + 100;
             ;
-            this.dx = Math.random() * -10;
+            this.dx = _x * -10;
             this.dy = 0;
         }
         draw() {

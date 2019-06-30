@@ -2,11 +2,11 @@
 namespace aufgabe12 {
     export class BigFish extends bewegteDinge {
 
-        constructor() {
-            super(Math.random());
-            this.x = Math.random()* (600 - 100) + 200;
-            this.y = Math.random()* (350 - 100) + 100;;
-            this.dx = Math.random() * -10;
+        constructor(_x:number) {
+            super(_x);
+            this.x = _x* (600 - 100) + 200;
+            this.y = _x* (350 - 100) + 100;;
+            this.dx = _x * -10;
             this.dy = 0;
 
         }

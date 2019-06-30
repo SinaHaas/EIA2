@@ -1,18 +1,18 @@
 var aufgabe12;
 (function (aufgabe12) {
     class Futter extends aufgabe12.bewegteDinge {
-        constructor(_x, _y) {
+        constructor(_xK, _yK) {
             super(Math.random());
-            this.x = _x;
-            this.y = _y;
+            this.x = _xK;
+            this.y = _yK;
             this.dx = Math.random();
             this.dy = Math.random() * (8 - 2) + 2;
         }
         draw() {
             let nom = new Path2D();
-            nom.arc(this.x, this.y, 4, Math.PI, 2 * Math.PI);
-            aufgabe12.crc.fillStyle = "red";
+            nom.arc(this.x, this.y, 7, Math.PI, 2 * Math.PI);
             aufgabe12.crc.strokeStyle = "red";
+            aufgabe12.crc.fillStyle = "red";
             aufgabe12.crc.fill(nom);
             aufgabe12.crc.stroke(nom);
         }

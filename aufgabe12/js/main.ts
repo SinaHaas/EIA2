@@ -32,16 +32,20 @@ namespace aufgabe12 {
             bewegteDingeArray.push(blub);
         }
         for (let i: number = 0; i < 2; i++) {
-            let fisch: BigFish = new BigFish();
-            bewegteDingeArray.push(fisch);
+            let fischi: BigFish = new BigFish(Math.random());
+            bewegteDingeArray.push(fischi);
         }
+        /*for (let i:number = 0; i < 3; i++){
+            let fischi: Fish = new Fish("red");
+            bewegteDingeArray.push(fischi);
+        }*/
         for (let i: number = 0; i < 16; i++) {
-            let fisch: Fish = new Fish();
-            bewegteDingeArray.push(fisch);
+            let fischi: Fish = new Fish();
+            bewegteDingeArray.push(fischi);
         }
         for (let i: number = 0; i < 2; i++) {
-            let fisch: Seepferdchen = new Seepferdchen();
-            bewegteDingeArray.push(fisch);
+            let fischi: Seepferdchen = new Seepferdchen();
+            bewegteDingeArray.push(fischi);
         }
         update();
     }
@@ -84,7 +88,7 @@ namespace aufgabe12 {
     }
 
 
-    function hintergrund() {
+    function hintergrund(): void {
         let wasser: Path2D = new Path2D();
         wasser.rect(0, 0, 900, 600);
         crc.fillStyle = "seagreen";
@@ -153,11 +157,10 @@ namespace aufgabe12 {
     function hermitdemfutter(_event: MouseEvent): void {
         let xCanvas: number =  _event.clientX;
         let yCanvas: number =  _event.clientY;
-        for (let i: number = 0; i < 5; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let NomNom: Futter = new Futter(xCanvas, yCanvas);
             bewegteDingeArray.push(NomNom);
-        }
-    }
+        }}
 
 
 

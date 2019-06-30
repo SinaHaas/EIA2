@@ -2,7 +2,7 @@ namespace aufgabe12 {
     export class Fish extends BigFish {
         
         constructor() {
-            super();
+            super(Math.random());
             this.dx = Math.random() * 10;
         }
 

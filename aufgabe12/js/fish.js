@@ -2,7 +2,7 @@ var aufgabe12;
 (function (aufgabe12) {
     class Fish extends aufgabe12.BigFish {
         constructor() {
-            super();
+            super(Math.random());
             this.dx = Math.random() * 10;
         }
         draw() {

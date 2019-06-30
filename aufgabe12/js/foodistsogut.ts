@@ -1,20 +1,20 @@
 namespace aufgabe12 {
     export class Futter extends bewegteDinge {
 
-        constructor(_x: number, _y: number) {
+        constructor(_xK: number, _yK: number) {
             super(Math.random());
-            this.x = _x;
-            this.y = _y;
+            this.x = _xK;
+            this.y = _yK;
             this.dx = Math.random();
             this.dy = Math.random() * (8 - 2) + 2;
         }
 
         draw(): void {
             let nom: Path2D = new Path2D();
-            nom.arc(this.x, this.y, 4, Math.PI, 2 * Math.PI);
-            crc.fillStyle = "red";
+            nom.arc(this.x, this.y, 7, Math.PI, 2 * Math.PI);
             crc.strokeStyle = "red";
-            crc.fill(nom);
+            crc.fillStyle = "red";
+            crc.fill(nom); 
             crc.stroke(nom);
         }
 
