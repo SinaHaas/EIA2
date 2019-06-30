@@ -1,5 +1,5 @@
 namespace aufgabe12 {
-    export class Futter extends bewegteDinge {
+    export class Foodistsogut extends bewegteDinge {
 
         constructor(_xK: number, _yK: number) {
             super(Math.random());

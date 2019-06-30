@@ -1,6 +1,6 @@
 var aufgabe12;
 (function (aufgabe12) {
-    class Futter extends aufgabe12.bewegteDinge {
+    class Foodistsogut extends aufgabe12.bewegteDinge {
         constructor(_xK, _yK) {
             super(Math.random());
             this.x = _xK;
@@ -25,6 +25,6 @@ var aufgabe12;
             }
         }
     }
-    aufgabe12.Futter = Futter;
+    aufgabe12.Foodistsogut = Foodistsogut;
 })(aufgabe12 || (aufgabe12 = {}));
 //# sourceMappingURL=foodistsogut.js.map

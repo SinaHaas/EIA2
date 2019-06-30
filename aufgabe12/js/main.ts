@@ -158,7 +158,7 @@ namespace aufgabe12 {
         let xCanvas: number =  _event.clientX;
         let yCanvas: number =  _event.clientY;
         for (let i: number = 0; i < 10; i++) {
-            let NomNom: Futter = new Futter(xCanvas, yCanvas);
+            let NomNom: Foodistsogut = new Foodistsogut(xCanvas, yCanvas);
             bewegteDingeArray.push(NomNom);
         }}
 

@@ -133,7 +133,7 @@ var aufgabe12;
         let xCanvas = _event.clientX;
         let yCanvas = _event.clientY;
         for (let i = 0; i < 10; i++) {
-            let NomNom = new aufgabe12.Futter(xCanvas, yCanvas);
+            let NomNom = new aufgabe12.Foodistsogut(xCanvas, yCanvas);
             aufgabe12.bewegteDingeArray.push(NomNom);
         }
     }
