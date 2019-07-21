@@ -1,13 +1,15 @@
 
 namespace aufgabe13 {
     export class BigFish extends bewegteDinge {
+        ofType: string;
 
-        constructor(_x:number,_y:number) {
+        constructor(_x: number, _y: number) {
             super();
-            this.x = _x* (600 - 100) + 200;
-            this.y = _y* (350 - 100) + 100;;
+            this.x = _x * (600 - 100) + 200;
+            this.y = _y * (350 - 100) + 100;;
             this.dx = _x * -10;
             this.dy = 0;
+            this.ofType = "GroßerFisch";
         }
 
         draw(): void {

@@ -164,23 +164,5 @@ var aufgabe13;
             aufgabe13.AllesArray.push(NomNom);
         }
     }
-    // function fressFische(): void {
-    //     for (let i: number = 0; i < AllesArray.length; i++) {
-    //         console.log("hi");
-    //         //let distance:number = Math.sqrt(this.x*this.x) * Math.sqrt(AllesArray[i].x*AllesArray[i].x);
-    //         let xDistance: number = AllesArray[i].x - spielfisch.x;
-    //         let yDistance: number = AllesArray[i].y - spielfisch.y;
-    //         let distance: number = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    //         // if(distance < 0){
-    //         //     delete AllesArray[i];
-    //         // }#
-    //         console.log(AllesArray[i].x)
-    //         //console.log(AllesArray[i])
-    //         console.log(distance);
-    //         if (distance < 100) {
-    //             alert("hi");
-    //         }
-    //     }
-    // }
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=main.js.map

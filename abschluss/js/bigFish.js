@@ -8,6 +8,7 @@ var aufgabe13;
             ;
             this.dx = _x * -10;
             this.dy = 0;
+            this.ofType = "GroßerFisch";
         }
         draw() {
             let fischiUnten = new Path2D();

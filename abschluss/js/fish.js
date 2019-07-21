@@ -7,13 +7,14 @@ var aufgabe13;
             this.y = _y * (350 - 100) + 100;
             this.dx = _x * 10;
             this.dy = 0;
+            this.ofType = "kleinerFisch";
         }
         draw() {
             let schweif = new Path2D();
-            schweif.moveTo(this.x + 90, this.y + 70);
-            schweif.lineTo(this.x + 50, this.y + 50);
-            schweif.lineTo(this.x + 60, this.y + 70);
-            schweif.lineTo(this.x + 50, this.y + 90);
+            schweif.moveTo(this.x, this.y);
+            schweif.lineTo(this.x + 20, this.y - 20);
+            schweif.lineTo(this.x + 10, this.y);
+            schweif.lineTo(this.x + 20, this.y + 20);
             aufgabe13.crc.fillStyle = "gold";
             aufgabe13.crc.strokeStyle = "black";
             aufgabe13.crc.lineWidth = 1;
@@ -21,7 +22,7 @@ var aufgabe13;
             schweif.closePath();
             aufgabe13.crc.stroke(schweif);
             let fischi = new Path2D();
-            fischi.arc(this.x + 100, this.y + 70, 10, 0, 2 * Math.PI);
+            fischi.arc(this.x - 10, this.y, 10, 0, 2 * Math.PI);
             aufgabe13.crc.strokeStyle = "black";
             aufgabe13.crc.lineWidth = 3;
             aufgabe13.crc.fillStyle = "blue";

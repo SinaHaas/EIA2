@@ -1,5 +1,6 @@
 namespace aufgabe13 {
     export class Fish extends bewegteDinge {
+        ofType:string;
         
         constructor(_x:number,_y:number) {
             super();
@@ -7,14 +8,15 @@ namespace aufgabe13 {
             this.y = _y* (350 - 100) + 100;
             this.dx = _x * 10;
             this.dy = 0;
+            this.ofType = "kleinerFisch";
         }
 
         draw(): void {
             let schweif: Path2D = new Path2D();
-            schweif.moveTo(this.x + 90, this.y + 70);
-            schweif.lineTo(this.x + 50, this.y + 50);
-            schweif.lineTo(this.x + 60, this.y + 70);
-            schweif.lineTo(this.x + 50, this.y + 90);
+            schweif.moveTo(this.x, this.y);
+            schweif.lineTo(this.x+20, this.y-20);
+            schweif.lineTo(this.x+10, this.y);
+            schweif.lineTo(this.x+20, this.y+20);
             crc.fillStyle = "gold";
             crc.strokeStyle = "black";
             crc.lineWidth = 1;
@@ -23,7 +25,7 @@ namespace aufgabe13 {
             crc.stroke(schweif);
 
             let fischi: Path2D = new Path2D();
-            fischi.arc(this.x + 100, this.y + 70, 10, 0, 2 * Math.PI);
+            fischi.arc(this.x -10, this.y, 10, 0, 2 * Math.PI);
             crc.strokeStyle = "black";
             crc.lineWidth = 3;
             crc.fillStyle = "blue";
