@@ -76,15 +76,21 @@ namespace aufgabe13 {
                     this.groesse += 3;
                     this.abstandSchweif += 3;
                     this.abstandSchweif2 += 3;
-                    highscore = highscore + 1; 
+                    highscore = highscore + 1;
                     highscoreFunk();
+
+                    let fischi: Fish = new Fish(Math.random(), Math.random());
+                    AllesArray.push(fischi);
                 }
                 if (distance < 30 && AllesArray[i] != spielfisch && this.groesse > 60 && AllesArray[i].ofType == "GroßerFisch") {
                     AllesArray.splice(i, 1);
                     highscore = highscore + 5;
                     highscoreFunk();
+                    
+                    let fischi: BigFish = new BigFish(Math.random(), Math.random());
+                    AllesArray.push(fischi);
                 }
-                if(distance < 30 && AllesArray[i]!= spielfisch && this.groesse < 60 && AllesArray[i].ofType == "GroßerFisch"){
+                if (distance < 30 && AllesArray[i] != spielfisch && this.groesse < 60 && AllesArray[i].ofType == "GroßerFisch") {
                     alert("Du hast verloren :(")
                 }
 

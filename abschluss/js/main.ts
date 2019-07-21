@@ -199,7 +199,6 @@ namespace aufgabe13 {
         }
     }
 
-
     export function highscoreFunk(){
         document.getElementById("highscore").innerHTML="";
         let prodElement: HTMLDivElement = document.createElement("div");
