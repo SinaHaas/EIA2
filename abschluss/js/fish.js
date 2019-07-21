@@ -5,7 +5,6 @@ var aufgabe13;
             super();
             this.x = _x * (600 - 100) + 200;
             this.y = _y * (350 - 100) + 100;
-            ;
             this.dx = _x * 10;
             this.dy = 0;
         }

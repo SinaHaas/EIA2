@@ -13,6 +13,11 @@ namespace aufgabe13 {
 
         update(): void {
             this.draw();
+            this.fressFische();
+        }
+
+        fressFische(){
+            //
         }
 
     }

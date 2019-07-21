@@ -9,6 +9,10 @@ var aufgabe13;
         }
         update() {
             this.draw();
+            this.fressFische();
+        }
+        fressFische() {
+            //
         }
     }
     aufgabe13.AlleObjekte = AlleObjekte;

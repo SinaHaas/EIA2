@@ -9,6 +9,8 @@ namespace aufgabe13 {
     let imageData: ImageData;
     export let spielfisch: Spielfisch;
 
+    // console.log(AllesArray);
+
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
@@ -29,10 +31,10 @@ namespace aufgabe13 {
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
         //Animiert
-        for (let i: number = 0; i < 20; i++) {
-            let blub: bewegteDinge = new bewegteDinge();
-            AllesArray.push(blub);
-        }
+        // for (let i: number = 0; i < 20; i++) {
+        //     let blub: bewegteDinge = new bewegteDinge();
+        //     AllesArray.push(blub);
+        // }
         for (let i: number = 0; i < 2; i++) {
             let fischi: BigFish = new BigFish(Math.random(), Math.random());
             AllesArray.push(fischi);
@@ -47,7 +49,9 @@ namespace aufgabe13 {
         }
         spielfisch = new Spielfisch(canvas.width / 2, canvas.height / 2);
         AllesArray.push(spielfisch);
+
         update();
+        // fressFische();
     }
 
     function bewegungSpielfisch(_event: KeyboardEvent) {
@@ -191,6 +195,29 @@ namespace aufgabe13 {
             AllesArray.push(NomNom);
         }
     }
+
+
+    // function fressFische(): void {
+    //     for (let i: number = 0; i < AllesArray.length; i++) {
+    //         console.log("hi");
+    //         //let distance:number = Math.sqrt(this.x*this.x) * Math.sqrt(AllesArray[i].x*AllesArray[i].x);
+    //         let xDistance: number = AllesArray[i].x - spielfisch.x;
+    //         let yDistance: number = AllesArray[i].y - spielfisch.y;
+
+    //         let distance: number = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+    //         // if(distance < 0){
+    //         //     delete AllesArray[i];
+    //         // }#
+    //         console.log(AllesArray[i].x)
+    //         //console.log(AllesArray[i])
+    //         console.log(distance);
+
+    //         if (distance < 100) {
+    //             alert("hi");
+    //         }
+    //     }
+    // }
 
 
 

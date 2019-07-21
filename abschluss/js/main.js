@@ -5,6 +5,7 @@ var aufgabe13;
     aufgabe13.AllesArray = [];
     let fps = 30;
     let imageData;
+    // console.log(AllesArray);
     function init() {
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
         aufgabe13.crc = aufgabe13.canvas.getContext("2d");
@@ -22,10 +23,10 @@ var aufgabe13;
         aufgabe13.canvas.addEventListener("click", hermitdemfutter);
         imageData = aufgabe13.crc.getImageData(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
         //Animiert
-        for (let i = 0; i < 20; i++) {
-            let blub = new aufgabe13.bewegteDinge();
-            aufgabe13.AllesArray.push(blub);
-        }
+        // for (let i: number = 0; i < 20; i++) {
+        //     let blub: bewegteDinge = new bewegteDinge();
+        //     AllesArray.push(blub);
+        // }
         for (let i = 0; i < 2; i++) {
             let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fischi);
@@ -41,6 +42,7 @@ var aufgabe13;
         aufgabe13.spielfisch = new aufgabe13.Spielfisch(aufgabe13.canvas.width / 2, aufgabe13.canvas.height / 2);
         aufgabe13.AllesArray.push(aufgabe13.spielfisch);
         update();
+        // fressFische();
     }
     function bewegungSpielfisch(_event) {
         if (_event.keyCode == 39) { //rechts
@@ -162,5 +164,23 @@ var aufgabe13;
             aufgabe13.AllesArray.push(NomNom);
         }
     }
+    // function fressFische(): void {
+    //     for (let i: number = 0; i < AllesArray.length; i++) {
+    //         console.log("hi");
+    //         //let distance:number = Math.sqrt(this.x*this.x) * Math.sqrt(AllesArray[i].x*AllesArray[i].x);
+    //         let xDistance: number = AllesArray[i].x - spielfisch.x;
+    //         let yDistance: number = AllesArray[i].y - spielfisch.y;
+    //         let distance: number = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+    //         // if(distance < 0){
+    //         //     delete AllesArray[i];
+    //         // }#
+    //         console.log(AllesArray[i].x)
+    //         //console.log(AllesArray[i])
+    //         console.log(distance);
+    //         if (distance < 100) {
+    //             alert("hi");
+    //         }
+    //     }
+    // }
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=main.js.map
