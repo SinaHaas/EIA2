@@ -5,6 +5,8 @@ var aufgabe13;
     aufgabe13.AllesArray = [];
     let fps = 30;
     let imageData;
+    aufgabe13.highscore = 0;
+    console.log(aufgabe13.highscore);
     // console.log(AllesArray);
     function init() {
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
@@ -164,5 +166,12 @@ var aufgabe13;
             aufgabe13.AllesArray.push(NomNom);
         }
     }
+    function highscoreFunk() {
+        document.getElementById("highscore").innerHTML = "";
+        let prodElement = document.createElement("div");
+        prodElement.innerHTML = `<div> ${aufgabe13.highscore}</div>`;
+        document.getElementById("highscore").appendChild(prodElement);
+    }
+    aufgabe13.highscoreFunk = highscoreFunk;
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=main.js.map

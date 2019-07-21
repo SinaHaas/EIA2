@@ -8,7 +8,8 @@ namespace aufgabe13 {
     let fps: number = 30;
     let imageData: ImageData;
     export let spielfisch: Spielfisch;
-    export let highscore: number;
+    export let highscore: number = 0;
+    console.log(highscore);
 
     // console.log(AllesArray);
 
@@ -52,6 +53,7 @@ namespace aufgabe13 {
         AllesArray.push(spielfisch);
 
         update();
+        
         // fressFische();
     }
 
@@ -198,6 +200,12 @@ namespace aufgabe13 {
     }
 
 
+    export function highscoreFunk(){
+        document.getElementById("highscore").innerHTML="";
+        let prodElement: HTMLDivElement = document.createElement("div");
+        prodElement.innerHTML = `<div> ${highscore}</div>`;
+        document.getElementById("highscore").appendChild(prodElement);
+    }
 
 
 

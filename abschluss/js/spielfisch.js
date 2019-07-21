@@ -61,11 +61,13 @@ var aufgabe13;
                     this.groesse += 3;
                     this.abstandSchweif += 3;
                     this.abstandSchweif2 += 3;
-                    aufgabe13.highscore += 1;
+                    aufgabe13.highscore = aufgabe13.highscore + 1;
+                    aufgabe13.highscoreFunk();
                 }
                 if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     aufgabe13.AllesArray.splice(i, 1);
-                    aufgabe13.highscore += 5;
+                    aufgabe13.highscore = aufgabe13.highscore + 5;
+                    aufgabe13.highscoreFunk();
                 }
                 if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     alert("Du hast verloren :(");
