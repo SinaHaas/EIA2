@@ -21,7 +21,7 @@ function handleConnect(_e, _client) {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        spieler = db.collection("students");
+        spieler = db.collection("punktezahl");
     }
 }
 function insert(_doc) {

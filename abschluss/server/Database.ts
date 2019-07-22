@@ -25,7 +25,7 @@ function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        spieler = db.collection("students");
+        spieler = db.collection("punktezahl");
     }
 }
 
