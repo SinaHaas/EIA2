@@ -10,7 +10,7 @@ namespace aufgabe13 {
     export let spielfisch: Spielfisch;
     export let highscore: number = 0;
     console.log(highscore);
-    
+
 
     // console.log(AllesArray);
 
@@ -18,7 +18,7 @@ namespace aufgabe13 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         hintergrund();
-        
+
 
         for (let i: number = 0; i < 50; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
@@ -293,8 +293,8 @@ namespace aufgabe13 {
         window.location.reload();
     }
 
-    
-  
+
+
 
 
 

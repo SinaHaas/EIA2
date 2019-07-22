@@ -29,10 +29,12 @@ var aufgabe13;
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let AlleSpieler = JSON.parse(xhr.response);
+            for (let i = 0; i < AlleSpieler.length; i++) {
+                let nameS = AlleSpieler[i].name;
+                let scoreS = AlleSpieler[i].punktzahl;
+            }
+            console.log(AlleSpieler);
         }
     }
 })(aufgabe13 || (aufgabe13 = {}));
