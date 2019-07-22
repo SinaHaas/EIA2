@@ -33,7 +33,6 @@ var aufgabe13;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let AlleSpieler = JSON.parse(xhr.response);
             let SortierteScores = [];
-            AlleSpieler.sort();
             for (let i = 0; i < AlleSpieler.length; i++) {
                 let nameS = AlleSpieler[i].name;
                 let scoreS = AlleSpieler[i].punktzahl;
@@ -56,10 +55,10 @@ var aufgabe13;
         let scoreA = a.punktzahl;
         let scoreB = b.punktzahl;
         if (scoreA < scoreB) {
-            return -1;
+            return 1;
         }
         if (scoreA > scoreB) {
-            return 1;
+            return -1;
         }
         return 0;
     }

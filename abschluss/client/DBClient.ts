@@ -36,7 +36,6 @@ namespace aufgabe13 {
             let AlleSpieler: Spieler[] = JSON.parse(xhr.response);
             let SortierteScores: string[] = [];
 
-            AlleSpieler.sort();
             for (let i: number = 0; i < AlleSpieler.length; i++) {
                 let nameS: string = AlleSpieler[i].name;
                 let scoreS: number = AlleSpieler[i].punktzahl;
@@ -57,14 +56,14 @@ namespace aufgabe13 {
         }
     }
 
-    function compareNumbers(a: Spieler, b: Spieler): number {
+    function compareNumbers(a: Spieler, b: Spieler): number { //Highscore Vergleich und danach wird das Array sortiert 
         let scoreA: number = a.punktzahl;
         let scoreB: number = b.punktzahl;
         if (scoreA < scoreB) {
-            return -1;
+            return 1;
         }
         if (scoreA > scoreB) {
-            return 1;
+            return -1;
         }
         return 0;
     }
