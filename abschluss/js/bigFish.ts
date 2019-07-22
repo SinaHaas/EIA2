@@ -5,7 +5,7 @@ namespace aufgabe13 {
 
         constructor(_x: number, _y: number) {
             super();
-            this.x = _x * (50 - 5) + 5;
+            this.x = _x * (10 - 5) + 5;
             this.y = _y * (350 - 100) + 100;
             this.dx = _x * -10;
             this.dy = 0;

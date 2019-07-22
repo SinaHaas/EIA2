@@ -3,7 +3,7 @@ var aufgabe13;
     class BigFish extends aufgabe13.bewegteDinge {
         constructor(_x, _y) {
             super();
-            this.x = _x * (50 - 5) + 5;
+            this.x = _x * (10 - 5) + 5;
             this.y = _y * (350 - 100) + 100;
             this.dx = _x * -10;
             this.dy = 0;

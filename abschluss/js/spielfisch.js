@@ -51,7 +51,7 @@ var aufgabe13;
                 let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
                 let radiusOfDistance = 30;
                 // console.log(AllesArray[i].x)
-                //console.log(AllesArray[i])
+                //console.log(AllesArray[i]) 
                 // console.log(distance);
                 //Fress kleinen Fisch egal wann 
                 if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && aufgabe13.AllesArray[i].ofType == "kleinerFisch") {
@@ -60,6 +60,7 @@ var aufgabe13;
                     this.groesse += 1;
                     this.abstandSchweif += 1;
                     this.abstandSchweif2 += 1;
+                    this.schweifAnfang += 1;
                     aufgabe13.highscore = aufgabe13.highscore + 1;
                     aufgabe13.highscoreFunk();
                     let fischi = new aufgabe13.Fish(Math.random(), Math.random());
@@ -82,6 +83,7 @@ var aufgabe13;
                 //Tod wenn großer Fisch
                 if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     alert("Du hast verloren :(");
+                    aufgabe13.nameEingeben();
                 }
             }
         }

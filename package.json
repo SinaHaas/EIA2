@@ -1,11 +1,11 @@
 {
 	"name": "miniserver",
 	"version": "1.0.0",
-	"description": "Aufgabe 9",
+	"description": "Aufgabe Ende",
 	"author": "Sina Haas",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node aufgabe9/Server/Server.js"
+		"start": "node abschluss/server/Server.js"
 	},
 	"engines": {
 		"node": "8.11.3"

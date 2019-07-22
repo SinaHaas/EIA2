@@ -11,6 +11,7 @@ namespace aufgabe13 {
     export let highscore: number = 0;
     console.log(highscore);
 
+
     // console.log(AllesArray);
 
     function init(): void {
@@ -95,10 +96,14 @@ namespace aufgabe13 {
         }
     }
 
+    let timeout: number;
 
+    function setTimeOut() {
+         timeout = window.setTimeout(update, 1000 / fps);
+    }
 
     function update(): void {
-        window.setTimeout(update, 1000 / fps);
+        setTimeOut();
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
@@ -277,6 +282,12 @@ namespace aufgabe13 {
         document.getElementById("highscore").appendChild(prodElement);
     }
 
+    export let spielerName: string; 
+    export function nameEingeben(): void {
+        window.clearTimeout(timeout);
+        spielerName = prompt( "Deine Punkte:" + highscore + "" + "wie heißt du?");
+        insert();
+    }
 
 
 

@@ -82,8 +82,12 @@ var aufgabe13;
             }
         }
     }
+    let timeout;
+    function setTimeOut() {
+        timeout = window.setTimeout(update, 1000 / fps);
+    }
     function update() {
-        window.setTimeout(update, 1000 / fps);
+        setTimeOut();
         aufgabe13.crc.clearRect(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
         aufgabe13.crc.putImageData(imageData, 0, 0);
         for (let i = 0; i < aufgabe13.AllesArray.length; i++) {
@@ -234,5 +238,11 @@ var aufgabe13;
         document.getElementById("highscore").appendChild(prodElement);
     }
     aufgabe13.highscoreFunk = highscoreFunk;
+    function nameEingeben() {
+        window.clearTimeout(timeout);
+        aufgabe13.spielerName = prompt("Deine Punkte:" + aufgabe13.highscore + "" + "wie heißt du?");
+        aufgabe13.insert();
+    }
+    aufgabe13.nameEingeben = nameEingeben;
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=main.js.map

@@ -64,7 +64,7 @@ namespace aufgabe13 {
                 let radiusOfDistance: number = 30;
 
                 // console.log(AllesArray[i].x)
-                //console.log(AllesArray[i])
+                //console.log(AllesArray[i]) 
                 // console.log(distance);
 
                 //Fress kleinen Fisch egal wann 
@@ -74,6 +74,7 @@ namespace aufgabe13 {
                     this.groesse += 1;
                     this.abstandSchweif += 1;
                     this.abstandSchweif2 += 1;
+                    this.schweifAnfang += 1;
                     highscore = highscore + 1;
                     highscoreFunk();
 
@@ -101,6 +102,7 @@ namespace aufgabe13 {
                 //Tod wenn großer Fisch
                 if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse < 60 && AllesArray[i].ofType == "GroßerFisch") {
                     alert("Du hast verloren :(")
+                    nameEingeben();
                 }
             }
         }
