@@ -20,6 +20,8 @@ var aufgabe13;
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
+    let score = 0;
+    let scoresImArray;
     function handleInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -30,12 +32,36 @@ var aufgabe13;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let AlleSpieler = JSON.parse(xhr.response);
+            let SortierteScores = [];
+            AlleSpieler.sort();
             for (let i = 0; i < AlleSpieler.length; i++) {
                 let nameS = AlleSpieler[i].name;
                 let scoreS = AlleSpieler[i].punktzahl;
+                // if (score < AlleSpieler[i].punktzahl) {
+                //     score = AlleSpieler[i].punktzahl;
+                //     scoresImArray = score.toString + AlleSpieler[i].name;
+                // }
+                AlleSpieler.sort(compareNumbers);
             }
+            // for (let i: number = 0; i < AlleSpieler.length; i++) {
+            //     if (score == AlleSpieler[i].punktzahl) {
+            //         AlleSpieler.splice(i, 1);
+            //         SortierteScores.push(scoresImArray);
+            //     }
+            // }
             console.log(AlleSpieler);
         }
+    }
+    function compareNumbers(a, b) {
+        let scoreA = a.punktzahl;
+        let scoreB = b.punktzahl;
+        if (scoreA < scoreB) {
+            return -1;
+        }
+        if (scoreA > scoreB) {
+            return 1;
+        }
+        return 0;
     }
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=DBClient.js.map
