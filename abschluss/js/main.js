@@ -12,6 +12,7 @@ var aufgabe13;
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
         aufgabe13.crc = aufgabe13.canvas.getContext("2d");
         hintergrund();
+        aufgabe13.refresh();
         for (let i = 0; i < 50; i++) {
             let x = Math.random() * (800 - 200) + 200;
             let y = Math.random() * (270 - 120) + 120;
@@ -54,7 +55,6 @@ var aufgabe13;
         aufgabe13.spielfisch = new aufgabe13.Spielfisch(aufgabe13.canvas.width / 2, aufgabe13.canvas.height / 2);
         aufgabe13.AllesArray.push(aufgabe13.spielfisch);
         update();
-        aufgabe13.refresh();
         // fressFische();
     }
     function bewegungSpielfisch(_event) {

@@ -18,6 +18,7 @@ namespace aufgabe13 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         hintergrund();
+        refresh();
 
 
         for (let i: number = 0; i < 50; i++) {
@@ -66,7 +67,7 @@ namespace aufgabe13 {
         AllesArray.push(spielfisch);
 
         update();
-        refresh();
+        
 
         // fressFische();
     }
