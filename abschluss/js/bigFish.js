@@ -3,16 +3,15 @@ var aufgabe13;
     class BigFish extends aufgabe13.bewegteDinge {
         constructor(_x, _y) {
             super();
-            this.x = _x * (600 - 100) + 200;
+            this.x = _x * (50 - 5) + 5;
             this.y = _y * (350 - 100) + 100;
-            ;
             this.dx = _x * -10;
             this.dy = 0;
             this.ofType = "GroßerFisch";
         }
         draw() {
             let fischiUnten = new Path2D();
-            aufgabe13.crc.fillStyle = "crimson";
+            aufgabe13.crc.fillStyle = "blue";
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             aufgabe13.crc.stroke(fischiUnten);

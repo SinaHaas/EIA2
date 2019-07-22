@@ -5,75 +5,82 @@ var aufgabe13;
             super();
             this.x = _x;
             this.y = _y;
-            this.groesse = 30;
-            this.auge = 13;
+            this.groesse = 20;
+            this.auge = 10;
             this.augeinn = 5;
-            this.abstandSchweif = this.groesse + 50;
+            this.abstandSchweif = this.groesse + 40;
             this.abstandSchweif2 = this.groesse + 20;
             this.ofType = "SpielfischKlein";
+            this.schweifAnfang = 20;
         }
         draw() {
+            let schweif = new Path2D();
+            schweif.moveTo(this.x + this.schweifAnfang, this.y);
+            schweif.lineTo(this.x + this.abstandSchweif, this.y - 50);
+            schweif.lineTo(this.x + this.abstandSchweif2, this.y);
+            schweif.lineTo(this.x + this.abstandSchweif, this.y + 50);
+            aufgabe13.crc.fillStyle = "MediumTurquoise";
+            aufgabe13.crc.strokeStyle = "black";
+            aufgabe13.crc.lineWidth = 3;
+            aufgabe13.crc.fill(schweif);
+            schweif.closePath();
+            aufgabe13.crc.stroke(schweif);
             let fischi = new Path2D();
             fischi.arc(this.x, this.y, this.groesse, 0, 2 * Math.PI);
             aufgabe13.crc.strokeStyle = "black";
-            aufgabe13.crc.lineWidth = 3;
-            aufgabe13.crc.fillStyle = "purple";
+            aufgabe13.crc.lineWidth = 5;
+            aufgabe13.crc.fillStyle = "yellow";
             aufgabe13.crc.stroke(fischi);
             aufgabe13.crc.fill(fischi);
             let fischiAUge = new Path2D();
-            fischiAUge.arc(this.x, this.y, this.auge, 0, 2 * Math.PI);
+            fischiAUge.arc(this.x - 10, this.y, this.auge, 0, 2 * Math.PI);
             aufgabe13.crc.fillStyle = "white";
             aufgabe13.crc.strokeStyle = "black";
             aufgabe13.crc.stroke(fischiAUge);
             aufgabe13.crc.fill(fischiAUge);
             let augeInnen = new Path2D();
-            augeInnen.arc(this.x, this.y, this.augeinn, 0, 2 * Math.PI);
+            augeInnen.arc(this.x - 10, this.y, this.augeinn, 0, 2 * Math.PI);
             aufgabe13.crc.fillStyle = "black";
             aufgabe13.crc.fill(augeInnen);
-            let schweif = new Path2D();
-            schweif.moveTo(this.x + this.groesse, this.y);
-            schweif.lineTo(this.x + this.abstandSchweif, this.y - 50);
-            schweif.lineTo(this.x + this.abstandSchweif2, this.y);
-            schweif.lineTo(this.x + this.abstandSchweif, this.y + 50);
-            aufgabe13.crc.fillStyle = "gold";
-            aufgabe13.crc.strokeStyle = "black";
-            aufgabe13.crc.lineWidth = 1;
-            aufgabe13.crc.fill(schweif);
-            schweif.closePath();
-            aufgabe13.crc.stroke(schweif);
         }
         fressFische() {
             for (let i = 0; i < aufgabe13.AllesArray.length; i++) {
                 // console.log("hi");
-                //let distance:number = Math.sqrt(this.x*this.x) * Math.sqrt(AllesArray[i].x*AllesArray[i].x);
                 let xDistance = aufgabe13.AllesArray[i].x - this.x;
                 let yDistance = aufgabe13.AllesArray[i].y - this.y;
                 let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-                // if(distance < 0){
-                //     delete AllesArray[i];
-                // }
+                let radiusOfDistance = 30;
                 // console.log(AllesArray[i].x)
                 //console.log(AllesArray[i])
                 // console.log(distance);
+                //Fress kleinen Fisch egal wann 
                 if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && aufgabe13.AllesArray[i].ofType == "kleinerFisch") {
                     // console.log(AllesArray[i]);
                     aufgabe13.AllesArray.splice(i, 1);
-                    this.groesse += 3;
-                    this.abstandSchweif += 3;
-                    this.abstandSchweif2 += 3;
+                    this.groesse += 1;
+                    this.abstandSchweif += 1;
+                    this.abstandSchweif2 += 1;
                     aufgabe13.highscore = aufgabe13.highscore + 1;
                     aufgabe13.highscoreFunk();
                     let fischi = new aufgabe13.Fish(Math.random(), Math.random());
                     aufgabe13.AllesArray.push(fischi);
                 }
-                if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
+                //Fress Großen Fisch wenn größer
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     aufgabe13.AllesArray.splice(i, 1);
                     aufgabe13.highscore = aufgabe13.highscore + 5;
                     aufgabe13.highscoreFunk();
                     let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
                     aufgabe13.AllesArray.push(fischi);
                 }
-                if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
+                //Fress mittleren Fisch wenn größer 
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 30 && aufgabe13.AllesArray[i].ofType == "mitteFisch") {
+                    aufgabe13.AllesArray.splice(i, 1);
+                    aufgabe13.highscore = aufgabe13.highscore + 3;
+                    aufgabe13.highscoreFunk();
+                }
+                //Tod wenn großer Fisch
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     alert("Du hast verloren :(");
                 }
             }

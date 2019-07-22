@@ -18,25 +18,36 @@ namespace aufgabe13 {
         crc = canvas.getContext("2d");
         hintergrund();
 
-        for (let i: number = 0; i < 30; i++) {
+        for (let i: number = 0; i < 50; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
             let y: number = Math.random() * (270 - 120) + 120;
             kies(x, y);
         }
-        for (let i: number = 0; i < 10; i++) {
-            let x: number = Math.random() * (900 - 1) + 1;
-            let y: number = Math.random() * (560 - 450) + 450;
+        for (let i: number = 0; i < 20; i++) {
+            let x: number = Math.random() * (850 - 200) + 200;
+            let y: number = Math.random() * (600 - 400) + 400;
+            pflanze3(x, y);
+        }
+        for (let i: number = 0; i < 5; i++) {
+            let x: number = Math.random() * (300 - 1) + 1;
+            let y: number = Math.random() * (500 - 400) + 400;
             pflanze(x, y);
         }
+        for (let i: number = 0; i < 2; i++) {
+            let x: number = Math.random() * (850 - 200) + 200;
+            let y: number = 550
+            pflanze2(x, y);
+        }
+
 
         canvas.addEventListener("click", hermitdemfutter);
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
         //Animiert
-        // for (let i: number = 0; i < 20; i++) {
-        //     let blub: bewegteDinge = new bewegteDinge();
-        //     AllesArray.push(blub);
-        // }
+        for (let i: number = 0; i < 50; i++) {
+            let blub: Blub = new Blub(Math.random(), Math.random());
+            AllesArray.push(blub);
+        }
         for (let i: number = 0; i < 2; i++) {
             let fischi: BigFish = new BigFish(Math.random(), Math.random());
             AllesArray.push(fischi);
@@ -45,7 +56,7 @@ namespace aufgabe13 {
             let fischi: Fish = new Fish(Math.random(), Math.random());
             AllesArray.push(fischi);
         }
-        for (let i: number = 0; i < 2; i++) {
+        for (let i: number = 0; i < 4; i++) {
             let fischi: Seepferdchen = new Seepferdchen(Math.random(), Math.random());
             AllesArray.push(fischi);
         }
@@ -53,7 +64,7 @@ namespace aufgabe13 {
         AllesArray.push(spielfisch);
 
         update();
-        
+
         // fressFische();
     }
 
@@ -99,7 +110,7 @@ namespace aufgabe13 {
     function kies(_x: number, _y: number): void {
         let steine: Path2D = new Path2D();
         crc.lineWidth = 2;
-        crc.strokeStyle = "black";
+        crc.strokeStyle = "brown";
         steine.arc(_x + 50, _y + 300, 7, Math.PI, 2 * Math.PI);
         crc.fillStyle = "chocolate";
         crc.fill(steine);
@@ -108,8 +119,8 @@ namespace aufgabe13 {
 
     function pflanze(_x: number, _y: number): void {
         let pflanz: Path2D = new Path2D();
-        crc.strokeStyle = "black";
-        crc.fillStyle = "lime";
+        crc.strokeStyle = "green";
+        crc.fillStyle = "springgreen";
 
         pflanz.moveTo(_x, _y);
         pflanz.lineTo(_x - 25, _y - 50);
@@ -123,6 +134,57 @@ namespace aufgabe13 {
         crc.fill(pflanz);
     }
 
+    function pflanze2(_x: number, _y: number): void {
+        let pflanz: Path2D = new Path2D();
+        crc.lineWidth = 3;
+        crc.strokeStyle = "green";
+        crc.fillStyle = "yellowgreen";
+
+        pflanz.arc(_x, _y, 50, 0, 2 * Math.PI);
+        crc.stroke(pflanz);
+        crc.fill(pflanz);
+
+        let pflanz2: Path2D = new Path2D();
+        pflanz2.arc(_x, _y - 80, 30, 0, 2 * Math.PI);
+        crc.stroke(pflanz2);
+        crc.fill(pflanz2);
+
+        let pflanz3: Path2D = new Path2D();
+        crc.strokeStyle = "green";
+        crc.fillStyle = "yellowgreen";
+        crc.lineWidth = 3;
+        pflanz3.arc(_x, _y - 122, 10, 0, 2 * Math.PI);
+        crc.stroke(pflanz3);
+        crc.fill(pflanz3);
+
+        let pflanz4: Path2D = new Path2D();
+        crc.fillStyle = "crimson";
+        crc.strokeStyle = "red";
+        pflanz4.arc(_x, _y - 138, 3, 0, 2 * Math.PI);
+        crc.stroke(pflanz4);
+        crc.fill(pflanz4);
+    }
+
+    function pflanze3(_x: number, _y: number): void {
+        let pflanz2: Path2D = new Path2D();
+        crc.lineWidth = 3;
+        crc.strokeStyle = "green";
+        crc.fillStyle = "yellowgreen";
+
+        pflanz2.moveTo(_x, _y);
+        pflanz2.quadraticCurveTo(_x - 10, _y - 20, _x, _y - 40);
+        pflanz2.moveTo(_x, _y - 40);
+        pflanz2.quadraticCurveTo(_x + 10, _y - 60, _x, _y - 80);
+        crc.lineWidth = 5;
+        crc.stroke(pflanz2);
+
+        let pflanz: Path2D = new Path2D();
+        pflanz.moveTo(_x, _y);
+        pflanz.quadraticCurveTo(_x - 20, _y - 20, _x, _y - 40);
+        crc.lineWidth = 5;
+        crc.stroke(pflanz);
+    }
+
 
     function hintergrund(): void {
         let wasser: Path2D = new Path2D();
@@ -132,11 +194,11 @@ namespace aufgabe13 {
 
         let boden: Path2D = new Path2D();
         boden.rect(0, 400, 900, 200);
-        crc.fillStyle = "saddlebrown";
+        crc.fillStyle = "goldenrod";
         crc.fill(boden);
 
         let pflanz2: Path2D = new Path2D();
-        crc.strokeStyle = "black";
+        crc.strokeStyle = "green";
         crc.fillStyle = "darkgreen";
 
         pflanz2.moveTo(800, 550);
@@ -175,6 +237,15 @@ namespace aufgabe13 {
         crc.lineWidth = 5;
         crc.stroke(arme);
 
+        let steine: Path2D = new Path2D();
+        crc.strokeStyle = "grey";
+        crc.fillStyle = "grey";
+        steine.moveTo(20, 600);
+        steine.quadraticCurveTo(80, 400, 140, 600);
+        steine.closePath();
+        crc.fill(steine);
+        crc.stroke(steine);
+
         for (let i: number = 0; i < 60; i = i + 50) {
 
             let x: number = 675 + i;
@@ -199,8 +270,8 @@ namespace aufgabe13 {
         }
     }
 
-    export function highscoreFunk(){
-        document.getElementById("highscore").innerHTML="";
+    export function highscoreFunk() {
+        document.getElementById("highscore").innerHTML = "";
         let prodElement: HTMLDivElement = document.createElement("div");
         prodElement.innerHTML = `<div> ${highscore}</div>`;
         document.getElementById("highscore").appendChild(prodElement);

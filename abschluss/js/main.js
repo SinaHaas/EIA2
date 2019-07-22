@@ -12,23 +12,33 @@ var aufgabe13;
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
         aufgabe13.crc = aufgabe13.canvas.getContext("2d");
         hintergrund();
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 50; i++) {
             let x = Math.random() * (800 - 200) + 200;
             let y = Math.random() * (270 - 120) + 120;
             kies(x, y);
         }
-        for (let i = 0; i < 10; i++) {
-            let x = Math.random() * (900 - 1) + 1;
-            let y = Math.random() * (560 - 450) + 450;
+        for (let i = 0; i < 20; i++) {
+            let x = Math.random() * (850 - 200) + 200;
+            let y = Math.random() * (600 - 400) + 400;
+            pflanze3(x, y);
+        }
+        for (let i = 0; i < 5; i++) {
+            let x = Math.random() * (300 - 1) + 1;
+            let y = Math.random() * (500 - 400) + 400;
             pflanze(x, y);
+        }
+        for (let i = 0; i < 2; i++) {
+            let x = Math.random() * (850 - 200) + 200;
+            let y = 550;
+            pflanze2(x, y);
         }
         aufgabe13.canvas.addEventListener("click", hermitdemfutter);
         imageData = aufgabe13.crc.getImageData(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
         //Animiert
-        // for (let i: number = 0; i < 20; i++) {
-        //     let blub: bewegteDinge = new bewegteDinge();
-        //     AllesArray.push(blub);
-        // }
+        for (let i = 0; i < 50; i++) {
+            let blub = new aufgabe13.Blub(Math.random(), Math.random());
+            aufgabe13.AllesArray.push(blub);
+        }
         for (let i = 0; i < 2; i++) {
             let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fischi);
@@ -37,7 +47,7 @@ var aufgabe13;
             let fischi = new aufgabe13.Fish(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fischi);
         }
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 4; i++) {
             let fischi = new aufgabe13.Seepferdchen(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fischi);
         }
@@ -83,7 +93,7 @@ var aufgabe13;
     function kies(_x, _y) {
         let steine = new Path2D();
         aufgabe13.crc.lineWidth = 2;
-        aufgabe13.crc.strokeStyle = "black";
+        aufgabe13.crc.strokeStyle = "brown";
         steine.arc(_x + 50, _y + 300, 7, Math.PI, 2 * Math.PI);
         aufgabe13.crc.fillStyle = "chocolate";
         aufgabe13.crc.fill(steine);
@@ -91,8 +101,8 @@ var aufgabe13;
     }
     function pflanze(_x, _y) {
         let pflanz = new Path2D();
-        aufgabe13.crc.strokeStyle = "black";
-        aufgabe13.crc.fillStyle = "lime";
+        aufgabe13.crc.strokeStyle = "green";
+        aufgabe13.crc.fillStyle = "springgreen";
         pflanz.moveTo(_x, _y);
         pflanz.lineTo(_x - 25, _y - 50);
         pflanz.lineTo(_x - 5, _y - 80);
@@ -104,6 +114,49 @@ var aufgabe13;
         aufgabe13.crc.stroke(pflanz);
         aufgabe13.crc.fill(pflanz);
     }
+    function pflanze2(_x, _y) {
+        let pflanz = new Path2D();
+        aufgabe13.crc.lineWidth = 3;
+        aufgabe13.crc.strokeStyle = "green";
+        aufgabe13.crc.fillStyle = "yellowgreen";
+        pflanz.arc(_x, _y, 50, 0, 2 * Math.PI);
+        aufgabe13.crc.stroke(pflanz);
+        aufgabe13.crc.fill(pflanz);
+        let pflanz2 = new Path2D();
+        pflanz2.arc(_x, _y - 80, 30, 0, 2 * Math.PI);
+        aufgabe13.crc.stroke(pflanz2);
+        aufgabe13.crc.fill(pflanz2);
+        let pflanz3 = new Path2D();
+        aufgabe13.crc.strokeStyle = "green";
+        aufgabe13.crc.fillStyle = "yellowgreen";
+        aufgabe13.crc.lineWidth = 3;
+        pflanz3.arc(_x, _y - 122, 10, 0, 2 * Math.PI);
+        aufgabe13.crc.stroke(pflanz3);
+        aufgabe13.crc.fill(pflanz3);
+        let pflanz4 = new Path2D();
+        aufgabe13.crc.fillStyle = "crimson";
+        aufgabe13.crc.strokeStyle = "red";
+        pflanz4.arc(_x, _y - 138, 3, 0, 2 * Math.PI);
+        aufgabe13.crc.stroke(pflanz4);
+        aufgabe13.crc.fill(pflanz4);
+    }
+    function pflanze3(_x, _y) {
+        let pflanz2 = new Path2D();
+        aufgabe13.crc.lineWidth = 3;
+        aufgabe13.crc.strokeStyle = "green";
+        aufgabe13.crc.fillStyle = "yellowgreen";
+        pflanz2.moveTo(_x, _y);
+        pflanz2.quadraticCurveTo(_x - 10, _y - 20, _x, _y - 40);
+        pflanz2.moveTo(_x, _y - 40);
+        pflanz2.quadraticCurveTo(_x + 10, _y - 60, _x, _y - 80);
+        aufgabe13.crc.lineWidth = 5;
+        aufgabe13.crc.stroke(pflanz2);
+        let pflanz = new Path2D();
+        pflanz.moveTo(_x, _y);
+        pflanz.quadraticCurveTo(_x - 20, _y - 20, _x, _y - 40);
+        aufgabe13.crc.lineWidth = 5;
+        aufgabe13.crc.stroke(pflanz);
+    }
     function hintergrund() {
         let wasser = new Path2D();
         wasser.rect(0, 0, 900, 600);
@@ -111,10 +164,10 @@ var aufgabe13;
         aufgabe13.crc.fill(wasser);
         let boden = new Path2D();
         boden.rect(0, 400, 900, 200);
-        aufgabe13.crc.fillStyle = "saddlebrown";
+        aufgabe13.crc.fillStyle = "goldenrod";
         aufgabe13.crc.fill(boden);
         let pflanz2 = new Path2D();
-        aufgabe13.crc.strokeStyle = "black";
+        aufgabe13.crc.strokeStyle = "green";
         aufgabe13.crc.fillStyle = "darkgreen";
         pflanz2.moveTo(800, 550);
         pflanz2.lineTo(775, 420);
@@ -146,6 +199,14 @@ var aufgabe13;
         arme.lineTo(730, 200);
         aufgabe13.crc.lineWidth = 5;
         aufgabe13.crc.stroke(arme);
+        let steine = new Path2D();
+        aufgabe13.crc.strokeStyle = "grey";
+        aufgabe13.crc.fillStyle = "grey";
+        steine.moveTo(20, 600);
+        steine.quadraticCurveTo(80, 400, 140, 600);
+        steine.closePath();
+        aufgabe13.crc.fill(steine);
+        aufgabe13.crc.stroke(steine);
         for (let i = 0; i < 60; i = i + 50) {
             let x = 675 + i;
             let auge = new Path2D();

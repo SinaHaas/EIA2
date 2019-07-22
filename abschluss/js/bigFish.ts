@@ -5,8 +5,8 @@ namespace aufgabe13 {
 
         constructor(_x: number, _y: number) {
             super();
-            this.x = _x * (600 - 100) + 200;
-            this.y = _y * (350 - 100) + 100;;
+            this.x = _x * (50 - 5) + 5;
+            this.y = _y * (350 - 100) + 100;
             this.dx = _x * -10;
             this.dy = 0;
             this.ofType = "GroßerFisch";
@@ -14,7 +14,7 @@ namespace aufgabe13 {
 
         draw(): void {
             let fischiUnten: Path2D = new Path2D();
-            crc.fillStyle = "crimson";
+            crc.fillStyle = "blue";
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             crc.stroke(fischiUnten);
