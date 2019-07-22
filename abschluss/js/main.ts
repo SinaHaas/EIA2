@@ -10,7 +10,7 @@ namespace aufgabe13 {
     export let spielfisch: Spielfisch;
     export let highscore: number = 0;
     console.log(highscore);
-
+    
 
     // console.log(AllesArray);
 
@@ -18,6 +18,7 @@ namespace aufgabe13 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         hintergrund();
+        
 
         for (let i: number = 0; i < 50; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
@@ -65,6 +66,7 @@ namespace aufgabe13 {
         AllesArray.push(spielfisch);
 
         update();
+        refresh();
 
         // fressFische();
     }
@@ -99,7 +101,7 @@ namespace aufgabe13 {
     let timeout: number;
 
     function setTimeOut() {
-         timeout = window.setTimeout(update, 1000 / fps);
+        timeout = window.setTimeout(update, 1000 / fps);
     }
 
     function update(): void {
@@ -282,13 +284,17 @@ namespace aufgabe13 {
         document.getElementById("highscore").appendChild(prodElement);
     }
 
-    export let spielerName: string; 
+    export let spielerName: string;
+
     export function nameEingeben(): void {
         window.clearTimeout(timeout);
-        spielerName = prompt( "Deine Punkte:" + highscore + "" + "wie heißt du?");
+        spielerName = prompt("Deine Punkte: " + highscore + " wie heißt du?");
         insert();
+        window.location.reload();
     }
 
+    
+  
 
 
 

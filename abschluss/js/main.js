@@ -54,6 +54,7 @@ var aufgabe13;
         aufgabe13.spielfisch = new aufgabe13.Spielfisch(aufgabe13.canvas.width / 2, aufgabe13.canvas.height / 2);
         aufgabe13.AllesArray.push(aufgabe13.spielfisch);
         update();
+        aufgabe13.refresh();
         // fressFische();
     }
     function bewegungSpielfisch(_event) {
@@ -240,8 +241,9 @@ var aufgabe13;
     aufgabe13.highscoreFunk = highscoreFunk;
     function nameEingeben() {
         window.clearTimeout(timeout);
-        aufgabe13.spielerName = prompt("Deine Punkte:" + aufgabe13.highscore + "" + "wie heißt du?");
+        aufgabe13.spielerName = prompt("Deine Punkte: " + aufgabe13.highscore + " wie heißt du?");
         aufgabe13.insert();
+        window.location.reload();
     }
     aufgabe13.nameEingeben = nameEingeben;
 })(aufgabe13 || (aufgabe13 = {}));

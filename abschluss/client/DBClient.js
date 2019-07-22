@@ -4,14 +4,16 @@ var aufgabe13;
     let serverAddress = "https://eia2-sina-haas.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&name=" + aufgabe13.spielerName + "&punkte" + aufgabe13.highscore;
+        query += "&name=" + aufgabe13.spielerName + "&punkte=" + aufgabe13.highscore;
         sendRequest(query, handleInsertResponse);
+        console.log(query);
     }
     aufgabe13.insert = insert;
-    function refresh(_event) {
+    function refresh() {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
+    aufgabe13.refresh = refresh;
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);

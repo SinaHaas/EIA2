@@ -45,16 +45,16 @@ export function findAll(_callback: Function): void {
     let cursor: Mongo.Cursor = spieler.find();
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
-    console.log("Hi");
+    console.log("Hi"); 
 
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: Spieler[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, playerArray: Spieler[]): void {
         if (_e)
             _callback("Error" + _e);
         else
             // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(playerArray));
         console.log("Hallo");
     }
 }
