@@ -235,13 +235,13 @@ var aufgabe13;
     function highscoreFunk() {
         document.getElementById("highscore").innerHTML = "";
         let prodElement = document.createElement("div");
-        prodElement.innerHTML = `<div> ${aufgabe13.highscore}</div>`;
+        prodElement.innerHTML = `<div> Dein Highscore: ${aufgabe13.highscore}</div>`;
         document.getElementById("highscore").appendChild(prodElement);
     }
     aufgabe13.highscoreFunk = highscoreFunk;
     function nameEingeben() {
         window.clearTimeout(timeout);
-        aufgabe13.spielerName = prompt("Deine Punkte: " + aufgabe13.highscore + " wie heißt du?");
+        aufgabe13.spielerName = prompt("Deine Punkte: " + aufgabe13.highscore, "Dein Name");
         aufgabe13.insert();
         window.location.reload();
     }

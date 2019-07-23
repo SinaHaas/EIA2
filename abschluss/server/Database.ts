@@ -45,7 +45,7 @@ export function findAll(_callback: Function): void {
     let cursor: Mongo.Cursor = spieler.find();
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
-    console.log("Hi"); 
+    console.log("Hi");
 
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope

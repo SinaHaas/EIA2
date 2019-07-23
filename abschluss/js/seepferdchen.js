@@ -3,8 +3,8 @@ var aufgabe13;
     class Seepferdchen extends aufgabe13.bewegteDinge {
         constructor(_x, _y) {
             super();
-            this.x = _x * (600 - 100) + 200;
-            this.y = _y * (350 - 100) + 100;
+            this.x = _x * (100 - 1) + 1;
+            this.y = _y * (400 - 20) + 20;
             this.dx = _x * 10;
             this.dy = 0;
             this.ofType = "mitteFisch";

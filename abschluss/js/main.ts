@@ -281,7 +281,7 @@ namespace aufgabe13 {
     export function highscoreFunk() {
         document.getElementById("highscore").innerHTML = "";
         let prodElement: HTMLDivElement = document.createElement("div");
-        prodElement.innerHTML = `<div> ${highscore}</div>`;
+        prodElement.innerHTML = `<div> Dein Highscore: ${highscore}</div>`;
         document.getElementById("highscore").appendChild(prodElement);
     }
 
@@ -289,7 +289,7 @@ namespace aufgabe13 {
 
     export function nameEingeben(): void {
         window.clearTimeout(timeout);
-        spielerName = prompt("Deine Punkte: " + highscore + " wie heißt du?");
+        spielerName = prompt("Deine Punkte: " + highscore, "Dein Name");
         insert();
         window.location.reload();
     }

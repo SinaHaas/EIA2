@@ -3,3 +3,8 @@ canvas{
     width: 900px;
     height: 600px; 
 }
+
+canvas {
+      float: left;
+      margin: 20px;
+}

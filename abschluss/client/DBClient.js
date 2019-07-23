@@ -46,9 +46,15 @@ var aufgabe13;
             //     if (score == AlleSpieler[i].punktzahl) {
             //         AlleSpieler.splice(i, 1);
             //         SortierteScores.push(scoresImArray);
-            //     }
+            //     } 
             // }
             console.log(AlleSpieler);
+            for (let i = 0; i < 6; i++) {
+                // document.getElementById("scoresBeste").innerHTML = "";
+                let prodElement = document.createElement("div");
+                prodElement.innerHTML = `<div> Spieler ${AlleSpieler[i].name} : ${AlleSpieler[i].punktzahl} Punkte</div>`;
+                document.getElementById("scoresBeste").appendChild(prodElement);
+            }
         }
     }
     function compareNumbers(a, b) {

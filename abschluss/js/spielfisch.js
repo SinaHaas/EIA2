@@ -12,6 +12,7 @@ var aufgabe13;
             this.abstandSchweif2 = this.groesse + 20;
             this.ofType = "SpielfischKlein";
             this.schweifAnfang = 20;
+            this.color = "yellow";
         }
         draw() {
             let schweif = new Path2D();
@@ -29,7 +30,7 @@ var aufgabe13;
             fischi.arc(this.x, this.y, this.groesse, 0, 2 * Math.PI);
             aufgabe13.crc.strokeStyle = "black";
             aufgabe13.crc.lineWidth = 5;
-            aufgabe13.crc.fillStyle = "yellow";
+            aufgabe13.crc.fillStyle = this.color;
             aufgabe13.crc.stroke(fischi);
             aufgabe13.crc.fill(fischi);
             let fischiAUge = new Path2D();
@@ -49,10 +50,7 @@ var aufgabe13;
                 let xDistance = aufgabe13.AllesArray[i].x - this.x;
                 let yDistance = aufgabe13.AllesArray[i].y - this.y;
                 let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-                let radiusOfDistance = 30;
-                // console.log(AllesArray[i].x)
-                //console.log(AllesArray[i]) 
-                // console.log(distance);
+                let radiusOfDistance = 20;
                 //Fress kleinen Fisch egal wann 
                 if (distance < 30 && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && aufgabe13.AllesArray[i].ofType == "kleinerFisch") {
                     // console.log(AllesArray[i]);
@@ -66,24 +64,51 @@ var aufgabe13;
                     let fischi = new aufgabe13.Fish(Math.random(), Math.random());
                     aufgabe13.AllesArray.push(fischi);
                 }
+                //Fress mittleren Fisch wenn größer 
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 30 && aufgabe13.AllesArray[i].ofType == "mitteFisch") {
+                    aufgabe13.AllesArray.splice(i, 1);
+                    this.groesse += 1;
+                    this.abstandSchweif += 1;
+                    this.abstandSchweif2 += 1;
+                    this.schweifAnfang += 1;
+                    aufgabe13.highscore = aufgabe13.highscore + 5;
+                    aufgabe13.highscore = aufgabe13.highscore + 3;
+                    aufgabe13.highscoreFunk();
+                    let fischi = new aufgabe13.Seepferdchen(Math.random(), Math.random());
+                    aufgabe13.AllesArray.push(fischi);
+                }
+                //Ändere Frabe zu rot wenn größer als mittlerer Fisch
+                if (this.groesse > 30) {
+                    this.color = "red";
+                    radiusOfDistance = 40;
+                }
                 //Fress Großen Fisch wenn größer
                 if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
                     aufgabe13.AllesArray.splice(i, 1);
+                    this.groesse += 1;
+                    this.abstandSchweif += 1;
+                    this.abstandSchweif2 += 1;
+                    this.schweifAnfang += 1;
                     aufgabe13.highscore = aufgabe13.highscore + 5;
                     aufgabe13.highscoreFunk();
                     let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
                     aufgabe13.AllesArray.push(fischi);
                 }
-                //Fress mittleren Fisch wenn größer 
-                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 30 && aufgabe13.AllesArray[i].ofType == "mitteFisch") {
-                    aufgabe13.AllesArray.splice(i, 1);
-                    aufgabe13.highscore = aufgabe13.highscore + 3;
-                    aufgabe13.highscoreFunk();
+                //Ändere Farbe zu blau wenn größer als großer Fisch
+                if (this.groesse > 60) {
+                    this.color = "blue";
                 }
                 //Tod wenn großer Fisch
                 if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 60 && aufgabe13.AllesArray[i].ofType == "GroßerFisch") {
-                    alert("Du hast verloren :(");
                     aufgabe13.nameEingeben();
+                    console.log("gF");
+                }
+                //Tod wenn mittlerer Fisch
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse < 30 && aufgabe13.AllesArray[i].ofType == "mitteFisch") {
+                    aufgabe13.nameEingeben();
+                    let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
+                    aufgabe13.AllesArray.push(fischi);
+                    console.log("mF");
                 }
             }
         }
