@@ -110,6 +110,16 @@ var aufgabe13;
                     aufgabe13.AllesArray.push(fischi);
                     console.log("mF");
                 }
+                //Wenn man Futter fallen lässt und es berührt wird man wieder kleiner 
+                if (distance < radiusOfDistance && aufgabe13.AllesArray[i] != aufgabe13.spielfisch && this.groesse > 30 && aufgabe13.AllesArray[i].ofType == "Futter") {
+                    this.groesse -= 3;
+                    this.abstandSchweif -= 3;
+                    this.abstandSchweif2 -= 3;
+                    this.schweifAnfang -= 3;
+                }
+                if (this.groesse < 30) {
+                    this.color = "yellow";
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ var aufgabe13;
         draw() {
             let fischiUnten = new Path2D();
             aufgabe13.crc.fillStyle = "blue";
+            aufgabe13.crc.strokeStyle = "black";
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             aufgabe13.crc.stroke(fischiUnten);

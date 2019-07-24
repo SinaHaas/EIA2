@@ -15,6 +15,7 @@ namespace aufgabe13 {
         draw(): void {
             let fischiUnten: Path2D = new Path2D();
             crc.fillStyle = "blue";
+            crc.strokeStyle ="black";
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             crc.stroke(fischiUnten);

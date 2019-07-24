@@ -67,7 +67,7 @@ namespace aufgabe13 {
         AllesArray.push(spielfisch);
 
         update();
-        
+
 
         // fressFische();
     }

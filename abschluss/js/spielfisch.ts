@@ -101,7 +101,7 @@ namespace aufgabe13 {
                     AllesArray.splice(i, 1);
                     this.groesse += 1;
                     this.abstandSchweif += 1;
-                    this.abstandSchweif2 += 1; 
+                    this.abstandSchweif2 += 1;
                     this.schweifAnfang += 1;
                     highscore = highscore + 5;
                     highscoreFunk();
@@ -124,6 +124,17 @@ namespace aufgabe13 {
                     AllesArray.push(fischi);
                     console.log("mF")
                 }
+                //Wenn man Futter fallen lässt und es berührt wird man wieder kleiner 
+                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse > 30 && AllesArray[i].ofType == "Futter") {
+                    this.groesse -= 3;
+                    this.abstandSchweif -= 3;
+                    this.abstandSchweif2 -= 3;
+                    this.schweifAnfang -= 3;
+                }
+                if (this.groesse < 30) {
+                    this.color = "yellow";
+                }
+
             }
         }
     }

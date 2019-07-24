@@ -1,5 +1,6 @@
 namespace aufgabe13 {
     export class Foodistsogut extends bewegteDinge {
+        ofType: string; 
 
         constructor(_xK: number, _yK: number) {
             super();
@@ -7,6 +8,7 @@ namespace aufgabe13 {
             this.y = _yK;
             this.dx = Math.random();
             this.dy = Math.random() * (8 - 2) + 2;
+            this.ofType = "Futter"; 
         }
 
         draw(): void {

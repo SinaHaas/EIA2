@@ -7,6 +7,7 @@ var aufgabe13;
             this.y = _yK;
             this.dx = Math.random();
             this.dy = Math.random() * (8 - 2) + 2;
+            this.ofType = "Futter";
         }
         draw() {
             let nom = new Path2D();
