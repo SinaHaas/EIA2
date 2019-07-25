@@ -9,9 +9,9 @@ namespace aufgabe13 {
     let imageData: ImageData;
     export let spielfisch: Spielfisch;
     export let highscore: number = 0;
+    let timeout: number;
+    export let spielerName: string;
     console.log(highscore);
-
-
     // console.log(AllesArray);
 
     function init(): void {
@@ -20,7 +20,7 @@ namespace aufgabe13 {
         hintergrund();
         refresh();
 
-
+        //Hintergrundschleifen
         for (let i: number = 0; i < 50; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
             let y: number = Math.random() * (270 - 120) + 120;
@@ -42,7 +42,6 @@ namespace aufgabe13 {
             pflanze2(x, y);
         }
 
-
         canvas.addEventListener("click", hermitdemfutter);
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -50,6 +49,14 @@ namespace aufgabe13 {
         for (let i: number = 0; i < 50; i++) {
             let blub: Blub = new Blub(Math.random(), Math.random());
             AllesArray.push(blub);
+        }
+        for (let i: number = 0; i < 5; i++) {
+            let futter: FetterFisch = new FetterFisch(Math.random(), Math.random());
+            AllesArray.push(futter);
+        }
+        for (let i: number = 0; i < 5; i++) {
+            let fisch: FutterImCanvas = new FutterImCanvas(Math.random(), Math.random());
+            AllesArray.push(fisch);
         }
         for (let i: number = 0; i < 2; i++) {
             let fischi: BigFish = new BigFish(Math.random(), Math.random());
@@ -65,11 +72,7 @@ namespace aufgabe13 {
         }
         spielfisch = new Spielfisch(canvas.width / 2, canvas.height / 2);
         AllesArray.push(spielfisch);
-
         update();
-
-
-        // fressFische();
     }
 
     function bewegungSpielfisch(_event: KeyboardEvent) {
@@ -99,8 +102,6 @@ namespace aufgabe13 {
         }
     }
 
-    let timeout: number;
-
     function setTimeOut() {
         timeout = window.setTimeout(update, 1000 / fps);
     }
@@ -129,7 +130,6 @@ namespace aufgabe13 {
         let pflanz: Path2D = new Path2D();
         crc.strokeStyle = "green";
         crc.fillStyle = "springgreen";
-
         pflanz.moveTo(_x, _y);
         pflanz.lineTo(_x - 25, _y - 50);
         pflanz.lineTo(_x - 5, _y - 80);
@@ -147,7 +147,6 @@ namespace aufgabe13 {
         crc.lineWidth = 3;
         crc.strokeStyle = "green";
         crc.fillStyle = "yellowgreen";
-
         pflanz.arc(_x, _y, 50, 0, 2 * Math.PI);
         crc.stroke(pflanz);
         crc.fill(pflanz);
@@ -178,7 +177,6 @@ namespace aufgabe13 {
         crc.lineWidth = 3;
         crc.strokeStyle = "green";
         crc.fillStyle = "yellowgreen";
-
         pflanz2.moveTo(_x, _y);
         pflanz2.quadraticCurveTo(_x - 10, _y - 20, _x, _y - 40);
         pflanz2.moveTo(_x, _y - 40);
@@ -192,7 +190,6 @@ namespace aufgabe13 {
         crc.lineWidth = 5;
         crc.stroke(pflanz);
     }
-
 
     function hintergrund(): void {
         let wasser: Path2D = new Path2D();
@@ -208,7 +205,6 @@ namespace aufgabe13 {
         let pflanz2: Path2D = new Path2D();
         crc.strokeStyle = "green";
         crc.fillStyle = "darkgreen";
-
         pflanz2.moveTo(800, 550);
         pflanz2.lineTo(775, 420);
         pflanz2.lineTo(795, 400);
@@ -222,7 +218,6 @@ namespace aufgabe13 {
 
         let qual: Path2D = new Path2D();
         crc.fillStyle = "orange";
-
         qual.arc(700, 100, 50, Math.PI, 2 * Math.PI);
         crc.fill(qual);
 
@@ -232,12 +227,10 @@ namespace aufgabe13 {
         arme.lineTo(675, 130);
         arme.lineTo(665, 160);
         arme.lineTo(670, 200);
-
         arme.moveTo(700, 100);
         arme.lineTo(695, 130);
         arme.lineTo(705, 160);
         arme.lineTo(700, 200);
-
         arme.moveTo(730, 100);
         arme.lineTo(725, 130);
         arme.lineTo(735, 160);
@@ -284,8 +277,6 @@ namespace aufgabe13 {
         prodElement.innerHTML = `<div> Dein Highscore: ${highscore}</div>`;
         document.getElementById("highscore").appendChild(prodElement);
     }
-
-    export let spielerName: string;
 
     export function nameEingeben(): void {
         window.clearTimeout(timeout);

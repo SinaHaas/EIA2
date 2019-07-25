@@ -6,6 +6,7 @@ var aufgabe13;
     let fps = 30;
     let imageData;
     aufgabe13.highscore = 0;
+    let timeout;
     console.log(aufgabe13.highscore);
     // console.log(AllesArray);
     function init() {
@@ -40,6 +41,14 @@ var aufgabe13;
             let blub = new aufgabe13.Blub(Math.random(), Math.random());
             aufgabe13.AllesArray.push(blub);
         }
+        for (let i = 0; i < 5; i++) {
+            let futter = new aufgabe13.FetterFisch(Math.random(), Math.random());
+            aufgabe13.AllesArray.push(futter);
+        }
+        for (let i = 0; i < 5; i++) {
+            let fisch = new aufgabe13.FutterImCanvas(Math.random(), Math.random());
+            aufgabe13.AllesArray.push(fisch);
+        }
         for (let i = 0; i < 2; i++) {
             let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fischi);
@@ -55,7 +64,6 @@ var aufgabe13;
         aufgabe13.spielfisch = new aufgabe13.Spielfisch(aufgabe13.canvas.width / 2, aufgabe13.canvas.height / 2);
         aufgabe13.AllesArray.push(aufgabe13.spielfisch);
         update();
-        // fressFische();
     }
     function bewegungSpielfisch(_event) {
         if (_event.keyCode == 39) { //rechts
@@ -83,7 +91,6 @@ var aufgabe13;
             }
         }
     }
-    let timeout;
     function setTimeOut() {
         timeout = window.setTimeout(update, 1000 / fps);
     }

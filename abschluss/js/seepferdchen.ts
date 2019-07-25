@@ -1,6 +1,6 @@
 namespace aufgabe13 {
     export class Seepferdchen extends bewegteDinge {
-        ofType:string;
+        ofType: string;
 
         constructor(_x: number, _y: number) {
             super();
