@@ -2,6 +2,7 @@ namespace aufgabe13 {
     //let serverAddress: string = "http://localhost:8100/";
     let serverAddress: string = "https://eia2-sina-haas.herokuapp.com/";
 
+    //Den Query zusammenstellen und mit sendRequest(query) an den Server weitergeben
     export function insert(): void {
         let query: string = "command=insert";
         query += "&name=" + spielerName + "&punkte=" + highscore;
@@ -21,8 +22,6 @@ namespace aufgabe13 {
         xhr.send();
     }
 
-    let score: number = 0;
-    let scoresImArray: string;
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -30,31 +29,19 @@ namespace aufgabe13 {
         }
     }
 
+    //parsen des JSON in ein Array und dann dieses Array sortieren und in HTML darstellen
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let AlleSpieler: Spieler[] = JSON.parse(xhr.response);
-            let SortierteScores: string[] = [];
 
             for (let i: number = 0; i < AlleSpieler.length; i++) {
-                let nameS: string = AlleSpieler[i].name;
-                let scoreS: number = AlleSpieler[i].punktzahl;
-
-                // if (score < AlleSpieler[i].punktzahl) {
-                //     score = AlleSpieler[i].punktzahl;
-                //     scoresImArray = score.toString + AlleSpieler[i].name;
-                // }
+                // let nameS: string = AlleSpieler[i].name;
+                // let scoreS: number = AlleSpieler[i].punktzahl;
                 AlleSpieler.sort(compareNumbers);
             }
-            // for (let i: number = 0; i < AlleSpieler.length; i++) {
-            //     if (score == AlleSpieler[i].punktzahl) {
-            //         AlleSpieler.splice(i, 1);
-            //         SortierteScores.push(scoresImArray);
-            //     } 
-            // }
             console.log(AlleSpieler);
             for (let i: number = 0; i < 6; i++) {
-                // document.getElementById("scoresBeste").innerHTML = "";
                 let prodElement: HTMLDivElement = document.createElement("div");
                 prodElement.innerHTML = `<div> Spieler ${AlleSpieler[i].name} : ${AlleSpieler[i].punktzahl} Punkte</div>`;
                 document.getElementById("scoresBeste").appendChild(prodElement);
@@ -62,7 +49,8 @@ namespace aufgabe13 {
         }
     }
 
-    function compareNumbers(a: Spieler, b: Spieler): number { //Highscore Vergleich und danach wird das Array sortiert 
+    //Highscore Vergleich und danach wird das Array sortiert
+    function compareNumbers(a: Spieler, b: Spieler): number {
         let scoreA: number = a.punktzahl;
         let scoreB: number = b.punktzahl;
         if (scoreA < scoreB) {

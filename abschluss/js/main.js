@@ -1,6 +1,8 @@
 var aufgabe13;
 (function (aufgabe13) {
+    //Eventlistener um init auszuführen
     document.addEventListener("DOMContentLoaded", init);
+    //Eventlistener für einen keydown um Fisch steuern zu können
     document.addEventListener("keydown", bewegungSpielfisch);
     aufgabe13.AllesArray = [];
     let fps = 30;
@@ -13,7 +15,8 @@ var aufgabe13;
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
         aufgabe13.crc = aufgabe13.canvas.getContext("2d");
         hintergrund();
-        aufgabe13.refresh();
+        aufgabe13.refresh(); //
+        //Hintergrundobjekte zufällig plaziert 
         for (let i = 0; i < 50; i++) {
             let x = Math.random() * (800 - 200) + 200;
             let y = Math.random() * (270 - 120) + 120;
@@ -34,20 +37,24 @@ var aufgabe13;
             let y = 550;
             pflanze2(x, y);
         }
-        aufgabe13.canvas.addEventListener("click", hermitdemfutter);
+        aufgabe13.canvas.addEventListener("click", hermitdemfutter); //Ruft Futter fallenlassen Funktion auf
         imageData = aufgabe13.crc.getImageData(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
-        //Animiert
+        //Animierte Objekte im Canvas
         for (let i = 0; i < 50; i++) {
             let blub = new aufgabe13.Blub(Math.random(), Math.random());
             aufgabe13.AllesArray.push(blub);
         }
         for (let i = 0; i < 5; i++) {
-            let futter = new aufgabe13.FetterFisch(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(futter);
-        }
-        for (let i = 0; i < 5; i++) {
-            let fisch = new aufgabe13.FutterImCanvas(Math.random(), Math.random());
+            let fisch = new aufgabe13.FetterFisch(Math.random(), Math.random());
             aufgabe13.AllesArray.push(fisch);
+        }
+        for (let i = 0; i < 1; i++) {
+            let fisch = new aufgabe13.Pferdchen(Math.random(), Math.random());
+            aufgabe13.AllesArray.push(fisch);
+        }
+        for (let i = 0; i < 4; i++) {
+            let futter = new aufgabe13.FutterImCanvas(Math.random(), Math.random());
+            aufgabe13.AllesArray.push(futter);
         }
         for (let i = 0; i < 2; i++) {
             let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
@@ -65,6 +72,7 @@ var aufgabe13;
         aufgabe13.AllesArray.push(aufgabe13.spielfisch);
         update();
     }
+    //Steuerung des Spielfisches durch keydown
     function bewegungSpielfisch(_event) {
         if (_event.keyCode == 39) { //rechts
             aufgabe13.spielfisch.x += 8;
@@ -91,9 +99,11 @@ var aufgabe13;
             }
         }
     }
+    //Funktion für das Timeout, um diese später nutzen zu können
     function setTimeOut() {
         timeout = window.setTimeout(update, 1000 / fps);
     }
+    //Update Funktion
     function update() {
         setTimeOut();
         aufgabe13.crc.clearRect(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
@@ -102,6 +112,7 @@ var aufgabe13;
             aufgabe13.AllesArray[i].update();
         }
     }
+    //Alles für den Hintergrund 
     function kies(_x, _y) {
         let steine = new Path2D();
         aufgabe13.crc.lineWidth = 2;
@@ -231,6 +242,7 @@ var aufgabe13;
             aufgabe13.crc.fill(augeInnen);
         }
     }
+    //Futter fallen lassen bei einem Klick der Maus 
     function hermitdemfutter(_event) {
         let xCanvas = _event.clientX;
         let yCanvas = _event.clientY;
@@ -239,6 +251,7 @@ var aufgabe13;
             aufgabe13.AllesArray.push(NomNom);
         }
     }
+    //Rechnet Highscore 
     function highscoreFunk() {
         document.getElementById("highscore").innerHTML = "";
         let prodElement = document.createElement("div");
@@ -246,11 +259,12 @@ var aufgabe13;
         document.getElementById("highscore").appendChild(prodElement);
     }
     aufgabe13.highscoreFunk = highscoreFunk;
+    //Wird aufgerufen, wenn man stirbt. Der Spieler gibt Namen ein und dieser wird mit Highscore an den Server gegeben
     function nameEingeben() {
         window.clearTimeout(timeout);
         aufgabe13.spielerName = prompt("Deine Punkte: " + aufgabe13.highscore, "Dein Name");
         aufgabe13.insert();
-        window.location.reload();
+        // window.location.reload();
     }
     aufgabe13.nameEingeben = nameEingeben;
 })(aufgabe13 || (aufgabe13 = {}));

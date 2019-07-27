@@ -23,6 +23,7 @@ namespace aufgabe13 {
             this.color = "yellow";
         }
 
+        //Zeichnen des Spielerfisches mit Variablen anstelle von Werten, um die Größe anpassen zu können
         draw(): void {
             let schweif: Path2D = new Path2D();
             schweif.moveTo(this.x + this.schweifAnfang, this.y);
@@ -57,6 +58,7 @@ namespace aufgabe13 {
             crc.fill(augeInnen);
         }
 
+        //Spielerfisch soll andere Fische fressen können und auch von ihnen gfressen werden 
         fressFische(): void {
             for (let i: number = 0; i < AllesArray.length; i++) {
                 // console.log("hi");
@@ -64,7 +66,7 @@ namespace aufgabe13 {
                 let yDistance: number = AllesArray[i].y - this.y;
                 let distance: number = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
                 let radiusOfDistance: number = this.groesse;
-                
+
                 //Fress kleinen Fisch egal wann 
                 if (distance < 30 && AllesArray[i] != spielfisch && AllesArray[i].ofType == "kleinerFisch") {
                     // console.log(AllesArray[i]);
@@ -152,10 +154,32 @@ namespace aufgabe13 {
                     this.abstandSchweif -= 3;
                     this.abstandSchweif2 -= 3;
                     this.schweifAnfang -= 3;
+                    AllesArray.splice(i, 1);
                 }
+                //Wenn man unter 30 schrumpft, dann wird man wieder gelb
                 if (this.groesse < 30) {
                     this.color = "yellow";
                 }
+                //Blubberblasen schrumpfen einen, wenn man ab einer bestimmten Größe durch sie durch schwimmt 
+                if (this.groesse > 60 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "blubberblasen") {
+                    this.groesse -= 10;
+                    this.abstandSchweif -= 10;
+                    this.abstandSchweif2 -= 10;
+                    this.schweifAnfang -= 10;
+                }
+                //Futter ist ebenfalls ab einer bestimmten Größe gefährlich 
+                if (this.groesse > 50 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "foodImCanvas") {
+                    this.groesse -= 3;
+                    this.abstandSchweif -= 3;
+                    this.abstandSchweif2 -= 3;
+                    this.schweifAnfang -= 3;
+                    highscore = highscore - 1;
+                    highscoreFunk();
+                    AllesArray.splice(i, 1);
+                }
+                //Seepferdchen sind immer tödlich 
+                if (this.groesse > 10 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "pferdchen")
+                    nameEingeben();
             }
         }
     }

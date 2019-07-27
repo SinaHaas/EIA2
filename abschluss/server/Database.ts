@@ -8,7 +8,7 @@ let databaseName: string = "test";
 let db: Mongo.Db;
 let spieler: Mongo.Collection;
 
-// running on heroku?
+// funktioniert es auf Heroku
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
     databaseURL = "mongodb+srv://Sina:Si55Ha1s7i.@eia2-k3y7z.mongodb.net/Eia2";
@@ -59,16 +59,3 @@ export function findAll(_callback: Function): void {
     }
 }
 
-// export function suche(_callback: Function, _gesucht: string) {
-
-//     let ges: number = Number(_gesucht);
-//     students.find({ "matrikel": ges }).toArray(prepareAnswer);
-
-//     function prepareAnswer(_e: Mongo.MongoError, studentArray: Spieler[]): void {
-//         if (_e)
-//             _callback("Error" + _e);
-//         else
-//             // stringify creates a json-string, passed it back to _callback
-//             _callback(JSON.stringify(studentArray));
-//     }
-// }

@@ -2,6 +2,7 @@ namespace aufgabe13 {
     export class Fish extends bewegteDinge {
         ofType:string;
         
+        //malt den kleinen Fisch
         constructor(_x:number,_y:number) {
             super();
             this.x = _x* (600 - 100) + 200;
@@ -19,7 +20,7 @@ namespace aufgabe13 {
             schweif.lineTo(this.x+20, this.y+15);
             crc.fillStyle = "gold";
             crc.strokeStyle = "black";
-            crc.lineWidth = 1;
+            crc.lineWidth = 3;
             crc.fill(schweif);
             schweif.closePath();
             crc.stroke(schweif);

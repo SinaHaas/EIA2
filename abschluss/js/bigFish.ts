@@ -3,6 +3,7 @@ namespace aufgabe13 {
     export class BigFish extends bewegteDinge {
         ofType: string;
 
+        //malt den größten Fisch
         constructor(_x: number, _y: number) {
             super();
             this.x = _x * (10 - 5) + 5;
@@ -16,6 +17,7 @@ namespace aufgabe13 {
             let fischiUnten: Path2D = new Path2D();
             crc.fillStyle = "blue";
             crc.strokeStyle = "black";
+            crc.lineWidth = 3;
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             crc.stroke(fischiUnten);

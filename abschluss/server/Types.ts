@@ -1,3 +1,4 @@
+//Aufbau des Arrays 
 interface Punktzahl {
     [key: string]: string;
 }

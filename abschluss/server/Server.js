@@ -14,6 +14,7 @@ server.listen(port);
 function handleListen() {
     console.log("Listening on port: " + port);
 }
+//Auseinandernehmen des query und in die Datenbank speiechern/geben mit insert
 function handleRequest(_request, _response) {
     console.log("Request received");
     let query = Url.parse(_request.url, true).query;

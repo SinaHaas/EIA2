@@ -1,6 +1,8 @@
 namespace aufgabe13 {
 
+    //Eventlistener um init auszuführen
     document.addEventListener("DOMContentLoaded", init);
+    //Eventlistener für einen keydown um Fisch steuern zu können
     document.addEventListener("keydown", bewegungSpielfisch);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
@@ -18,9 +20,9 @@ namespace aufgabe13 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         hintergrund();
-        refresh();
+        refresh(); //
 
-        //Hintergrundschleifen
+        //Hintergrundobjekte zufällig plaziert 
         for (let i: number = 0; i < 50; i++) {
             let x: number = Math.random() * (800 - 200) + 200;
             let y: number = Math.random() * (270 - 120) + 120;
@@ -42,21 +44,25 @@ namespace aufgabe13 {
             pflanze2(x, y);
         }
 
-        canvas.addEventListener("click", hermitdemfutter);
+        canvas.addEventListener("click", hermitdemfutter); //Ruft Futter fallenlassen Funktion auf
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
 
-        //Animiert
+        //Animierte Objekte im Canvas
         for (let i: number = 0; i < 50; i++) {
             let blub: Blub = new Blub(Math.random(), Math.random());
             AllesArray.push(blub);
         }
         for (let i: number = 0; i < 5; i++) {
-            let futter: FetterFisch = new FetterFisch(Math.random(), Math.random());
-            AllesArray.push(futter);
-        }
-        for (let i: number = 0; i < 5; i++) {
-            let fisch: FutterImCanvas = new FutterImCanvas(Math.random(), Math.random());
+            let fisch: FetterFisch = new FetterFisch(Math.random(), Math.random());
             AllesArray.push(fisch);
+        }
+        for (let i: number = 0; i < 1; i++) {
+            let fisch: Pferdchen = new Pferdchen(Math.random(), Math.random());
+            AllesArray.push(fisch);
+        }
+        for (let i: number = 0; i < 4; i++) {
+            let futter: FutterImCanvas = new FutterImCanvas(Math.random(), Math.random());
+            AllesArray.push(futter);
         }
         for (let i: number = 0; i < 2; i++) {
             let fischi: BigFish = new BigFish(Math.random(), Math.random());
@@ -75,7 +81,8 @@ namespace aufgabe13 {
         update();
     }
 
-    function bewegungSpielfisch(_event: KeyboardEvent) {
+    //Steuerung des Spielfisches durch keydown
+    function bewegungSpielfisch(_event: KeyboardEvent): void {
         if (_event.keyCode == 39) { //rechts
             spielfisch.x += 8;
             if (spielfisch.x > 900) {
@@ -102,10 +109,12 @@ namespace aufgabe13 {
         }
     }
 
-    function setTimeOut() {
+    //Funktion für das Timeout, um diese später nutzen zu können
+    function setTimeOut(): void {
         timeout = window.setTimeout(update, 1000 / fps);
     }
 
+    //Update Funktion
     function update(): void {
         setTimeOut();
         crc.clearRect(0, 0, canvas.width, canvas.height);
@@ -116,6 +125,7 @@ namespace aufgabe13 {
         }
     }
 
+    //Alles für den Hintergrund 
     function kies(_x: number, _y: number): void {
         let steine: Path2D = new Path2D();
         crc.lineWidth = 2;
@@ -262,6 +272,7 @@ namespace aufgabe13 {
         }
     }
 
+    //Futter fallen lassen bei einem Klick der Maus 
     function hermitdemfutter(_event: MouseEvent): void {
         let xCanvas: number = _event.clientX;
         let yCanvas: number = _event.clientY;
@@ -271,18 +282,20 @@ namespace aufgabe13 {
         }
     }
 
-    export function highscoreFunk() {
+    //Rechnet Highscore 
+    export function highscoreFunk(): void {
         document.getElementById("highscore").innerHTML = "";
         let prodElement: HTMLDivElement = document.createElement("div");
         prodElement.innerHTML = `<div> Dein Highscore: ${highscore}</div>`;
         document.getElementById("highscore").appendChild(prodElement);
     }
 
+    //Wird aufgerufen, wenn man stirbt. Der Spieler gibt Namen ein und dieser wird mit Highscore an den Server gegeben
     export function nameEingeben(): void {
         window.clearTimeout(timeout);
         spielerName = prompt("Deine Punkte: " + highscore, "Dein Name");
         insert();
-        window.location.reload();
+        // window.location.reload();
     }
 
 

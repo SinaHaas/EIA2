@@ -1,6 +1,7 @@
 var aufgabe13;
 (function (aufgabe13) {
     class FetterFisch extends aufgabe13.bewegteDinge {
+        //malt den zweitgrößten Fisch
         constructor(_x, _y) {
             super();
             this.x = _x * (200 - 50) + 50;
@@ -12,7 +13,7 @@ var aufgabe13;
         draw() {
             aufgabe13.crc.fillStyle = "maroon";
             aufgabe13.crc.strokeStyle = "black";
-            aufgabe13.crc.lineWidth = 1;
+            aufgabe13.crc.lineWidth = 3;
             let fischFlosse2 = new Path2D();
             fischFlosse2.moveTo(this.x + 25, this.y - 30);
             fischFlosse2.lineTo(this.x + 30, this.y - 50);

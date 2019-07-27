@@ -1,6 +1,7 @@
 var aufgabe13;
 (function (aufgabe13) {
     class BigFish extends aufgabe13.bewegteDinge {
+        //malt den größten Fisch
         constructor(_x, _y) {
             super();
             this.x = _x * (10 - 5) + 5;
@@ -13,6 +14,7 @@ var aufgabe13;
             let fischiUnten = new Path2D();
             aufgabe13.crc.fillStyle = "blue";
             aufgabe13.crc.strokeStyle = "black";
+            aufgabe13.crc.lineWidth = 3;
             fischiUnten.moveTo(this.x, this.y);
             fischiUnten.quadraticCurveTo(this.x, this.y + 90, this.x + 190, this.y);
             aufgabe13.crc.stroke(fischiUnten);

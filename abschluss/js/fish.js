@@ -1,6 +1,7 @@
 var aufgabe13;
 (function (aufgabe13) {
     class Fish extends aufgabe13.bewegteDinge {
+        //malt den kleinen Fisch
         constructor(_x, _y) {
             super();
             this.x = _x * (600 - 100) + 200;
@@ -17,7 +18,7 @@ var aufgabe13;
             schweif.lineTo(this.x + 20, this.y + 15);
             aufgabe13.crc.fillStyle = "gold";
             aufgabe13.crc.strokeStyle = "black";
-            aufgabe13.crc.lineWidth = 1;
+            aufgabe13.crc.lineWidth = 3;
             aufgabe13.crc.fill(schweif);
             schweif.closePath();
             aufgabe13.crc.stroke(schweif);

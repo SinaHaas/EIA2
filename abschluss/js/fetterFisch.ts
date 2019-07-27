@@ -2,6 +2,7 @@ namespace aufgabe13 {
     export class FetterFisch extends bewegteDinge {
         ofType: string;
 
+        //malt den zweitgrößten Fisch
         constructor(_x: number, _y: number) {
             super();
             this.x = _x * (200 - 50) + 50;
@@ -14,7 +15,7 @@ namespace aufgabe13 {
         draw(): void {
             crc.fillStyle = "maroon";
             crc.strokeStyle = "black";
-            crc.lineWidth = 1;
+            crc.lineWidth = 3;
 
             let fischFlosse2: Path2D = new Path2D();
             fischFlosse2.moveTo(this.x + 25, this.y - 30);

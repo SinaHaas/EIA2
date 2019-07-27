@@ -7,6 +7,7 @@ var aufgabe13;
             this.y = _y * (600 - 100) + 100;
             this.dx = 0;
             this.dy = 0.3 * -10;
+            this.ofType = "blubberblasen";
         }
         draw() {
             let blubaußen = new Path2D();

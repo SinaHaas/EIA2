@@ -18,6 +18,7 @@ function handleListen(): void {
     console.log("Listening on port: " + port);
 }
 
+//Auseinandernehmen des query und in die Datenbank speiechern/geben mit insert
 function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("Request received");
 
