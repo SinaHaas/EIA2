@@ -72,11 +72,11 @@ namespace aufgabe13 {
         }
 
         move(): void {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (this.x > 900) {
-                this.x = (0 - 30) + this.dx
-            }
+            // this.x += this.dx;
+            // this.y += this.dy;
+            // if (this.x > 900) {
+            //     this.x = (0 - 30) + this.dx
+            // }
         }
     }
 }

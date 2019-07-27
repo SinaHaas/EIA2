@@ -69,14 +69,14 @@ var aufgabe13;
             this.draw();
         }
         move() {
-            this.x += this.dx;
-            this.y += this.dy;
-            if (this.y < 0) {
-                this.y = 600 + this.dy;
-            }
-            if (this.x < 0) {
-                this.x = 900 + this.dx;
-            }
+            // this.x += this.dx;
+            // this.y += this.dy;
+            // if (this.y < 0) {
+            //     this.y = 600 + this.dy;
+            // }
+            // if (this.x < 0) {
+            //     this.x = 900 + this.dx;
+            // }
         }
     }
     aufgabe13.FetterFisch = FetterFisch;

@@ -67,120 +67,116 @@ namespace aufgabe13 {
                 let distance: number = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
                 let radiusOfDistance: number = this.groesse;
 
-                //Fress kleinen Fisch egal wann 
-                if (distance < 30 && AllesArray[i] != spielfisch && AllesArray[i].ofType == "kleinerFisch") {
-                    // console.log(AllesArray[i]);
-                    AllesArray.splice(i, 1);
-                    this.groesse += 1;
-                    this.abstandSchweif += 1;
-                    this.abstandSchweif2 += 1;
-                    this.schweifAnfang += 1;
-                    highscore = highscore + 1;
-                    highscoreFunk();
-                    let fischi: Fish = new Fish(Math.random(), Math.random());
-                    AllesArray.push(fischi);
+                if (AllesArray[i] != spielfisch) {
+
+                    //Fress kleinen Fisch egal wann 
+                    if (distance < radiusOfDistance && AllesArray[i].ofType == "kleinerFisch") {
+                        // console.log(AllesArray[i]);
+                        AllesArray.splice(i, 1);
+                        this.groesse += 1;
+                        this.abstandSchweif += 1;
+                        this.abstandSchweif2 += 1;
+                        this.schweifAnfang += 1;
+                        highscore = highscore + 1;
+                        highscoreFunk();
+                        let kleinerFisch: Fish = new Fish(Math.random(), Math.random());
+                        AllesArray.push(kleinerFisch);
+                    }
+                    //Fress mittleren Fisch wenn größer 
+                    else if (distance < radiusOfDistance && this.groesse > 30 && AllesArray[i].ofType == "mitteFisch") {
+                        AllesArray.splice(i, 1);
+                        this.groesse += 1;
+                        this.abstandSchweif += 1;
+                        this.abstandSchweif2 += 1;
+                        this.schweifAnfang += 1;
+                        highscore = highscore + 5;
+                        highscore = highscore + 3;
+                        highscoreFunk();
+                        let fischi: Seepferdchen = new Seepferdchen(Math.random(), Math.random());
+                        AllesArray.push(fischi);
+                    }
+                    //Fress Großen Fisch wenn größer
+                    else if (distance < radiusOfDistance && this.groesse > 60 && AllesArray[i].ofType == "GroßerFisch") {
+                        AllesArray.splice(i, 1);
+                        this.groesse += 1;
+                        this.abstandSchweif += 1;
+                        this.abstandSchweif2 += 1;
+                        this.schweifAnfang += 1;
+                        highscore = highscore + 5;
+                        highscoreFunk();
+                        let fischi: BigFish = new BigFish(Math.random(), Math.random());
+                        AllesArray.push(fischi);
+                    }
+                    //Fress mittelgroßen Fisch wenn größer
+                    else if (distance < radiusOfDistance && this.groesse > 40 && AllesArray[i].ofType == "mittelgrosserFisch") {
+                        AllesArray.splice(i, 1);
+                        this.groesse += 1;
+                        this.abstandSchweif += 1;
+                        this.abstandSchweif2 += 1;
+                        this.schweifAnfang += 1;
+                        highscore = highscore + 5;
+                        highscoreFunk();
+                        let fischi: FetterFisch = new FetterFisch(Math.random(), Math.random());
+                        AllesArray.push(fischi);
+                    }
+                    //Tod wenn großer Fisch 
+                    else if (distance < radiusOfDistance && this.groesse < 60 && AllesArray[i].ofType == "GroßerFisch") {
+                        nameEingeben();
+                        console.log("gF");
+                    }
+                    //Tod wenn mittlerer Fisch
+                    else if (distance < radiusOfDistance && this.groesse < 30 && AllesArray[i].ofType == "mitteFisch") {
+                        nameEingeben();
+                        console.log("mF")
+                    }
+                    //Tod wenn mittelgroßer Fisch 
+                    else if (distance < radiusOfDistance && this.groesse < 40 && AllesArray[i].ofType == "mittelgrosserFisch") {
+                        nameEingeben();
+                        console.log("mgF")
+                    }
+                    //Blubberblasen schrumpfen einen, wenn man ab einer bestimmten Größe durch sie durch schwimmt 
+                    else if (this.groesse > 60 && distance < radiusOfDistance && AllesArray[i].ofType == "blubberblasen") {
+                        this.groesse -= 10;
+                        this.abstandSchweif -= 10;
+                        this.abstandSchweif2 -= 10;
+                        this.schweifAnfang -= 10;
+                    }
+                    //Futter ist ebenfalls ab einer bestimmten Größe gefährlich 
+                    else if (this.groesse > 50 && distance < radiusOfDistance && AllesArray[i].ofType == "foodImCanvas") {
+                        this.groesse -= 3;
+                        this.abstandSchweif -= 3;
+                        this.abstandSchweif2 -= 3;
+                        this.schweifAnfang -= 3;
+                        highscore = highscore - 1;
+                        highscoreFunk();
+                        AllesArray.splice(i, 1);
+                    }
+                    //Seepferdchen sind immer tödlich 
+                    else if (this.groesse > 10 && distance < radiusOfDistance && AllesArray[i].ofType == "pferdchen") {
+                        nameEingeben();
+                    }
+
                 }
-                //Fress mittleren Fisch wenn größer 
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse > 30 && AllesArray[i].ofType == "mitteFisch") {
-                    AllesArray.splice(i, 1);
-                    this.groesse += 1;
-                    this.abstandSchweif += 1;
-                    this.abstandSchweif2 += 1;
-                    this.schweifAnfang += 1;
-                    highscore = highscore + 5;
-                    highscore = highscore + 3;
-                    highscoreFunk();
-                    let fischi: Seepferdchen = new Seepferdchen(Math.random(), Math.random());
-                    AllesArray.push(fischi);
-                }
-                //Ändere Frabe zu rot wenn größer als mittlerer Fisch
-                if (this.groesse > 30) {
-                    this.color = "red";
-                }
-                //Fress Großen Fisch wenn größer
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse > 60 && AllesArray[i].ofType == "GroßerFisch") {
-                    AllesArray.splice(i, 1);
-                    this.groesse += 1;
-                    this.abstandSchweif += 1;
-                    this.abstandSchweif2 += 1;
-                    this.schweifAnfang += 1;
-                    highscore = highscore + 5;
-                    highscoreFunk();
-                    let fischi: BigFish = new BigFish(Math.random(), Math.random());
-                    AllesArray.push(fischi);
-                }
-                //Fress mittelgroßen Fisch wenn größer
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse > 40 && AllesArray[i].ofType == "mittelgrosserFisch") {
-                    AllesArray.splice(i, 1);
-                    this.groesse += 1;
-                    this.abstandSchweif += 1;
-                    this.abstandSchweif2 += 1;
-                    this.schweifAnfang += 1;
-                    highscore = highscore + 5;
-                    highscoreFunk();
-                    let fischi: FetterFisch = new FetterFisch(Math.random(), Math.random());
-                    AllesArray.push(fischi);
-                }
-                //Ändere Farbe zu hellblau wenn größer als mittelgroßer Fisch
-                if (this.groesse > 40) {
-                    this.color = "DeepSkyBlue";
-                }
-                //Ändere Farbe zu blau wenn größer als großer Fisch
-                if (this.groesse > 60) {
-                    this.color = "blue";
-                }
-                //Tod wenn großer Fisch
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse < 60 && AllesArray[i].ofType == "GroßerFisch") {
-                    nameEingeben();
-                    console.log("gF");
-                }
-                //Tod wenn mittlerer Fisch
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse < 30 && AllesArray[i].ofType == "mitteFisch") {
-                    nameEingeben();
-                    let fischi: BigFish = new BigFish(Math.random(), Math.random());
-                    AllesArray.push(fischi);
-                    console.log("mF")
-                }
-                //Tod wenn mittelgroßer Fisch 
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse < 40 && AllesArray[i].ofType == "mittelgrosserFisch") {
-                    nameEingeben();
-                    let fischi: FetterFisch = new FetterFisch(Math.random(), Math.random());
-                    AllesArray.push(fischi);
-                    console.log("mgF")
-                }
-                //Wenn man Futter fallen lässt und es berührt wird man wieder kleiner 
-                if (distance < radiusOfDistance && AllesArray[i] != spielfisch && this.groesse > 30 && AllesArray[i].ofType == "Futter") {
-                    this.groesse -= 3;
-                    this.abstandSchweif -= 3;
-                    this.abstandSchweif2 -= 3;
-                    this.schweifAnfang -= 3;
-                    AllesArray.splice(i, 1);
-                }
-                //Wenn man unter 30 schrumpft, dann wird man wieder gelb
-                if (this.groesse < 30) {
-                    this.color = "yellow";
-                }
-                //Blubberblasen schrumpfen einen, wenn man ab einer bestimmten Größe durch sie durch schwimmt 
-                if (this.groesse > 60 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "blubberblasen") {
-                    this.groesse -= 10;
-                    this.abstandSchweif -= 10;
-                    this.abstandSchweif2 -= 10;
-                    this.schweifAnfang -= 10;
-                }
-                //Futter ist ebenfalls ab einer bestimmten Größe gefährlich 
-                if (this.groesse > 50 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "foodImCanvas") {
-                    this.groesse -= 3;
-                    this.abstandSchweif -= 3;
-                    this.abstandSchweif2 -= 3;
-                    this.schweifAnfang -= 3;
-                    highscore = highscore - 1;
-                    highscoreFunk();
-                    AllesArray.splice(i, 1);
-                }
-                //Seepferdchen sind immer tödlich 
-                if (this.groesse > 10 && distance < radiusOfDistance && AllesArray[i] != spielfisch && AllesArray[i].ofType == "pferdchen")
-                    nameEingeben();
+
             }
+
+            //Ändere Frabe zu rot wenn größer als mittlerer Fisch
+            if (this.groesse > 30) {
+                this.color = "red";
+            }
+            //Ändere Farbe zu hellblau wenn größer als mittelgroßer Fisch
+            if (this.groesse > 40) {
+                this.color = "DeepSkyBlue";
+            }
+            //Ändere Farbe zu blau wenn größer als großer Fisch
+            if (this.groesse > 60) {
+                this.color = "blue";
+            }
+            //Wenn man unter 30 schrumpft, dann wird man wieder gelb
+            if (this.groesse < 30) {
+                this.color = "yellow";
+            }
+
         }
     }
 }
