@@ -1,7 +1,7 @@
 namespace aufgabe13 {
 
     //Eventlistener um init auszuführen
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", starten);
     //Eventlistener für einen keydown um Fisch steuern zu können
     document.addEventListener("keydown", bewegungSpielfisch);
     export let crc: CanvasRenderingContext2D;
@@ -16,11 +16,15 @@ namespace aufgabe13 {
     console.log(highscore);
     // console.log(AllesArray);
 
+    function starten() {
+        document.getElementById("start").addEventListener("click", init);
+    }
+
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         hintergrund();
-        refresh(); //
+        refresh();
 
         //Hintergrundobjekte zufällig plaziert 
         for (let i: number = 0; i < 50; i++) {
@@ -295,8 +299,14 @@ namespace aufgabe13 {
         window.clearTimeout(timeout);
         spielerName = prompt("Deine Punkte: " + highscore, "Dein Name");
         insert();
-        // window.location.reload();
+        alert("Neues Spiel?");
+        window.location.reload();
+        // document.getElementById("neustart").addEventListener("click", neustart);
     }
+
+    // function neustart() {
+    //     window.location.reload();
+    // }
 
 
 

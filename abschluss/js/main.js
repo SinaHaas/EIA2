@@ -1,7 +1,7 @@
 var aufgabe13;
 (function (aufgabe13) {
     //Eventlistener um init auszuführen
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", starten);
     //Eventlistener für einen keydown um Fisch steuern zu können
     document.addEventListener("keydown", bewegungSpielfisch);
     aufgabe13.AllesArray = [];
@@ -11,11 +11,14 @@ var aufgabe13;
     let timeout;
     console.log(aufgabe13.highscore);
     // console.log(AllesArray);
+    function starten() {
+        document.getElementById("start").addEventListener("click", init);
+    }
     function init() {
         aufgabe13.canvas = document.getElementsByTagName("canvas")[0];
         aufgabe13.crc = aufgabe13.canvas.getContext("2d");
         hintergrund();
-        aufgabe13.refresh(); //
+        aufgabe13.refresh();
         //Hintergrundobjekte zufällig plaziert 
         for (let i = 0; i < 50; i++) {
             let x = Math.random() * (800 - 200) + 200;
@@ -264,8 +267,13 @@ var aufgabe13;
         window.clearTimeout(timeout);
         aufgabe13.spielerName = prompt("Deine Punkte: " + aufgabe13.highscore, "Dein Name");
         aufgabe13.insert();
-        // window.location.reload();
+        alert("Neues Spiel?");
+        window.location.reload();
+        // document.getElementById("neustart").addEventListener("click", neustart);
     }
     aufgabe13.nameEingeben = nameEingeben;
+    // function neustart() {
+    //     window.location.reload();
+    // }
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=main.js.map
