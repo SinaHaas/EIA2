@@ -64,11 +64,11 @@ var aufgabe13;
             aufgabe13.crc.fill(augeInnen);
         }
         move() {
-            // this.x += this.dx;
-            // this.y += this.dy;
-            // if (this.x > 900) {
-            //     this.x = (0 - 30) + this.dx
-            // }
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x > 900) {
+                this.x = (0 - 30) + this.dx;
+            }
         }
     }
     aufgabe13.Seepferdchen = Seepferdchen;

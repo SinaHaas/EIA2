@@ -44,14 +44,14 @@ var aufgabe13;
             aufgabe13.crc.fill(augeInnen);
         }
         move() {
-            // this.x += this.dx;
-            // this.y += this.dy;
-            // if (this.x > 900) {
-            //     this.x = 0 + this.dx;
-            // }
-            // if (this.x < 0 - 300) {
-            //     this.x = 900 + this.dx;
-            // }
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x > 900) {
+                this.x = 0 + this.dx;
+            }
+            if (this.x < 0 - 300) {
+                this.x = 900 + this.dx;
+            }
         }
     }
     aufgabe13.BigFish = BigFish;

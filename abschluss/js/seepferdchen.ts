@@ -24,7 +24,7 @@ namespace aufgabe13 {
             crc.lineWidth = 2;
             crc.closePath;
             crc.fill(flosseOben);
-            crc.stroke(flosseOben);
+            crc.stroke(flosseOben); 
 
             let schweif: Path2D = new Path2D();
             crc.fillStyle = "blue";
@@ -72,11 +72,11 @@ namespace aufgabe13 {
         }
 
         move(): void {
-            // this.x += this.dx;
-            // this.y += this.dy;
-            // if (this.x > 900) {
-            //     this.x = (0 - 30) + this.dx
-            // }
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x > 900) {
+                this.x = (0 - 30) + this.dx
+            }
         }
     }
 }

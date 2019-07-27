@@ -127,12 +127,12 @@ namespace aufgabe13 {
                     //Tod wenn mittlerer Fisch
                     else if (distance < radiusOfDistance && this.groesse < 30 && AllesArray[i].ofType == "mitteFisch") {
                         nameEingeben();
-                        console.log("mF")
+                        console.log("mF");
                     }
                     //Tod wenn mittelgroßer Fisch 
                     else if (distance < radiusOfDistance && this.groesse < 40 && AllesArray[i].ofType == "mittelgrosserFisch") {
                         nameEingeben();
-                        console.log("mgF")
+                        console.log("mgF");
                     }
                     //Blubberblasen schrumpfen einen, wenn man ab einer bestimmten Größe durch sie durch schwimmt 
                     else if (this.groesse > 60 && distance < radiusOfDistance && AllesArray[i].ofType == "blubberblasen") {
@@ -176,7 +176,6 @@ namespace aufgabe13 {
             if (this.groesse < 30) {
                 this.color = "yellow";
             }
-
         }
     }
 }

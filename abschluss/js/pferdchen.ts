@@ -50,11 +50,11 @@ namespace aufgabe13 {
         }
 
         move(): void {
-            // this.x += this.dx;
-            // this.y += this.dy;
-            // if (this.y < 0) {
-            //     this.y = 600 + this.dy
-            // }
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.y < 0) {
+                this.y = 600 + this.dy
+            }
         }
     }
 }
