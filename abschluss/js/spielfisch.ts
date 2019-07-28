@@ -150,13 +150,15 @@ namespace aufgabe13 {
                         highscore = highscore - 1;
                         highscoreFunk();
                         AllesArray.splice(i, 1);
+                        let futter: FutterImCanvas = new FutterImCanvas(Math.random(), Math.random());
+                        AllesArray.push(futter);
                     }
                     //Seepferdchen sind immer tödlich 
                     else if (this.groesse > 10 && distance < radiusOfDistance && AllesArray[i].ofType == "pferdchen") {
                         nameEingeben();
                     }
 
-                }
+                } 
 
             }
 
@@ -170,7 +172,7 @@ namespace aufgabe13 {
             }
             //Ändere Farbe zu blau wenn größer als großer Fisch
             if (this.groesse > 60) {
-                this.color = "blue";
+                this.color = "blue"; 
             }
             //Wenn man unter 30 schrumpft, dann wird man wieder gelb
             if (this.groesse < 30) {

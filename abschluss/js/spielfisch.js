@@ -135,6 +135,8 @@ var aufgabe13;
                         aufgabe13.highscore = aufgabe13.highscore - 1;
                         aufgabe13.highscoreFunk();
                         aufgabe13.AllesArray.splice(i, 1);
+                        let futter = new aufgabe13.FutterImCanvas(Math.random(), Math.random());
+                        aufgabe13.AllesArray.push(futter);
                     }
                     //Seepferdchen sind immer tödlich 
                     else if (this.groesse > 10 && distance < radiusOfDistance && aufgabe13.AllesArray[i].ofType == "pferdchen") {
