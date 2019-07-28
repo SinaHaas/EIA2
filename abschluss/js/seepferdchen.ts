@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class Seepferdchen extends bewegteDinge {
+    export class Seepferdchen extends BewegteDinge {
         ofType: string;
 
         constructor(_x: number, _y: number) {
@@ -8,7 +8,7 @@ namespace aufgabe13 {
             this.y = _y * (400 - 20) + 20;
             this.dx = _x * 10;
             this.dy = 0;
-            this.ofType = "mitteFisch"
+            this.ofType = "mitteFisch";
         }
 
         draw(): void {
@@ -22,7 +22,7 @@ namespace aufgabe13 {
             flosseOben.lineTo(this.x, this.y - 13);
             flosseOben.lineTo(this.x + 6, this.y - 6);
             crc.lineWidth = 2;
-            crc.closePath;
+            // crc.closePath;
             crc.fill(flosseOben);
             crc.stroke(flosseOben); 
 
@@ -34,7 +34,7 @@ namespace aufgabe13 {
             schweif.lineTo(this.x - 20, this.y + 30);
             schweif.lineTo(this.x, this.y);
             crc.lineWidth = 2;
-            crc.closePath;
+            // crc.closePath;
             crc.fill(schweif);
             crc.stroke(schweif);
 
@@ -44,7 +44,7 @@ namespace aufgabe13 {
             flosseUnten.lineTo(this.x + 5, this.y + 20);
             flosseUnten.lineTo(this.x + 20, this.y + 5);
             crc.lineWidth = 2;
-            crc.closePath;
+            // crc.closePath;
             crc.fill(flosseUnten);
             crc.stroke(flosseUnten);
 
@@ -75,7 +75,7 @@ namespace aufgabe13 {
             this.x += this.dx;
             this.y += this.dy;
             if (this.x > 900) {
-                this.x = (0 - 30) + this.dx
+                this.x = (0 - 30) + this.dx;
             }
         }
     }

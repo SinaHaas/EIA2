@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class FetterFisch extends aufgabe13.bewegteDinge {
+    class FetterFisch extends aufgabe13.BewegteDinge {
         //malt den zweitgrößten Fisch
         constructor(_x, _y) {
             super();

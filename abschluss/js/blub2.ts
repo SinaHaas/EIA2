@@ -1,7 +1,7 @@
 namespace aufgabe13 {
-    export class BlubZwei extends bewegteDinge{
-        
-        constructor(_x:number){
+    export class BlubZwei extends BewegteDinge {
+
+        constructor(_x: number) {
             super();
         }
 
@@ -15,6 +15,6 @@ namespace aufgabe13 {
             blub.arc(this.x, this.y, 3, 0, 2 * Math.PI);
             crc.fillStyle = "lightblue";
             crc.fill(blub);
-        }    
+        }
     }
 }

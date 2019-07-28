@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class Foodistsogut extends aufgabe13.bewegteDinge {
+    class Foodistsogut extends aufgabe13.BewegteDinge {
         constructor(_xK, _yK) {
             super();
             this.x = _xK;

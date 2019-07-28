@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class FutterImCanvas extends bewegteDinge {
+    export class FutterImCanvas extends BewegteDinge {
         ofType: string;
 
         constructor(_x: number, _y: number) {
@@ -8,7 +8,7 @@ namespace aufgabe13 {
             this.y = _y * (600 - 0) + 0;
             this.dx = 0;
             this.dy = 0.3 * 5;
-            this.ofType = "foodImCanvas"
+            this.ofType = "foodImCanvas";
         }
 
         draw(): void {

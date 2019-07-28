@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class Blub extends aufgabe13.bewegteDinge {
+    class Blub extends aufgabe13.BewegteDinge {
         constructor(_x, _y) {
             super();
             this.x = _x * (200 - 50) + 50;

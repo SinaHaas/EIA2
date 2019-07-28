@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class BlubZwei extends aufgabe13.bewegteDinge {
+    class BlubZwei extends aufgabe13.BewegteDinge {
         constructor(_x) {
             super();
         }

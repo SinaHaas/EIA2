@@ -6,7 +6,7 @@ namespace aufgabe13 {
     document.addEventListener("keydown", bewegungSpielfisch);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
-    export let AllesArray: AlleObjekte[] = [];
+    export let allesArray: AlleObjekte[] = [];
     let fps: number = 30;
     let imageData: ImageData;
     export let spielfisch: Spielfisch;
@@ -16,7 +16,7 @@ namespace aufgabe13 {
     console.log(highscore);
     // console.log(AllesArray);
 
-    function starten() {
+    function starten(): void {
         document.getElementById("start").addEventListener("click", init);
     }
 
@@ -44,7 +44,7 @@ namespace aufgabe13 {
         }
         for (let i: number = 0; i < 2; i++) {
             let x: number = Math.random() * (850 - 200) + 200;
-            let y: number = 550
+            let y: number = 550;
             pflanze2(x, y);
         }
 
@@ -54,34 +54,34 @@ namespace aufgabe13 {
         //Animierte Objekte im Canvas
         for (let i: number = 0; i < 50; i++) {
             let blub: Blub = new Blub(Math.random(), Math.random());
-            AllesArray.push(blub);
+            allesArray.push(blub);
         }
         for (let i: number = 0; i < 5; i++) {
             let fisch: FetterFisch = new FetterFisch(Math.random(), Math.random());
-            AllesArray.push(fisch);
+            allesArray.push(fisch);
         }
         for (let i: number = 0; i < 1; i++) {
             let fisch: Pferdchen = new Pferdchen(Math.random(), Math.random());
-            AllesArray.push(fisch);
+            allesArray.push(fisch);
         }
         for (let i: number = 0; i < 4; i++) {
             let futter: FutterImCanvas = new FutterImCanvas(Math.random(), Math.random());
-            AllesArray.push(futter);
+            allesArray.push(futter);
         }
         for (let i: number = 0; i < 2; i++) {
             let fischi: BigFish = new BigFish(Math.random(), Math.random());
-            AllesArray.push(fischi);
+            allesArray.push(fischi);
         }
         for (let i: number = 0; i < 16; i++) {
             let fischi: Fish = new Fish(Math.random(), Math.random());
-            AllesArray.push(fischi);
+            allesArray.push(fischi);
         }
         for (let i: number = 0; i < 4; i++) {
             let fischi: Seepferdchen = new Seepferdchen(Math.random(), Math.random());
-            AllesArray.push(fischi);
+            allesArray.push(fischi);
         }
         spielfisch = new Spielfisch(canvas.width / 2, canvas.height / 2);
-        AllesArray.push(spielfisch);
+        allesArray.push(spielfisch);
         update();
     }
 
@@ -90,7 +90,7 @@ namespace aufgabe13 {
         if (_event.keyCode == 39) { //rechts
             spielfisch.x += 8;
             if (spielfisch.x > 900) {
-                spielfisch.x = 0
+                spielfisch.x = 0;
             }
         }
         if (_event.keyCode == 37) { //37
@@ -124,8 +124,8 @@ namespace aufgabe13 {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
-        for (let i: number = 0; i < AllesArray.length; i++) {
-            AllesArray[i].update();
+        for (let i: number = 0; i < allesArray.length; i++) {
+            allesArray[i].update();
         }
     }
 
@@ -281,8 +281,8 @@ namespace aufgabe13 {
         let xCanvas: number = _event.clientX;
         let yCanvas: number = _event.clientY;
         for (let i: number = 0; i < 10; i++) {
-            let NomNom: Foodistsogut = new Foodistsogut(xCanvas, yCanvas);
-            AllesArray.push(NomNom);
+            let nomNom: Foodistsogut = new Foodistsogut(xCanvas, yCanvas);
+            allesArray.push(nomNom);
         }
     }
 

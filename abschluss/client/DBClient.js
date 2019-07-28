@@ -31,16 +31,16 @@ var aufgabe13;
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let AlleSpieler = JSON.parse(xhr.response);
-            for (let i = 0; i < AlleSpieler.length; i++) {
+            let alleSpieler = JSON.parse(xhr.response);
+            for (let i = 0; i < alleSpieler.length; i++) {
                 // let nameS: string = AlleSpieler[i].name;
                 // let scoreS: number = AlleSpieler[i].punktzahl;
-                AlleSpieler.sort(compareNumbers);
+                alleSpieler.sort(compareNumbers);
             }
-            console.log(AlleSpieler);
+            console.log(alleSpieler);
             for (let i = 0; i < 6; i++) {
                 let prodElement = document.createElement("div");
-                prodElement.innerHTML = `<div> Spieler ${AlleSpieler[i].name} : ${AlleSpieler[i].punktzahl} Punkte</div>`;
+                prodElement.innerHTML = `<div> Spieler ${alleSpieler[i].name} : ${alleSpieler[i].punktzahl} Punkte</div>`;
                 document.getElementById("scoresBeste").appendChild(prodElement);
             }
         }

@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class bewegteDinge extends aufgabe13.AlleObjekte {
+    class BewegteDinge extends aufgabe13.AlleObjekte {
         constructor() {
             super();
             //
@@ -17,6 +17,6 @@ var aufgabe13;
             this.y += this.dy;
         }
     }
-    aufgabe13.bewegteDinge = bewegteDinge;
+    aufgabe13.BewegteDinge = BewegteDinge;
 })(aufgabe13 || (aufgabe13 = {}));
 //# sourceMappingURL=bewegteDinge.js.map

@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class Seepferdchen extends aufgabe13.bewegteDinge {
+    class Seepferdchen extends aufgabe13.BewegteDinge {
         constructor(_x, _y) {
             super();
             this.x = _x * (100 - 1) + 1;
@@ -20,7 +20,7 @@ var aufgabe13;
             flosseOben.lineTo(this.x, this.y - 13);
             flosseOben.lineTo(this.x + 6, this.y - 6);
             aufgabe13.crc.lineWidth = 2;
-            aufgabe13.crc.closePath;
+            // crc.closePath;
             aufgabe13.crc.fill(flosseOben);
             aufgabe13.crc.stroke(flosseOben);
             let schweif = new Path2D();
@@ -31,7 +31,7 @@ var aufgabe13;
             schweif.lineTo(this.x - 20, this.y + 30);
             schweif.lineTo(this.x, this.y);
             aufgabe13.crc.lineWidth = 2;
-            aufgabe13.crc.closePath;
+            // crc.closePath;
             aufgabe13.crc.fill(schweif);
             aufgabe13.crc.stroke(schweif);
             let flosseUnten = new Path2D();
@@ -40,7 +40,7 @@ var aufgabe13;
             flosseUnten.lineTo(this.x + 5, this.y + 20);
             flosseUnten.lineTo(this.x + 20, this.y + 5);
             aufgabe13.crc.lineWidth = 2;
-            aufgabe13.crc.closePath;
+            // crc.closePath;
             aufgabe13.crc.fill(flosseUnten);
             aufgabe13.crc.stroke(flosseUnten);
             let fischOberkörperkurve = new Path2D();

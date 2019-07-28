@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class FetterFisch extends bewegteDinge {
+    export class FetterFisch extends BewegteDinge {
         ofType: string;
 
         //malt den zweitgrößten Fisch

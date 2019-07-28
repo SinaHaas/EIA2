@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class Pferdchen extends bewegteDinge {
+    export class Pferdchen extends BewegteDinge {
         ofType: string;
 
         //malt das Seepferdchen
@@ -9,7 +9,7 @@ namespace aufgabe13 {
             this.y = _y * (100 - 20) + 20;
             this.dx = 0;
             this.dy = -5;
-            this.ofType = "pferdchen"
+            this.ofType = "pferdchen";
         }
 
         draw(): void {
@@ -53,7 +53,7 @@ namespace aufgabe13 {
             this.x += this.dx;
             this.y += this.dy;
             if (this.y < 0) {
-                this.y = 600 + this.dy
+                this.y = 600 + this.dy;
             }
         }
     }

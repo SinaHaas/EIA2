@@ -1,6 +1,6 @@
 
 namespace aufgabe13 {
-    export class BigFish extends bewegteDinge {
+    export class BigFish extends BewegteDinge {
         ofType: string;
 
         //malt den größten Fisch

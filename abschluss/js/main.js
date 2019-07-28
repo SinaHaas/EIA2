@@ -4,7 +4,7 @@ var aufgabe13;
     document.addEventListener("DOMContentLoaded", starten);
     //Eventlistener für einen keydown um Fisch steuern zu können
     document.addEventListener("keydown", bewegungSpielfisch);
-    aufgabe13.AllesArray = [];
+    aufgabe13.allesArray = [];
     let fps = 30;
     let imageData;
     aufgabe13.highscore = 0;
@@ -45,34 +45,34 @@ var aufgabe13;
         //Animierte Objekte im Canvas
         for (let i = 0; i < 50; i++) {
             let blub = new aufgabe13.Blub(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(blub);
+            aufgabe13.allesArray.push(blub);
         }
         for (let i = 0; i < 5; i++) {
             let fisch = new aufgabe13.FetterFisch(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(fisch);
+            aufgabe13.allesArray.push(fisch);
         }
         for (let i = 0; i < 1; i++) {
             let fisch = new aufgabe13.Pferdchen(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(fisch);
+            aufgabe13.allesArray.push(fisch);
         }
         for (let i = 0; i < 4; i++) {
             let futter = new aufgabe13.FutterImCanvas(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(futter);
+            aufgabe13.allesArray.push(futter);
         }
         for (let i = 0; i < 2; i++) {
             let fischi = new aufgabe13.BigFish(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(fischi);
+            aufgabe13.allesArray.push(fischi);
         }
         for (let i = 0; i < 16; i++) {
             let fischi = new aufgabe13.Fish(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(fischi);
+            aufgabe13.allesArray.push(fischi);
         }
         for (let i = 0; i < 4; i++) {
             let fischi = new aufgabe13.Seepferdchen(Math.random(), Math.random());
-            aufgabe13.AllesArray.push(fischi);
+            aufgabe13.allesArray.push(fischi);
         }
         aufgabe13.spielfisch = new aufgabe13.Spielfisch(aufgabe13.canvas.width / 2, aufgabe13.canvas.height / 2);
-        aufgabe13.AllesArray.push(aufgabe13.spielfisch);
+        aufgabe13.allesArray.push(aufgabe13.spielfisch);
         update();
     }
     //Steuerung des Spielfisches durch keydown
@@ -111,8 +111,8 @@ var aufgabe13;
         setTimeOut();
         aufgabe13.crc.clearRect(0, 0, aufgabe13.canvas.width, aufgabe13.canvas.height);
         aufgabe13.crc.putImageData(imageData, 0, 0);
-        for (let i = 0; i < aufgabe13.AllesArray.length; i++) {
-            aufgabe13.AllesArray[i].update();
+        for (let i = 0; i < aufgabe13.allesArray.length; i++) {
+            aufgabe13.allesArray[i].update();
         }
     }
     //Alles für den Hintergrund 
@@ -250,8 +250,8 @@ var aufgabe13;
         let xCanvas = _event.clientX;
         let yCanvas = _event.clientY;
         for (let i = 0; i < 10; i++) {
-            let NomNom = new aufgabe13.Foodistsogut(xCanvas, yCanvas);
-            aufgabe13.AllesArray.push(NomNom);
+            let nomNom = new aufgabe13.Foodistsogut(xCanvas, yCanvas);
+            aufgabe13.allesArray.push(nomNom);
         }
     }
     //Rechnet Highscore 

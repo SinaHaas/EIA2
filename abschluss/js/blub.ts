@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class Blub extends bewegteDinge {
+    export class Blub extends BewegteDinge {
         ofType: string;
 
         constructor(_x: number, _y: number) {

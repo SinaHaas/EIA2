@@ -1,12 +1,12 @@
 namespace aufgabe13 {
-    export class Fish extends bewegteDinge {
-        ofType:string;
-        
+    export class Fish extends BewegteDinge {
+        ofType: string;
+
         //malt den kleinen Fisch
-        constructor(_x:number,_y:number) {
+        constructor(_x: number, _y: number) {
             super();
-            this.x = _x* (600 - 100) + 200;
-            this.y = _y* (350 - 100) + 100;
+            this.x = _x * (600 - 100) + 200;
+            this.y = _y * (350 - 100) + 100;
             this.dx = _x * -10;
             this.dy = 0;
             this.ofType = "kleinerFisch";
@@ -15,9 +15,9 @@ namespace aufgabe13 {
         draw(): void {
             let schweif: Path2D = new Path2D();
             schweif.moveTo(this.x, this.y);
-            schweif.lineTo(this.x+20, this.y-15);
-            schweif.lineTo(this.x+10, this.y);
-            schweif.lineTo(this.x+20, this.y+15);
+            schweif.lineTo(this.x + 20, this.y - 15);
+            schweif.lineTo(this.x + 10, this.y);
+            schweif.lineTo(this.x + 20, this.y + 15);
             crc.fillStyle = "gold";
             crc.strokeStyle = "black";
             crc.lineWidth = 3;
@@ -26,7 +26,7 @@ namespace aufgabe13 {
             crc.stroke(schweif);
 
             let fischi: Path2D = new Path2D();
-            fischi.arc(this.x -10, this.y, 10, 0, 2 * Math.PI);
+            fischi.arc(this.x - 10, this.y, 10, 0, 2 * Math.PI);
             crc.strokeStyle = "black";
             crc.lineWidth = 3;
             crc.fillStyle = "orangered";

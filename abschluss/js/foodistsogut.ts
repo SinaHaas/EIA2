@@ -1,5 +1,5 @@
 namespace aufgabe13 {
-    export class Foodistsogut extends bewegteDinge {
+    export class Foodistsogut extends BewegteDinge {
         ofType: string; 
 
         constructor(_xK: number, _yK: number) {

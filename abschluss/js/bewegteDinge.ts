@@ -1,10 +1,10 @@
 namespace aufgabe13 {
-    export class bewegteDinge extends AlleObjekte {
+    export class BewegteDinge extends AlleObjekte {
         dx: number;
         dy: number;
 
         constructor() {
-            super()
+            super();
             //
         } 
 

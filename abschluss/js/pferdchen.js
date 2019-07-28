@@ -1,6 +1,6 @@
 var aufgabe13;
 (function (aufgabe13) {
-    class Pferdchen extends aufgabe13.bewegteDinge {
+    class Pferdchen extends aufgabe13.BewegteDinge {
         //malt das Seepferdchen
         constructor(_x, _y) {
             super();
